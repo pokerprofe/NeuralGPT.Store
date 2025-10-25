@@ -1,26 +1,30 @@
 [
   {
-    "id": "atlasmind",
-    "name": "AtlasMind",
-    "price": "49.95",
-    "category": "Elite",
-    "pass": "premium",
-    "blurb": "Modelo avanzado de IA para mapeo mental, predicción de patrones y creatividad cuántica."
+    "id":"atlasmind",
+    "name":"AtlasMind",
+    "blurb":"Modelo avanzado para mapeo mental y creatividad cuántica.",
+    "category":"Investigación",
+    "price":49.95,
+    "premium":true,
+    "color":"#b78a1f"
   },
   {
-    "id": "lexoracle",
-    "name": "LexOracle",
-    "price": "29.95",
-    "category": "Legal",
-    "pass": "premium",
-    "blurb": "Asistente jurídico y estratega contractual, diseñado para análisis y redacción con IA."
+    "id":"lexoracle",
+    "name":"LexOracle",
+    "blurb":"Asistente jurídico y estrategia contractual.",
+    "category":"Legal",
+    "price":29.95,
+    "premium":true,
+    "color":"#7a9bd6"
   },
   {
-    "id": "iamadre",
-    "name": "IA Madre",
-    "price": "—",
-    "category": "Central",
-    "pass": "exclusive",
-    "blurb": "Propiedad exclusiva de PokerShadow.ink. Núcleo del ecosistema NeuralGPT.store AI."
+    "id":"neural-mothercore",
+    "name":"PokerShadow Ink: The MotherCore AI",
+    "blurb":"Mente central del ecosistema. Expuesta solo como elemento visual — no interactiva.",
+    "category":"Núcleo",
+    "price":0,
+    "premium":false,
+    "displayOnly":true,
+    "color":"#ffb86b"
   }
 ]

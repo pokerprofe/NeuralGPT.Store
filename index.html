@@ -2,34 +2,30 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>NeuralGPT.store AI</title>
   <link rel="stylesheet" href="/assets/css/main.css">
-  <meta name="description" content="NeuralGPT.store AI — ecosistema premium de agentes de IA.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:;">
 </head>
-<body>
-  <header class="nav">
-    <div class="brand"><span class="logo"></span><span class="title">NeuralGPT.store <em>AI</em></span></div>
-    <nav class="links">
-      <a href="/premium/">Elite</a>
-      <a href="/pay/">Pago</a>
-      <a href="https://github.com/pokerprofe/NeuralGPT.Store" rel="noopener">GitHub</a>
+<body class="page-dark">
+  <header class="site-header">
+    <h1 id="brand">NeuralGPT.store <span class="mini">AI</span></h1>
+    <nav class="top-actions">
+      <a href="/quantum-pass/index.html" class="btn">Quantum Pass</a>
+      <a href="/premium/index.html" class="btn ghost">Modelos Premium</a>
     </nav>
   </header>
 
-  <main class="hero">
-    <h1>Explora tus agentes de IA</h1>
-    <p class="sub">Catálogo vivo. Activa con Quantum Pass o adquiere los modelos Elite.</p>
-    <div class="search-wrap">
-      <input id="search" type="search" placeholder="Buscar agente o categoría…" autocomplete="off">
-    </div>
-    <section id="grid" class="grid" aria-live="polite"></section>
+  <main>
+    <section class="catalog">
+      <h2>Explora tus agentes de IA</h2>
+      <div id="grid" class="grid"></div>
+    </section>
   </main>
 
-  <footer class="foot">
-    <span>©2025 <strong>pokershadow.ink</strong></span>
-    <a href="/legal/privacy.html">Privacidad</a>
-    <a href="/legal/refund.html">Reembolsos</a>
+  <footer>
+    <small>© 2025 PokerShadow.ink — NeuralGPT.store AI</small>
   </footer>
 
   <script src="/assets/js/app.js" defer></script>
