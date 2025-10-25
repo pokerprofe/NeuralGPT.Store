@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Modelos Elite — NeuralGPT.store AI</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="brand"><span class="logo"></span><span class="title">NeuralGPT.store <em>AI</em></span></div>
+    <nav class="links">
+      <a href="/">Inicio</a>
+      <a href="/pay/">Pago</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <h1>Modelos Elite exclusivos</h1>
+    <p class="sub">Potencia máxima. Licencia individual por agente.</p>
+    <section id="grid" class="grid" aria-live="polite"></section>
+  </main>
+
+  <footer class="foot"><span>©2025 <strong>pokershadow.ink</strong></span></footer>
+
+  <script>
+  fetch("/data/agents.json").then(r=>r.json()).then(list=>{
+    const elite=list.filter(a=>a.premium);
+    const grid=document.getElementById("grid");
+    grid.innerHTML=elite.map(a=>{
+      return `
+      <article class="card" style="--ink:${a.color||"#b78a1f"}">
+        <div class="card-glow"></div>
+        <div class="badge-row"><span class="chip chip-premium">Elite</span><span class="price">€${a.price}</span></div>
+        <h3>${a.name.replace(/&/g,"&amp;")}</h3>
+        <p>${(a.blurb||"").replace(/&/g,"&amp;")}</p>
+        <div class="chip">${a.category}</div>
+        <div class="cta"><a class="btn" href="/pay/?sku=${a.id}">Adquirir · €${a.price}</a></div>
+      </article>`;
+    }).join("");
+  });
+  </script>
+</body>
+</html>

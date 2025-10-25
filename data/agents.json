@@ -1,0 +1,16 @@
+[
+  {"id":"divine-word","name":"The Divine Word","blurb":"Inspiración y lenguaje sagrado de alto impacto narrativo.","category":"Creatividad","premium":false,"plan":"pass","price":"0","color":"#8ec5ff"},
+  {"id":"courseforge","name":"CourseForge AI","blurb":"Diseña cursos completos con temario, actividades y rúbricas listo para LMS.","category":"Educación","premium":true,"plan":"premium","price":"29.95","color":"#00c2a8"},
+  {"id":"longevity","name":"Longevity AI Assistant","blurb":"Rutinas, hábitos y conocimiento científico para longevidad (no médico).","category":"Bienestar","premium":false,"plan":"pass","price":"0","color":"#6ee56f"},
+  {"id":"web-creator","name":"Web Creator 3.0 AI","blurb":"Maquetas y copia web listas para publicar, con estructura SEO.","category":"Producto","premium":false,"plan":"pass","price":"0","color":"#7bc7ff"},
+  {"id":"autocorp","name":"AutoCorp AI","blurb":"Automatiza procesos y documentos corporativos con precisión.","category":"Empresa","premium":true,"plan":"premium","price":"29.95","color":"#d6b25a"},
+  {"id":"biodecode","name":"BioDecode","blurb":"Traduce papers y datos biológicos a insights accionables.","category":"Ciencia","premium":false,"plan":"pass","price":"0","color":"#77d4e6"},
+  {"id":"lexoracle","name":"LexOracle","blurb":"Análisis y redacción jurídica asistida (no asesoramiento legal).","category":"Legal","premium":false,"plan":"pass","price":"0","color":"#f0b84a"},
+  {"id":"fortune-architect","name":"Fortune Architect","blurb":"Arquitecto de estrategias de negocio y monetización premium.","category":"Estrategia","premium":true,"plan":"premium","price":"39.95","color":"#ff8f66"},
+  {"id":"atlasmind","name":"AtlasMind","blurb":"Inteligencia estratégica de élite para decisiones complejas. El ‘tanque’ del ecosistema.","category":"Elite","premium":true,"plan":"premium","price":"49.95","color":"#b78a1f"},
+  {"id":"neuromind","name":"NeuroMind","blurb":"Sistematiza aprendizaje y memoria con técnicas cognitivo-computacionales.","category":"Cognición","premium":false,"plan":"pass","price":"0","color":"#8aa2ff"},
+  {"id":"lorca-editor","name":"Lorca Editor Pro","blurb":"Edición literaria con estética y pulso poético profesional.","category":"Editorial","premium":false,"plan":"pass","price":"0","color":"#f09dc7"},
+  {"id":"poker-marketing","name":"Poker Marketing Ink","blurb":"Campañas de marca afiladas y memorables.","category":"Marketing","premium":false,"plan":"pass","price":"0","color":"#ffaa33"},
+  {"id":"poker-data","name":"Poker Data Oracle","blurb":"Análisis de datos y predicción con paneles claros.","category":"Data","premium":false,"plan":"pass","price":"0","color":"#9ad6ff"},
+  {"id":"realestate","name":"RealEstate GPT","blurb":"Captación, anuncios y fichas de propiedades listos para publicar.","category":"Inmobiliaria","premium":true,"plan":"oneoff","price":"9.95","color":"#52e1c6"}
+]

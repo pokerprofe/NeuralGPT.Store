@@ -66,3 +66,8 @@ a{color:#cfb676;text-decoration:none}
 @media (hover:none){
   .card:hover{transform:none}
 }
+.badge-row{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.price{margin-left:auto;color:#ffdf9a;font-weight:700}
+.price-pass{color:#c6b48a;font-weight:600}
+.chip-premium{border-color:rgba(255,215,130,.6); color:#ffd782}
+.btn-ghost{background:transparent;color:var(--ink);border-color:rgba(183,138,31,.5)}
