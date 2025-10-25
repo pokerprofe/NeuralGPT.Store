@@ -1,0 +1,41 @@
+:root{
+  --bg:#070707; --card:#0f0f0f; --accent:#ffb86b; --text:#e8e6e3; --muted:#bdbdbd;
+}
+*{box-sizing:border-box}
+body.page-dark{background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Arial}
+header.site-header{display:flex;justify-content:space-between;align-items:center;padding:18px 36px;border-bottom:1px solid rgba(255,255,255,.03)}
+#brand{font-size:28px;letter-spacing:0.6px;color:var(--accent)}
+.mini{font-size:14px;color:var(--muted);margin-left:6px}
+.top-actions .btn{background:transparent;border:1px solid rgba(255,255,255,.06);padding:8px 12px;color:var(--text);border-radius:8px;margin-left:8px}
+main{padding:40px}
+.catalog h2{font-size:28px;margin-bottom:12px}
+.grid{display:flex;gap:20px;flex-wrap:wrap}
+.card{background:var(--card);padding:18px;border-radius:14px;min-width:220px;max-width:320px;box-shadow:0 6px 20px rgba(0,0,0,.6)}
+.card h3{margin:0 0 6px 0;color:var(--accent)}
+.card p{color:var(--muted);margin:0 0 12px 0}
+.btn{display:inline-block;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#ffd07a);color:#111;border:none;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.06);color:var(--text)}
+.center{text-align:center;padding:60px 20px}
+.link{color:var(--muted);display:inline-block;margin-top:18px}
+/* Modal y formulario de correo + botones de pago */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.8);
+  display:none;align-items:center;justify-content:center;z-index:999;
+}
+.modal{
+  background:#111;border:1px solid rgba(183,138,31,.4);
+  border-radius:12px;padding:28px;max-width:420px;width:90%;
+  box-shadow:0 0 20px rgba(183,138,31,.3);
+}
+.modal h2{margin-top:0;color:#d4af37}
+.modal label{display:block;margin:12px 0 6px;color:#cfc6ad}
+.modal input[type=email]{
+  width:100%;padding:10px;border-radius:6px;border:1px solid rgba(183,138,31,.25);
+  background:#0b0b0b;color:#f7f4ea;
+}
+.modal .buttons{margin-top:18px;text-align:center}
+.modal .btn{margin:6px 8px}
+.modal-close{
+  position:absolute;top:10px;right:18px;background:transparent;color:#aaa;
+  border:none;font-size:22px;cursor:pointer;
+}

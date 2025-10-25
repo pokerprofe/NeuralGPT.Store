@@ -2,8 +2,8 @@
   "name": "neuralgpt-store-server",
   "version": "1.0.0",
   "main": "app.js",
-  "type": "module",
-  "scripts": { "start": "node server/app.js" },
+  "type": "commonjs",
+  "scripts": { "start": "node server/app_prod.mjs" },
   "dependencies": {
     "express": "^4.19.0",
     "cors": "^2.8.5",
