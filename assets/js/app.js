@@ -146,3 +146,25 @@ function sendSubscription(email, sku){
     });
   }
 });
+document.addEventListener('DOMContentLoaded', ()=>{
+  const form = document.getElementById('subForm');
+  if(!form) return;
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const email = e.target.email.value.trim();
+    const sku = form.dataset.btn;
+    if(!email){ alert('Por favor introduce un correo válido.'); return; }
+    try {
+      const res = await fetch('http://localhost:4000/api/licencia',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({email, producto: sku})
+      });
+      const data = await res.json();
+      alert('✅ Licencia generada: ' + data.hash.slice(0,24) + '...');
+    } catch(err){
+      console.error('Error al registrar licencia:', err);
+      alert('Error en el servidor. Intenta nuevamente.');
+    }
+  });
+});
