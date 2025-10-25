@@ -119,3 +119,30 @@ subForm.addEventListener("submit",e=>{
   }
 });
 </html>
+/* === Envío de correo + pago al servidor === */
+function sendSubscription(email, sku){
+  fetch("http://localhost:4000/api/subscribe", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({email, sku})
+  })
+  .then(r=>r.json())
+  .then(d=>{
+    alert(`✅ ${d.message}\nHash: ${d.hash.slice(0,12)}...`);
+  })
+  .catch(()=>alert("⚠️ Error de conexión al servidor"));
+}
+
+["payGoogle","payPayPal"].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el){
+    el.addEventListener("click",()=>{
+      const sku=subForm.dataset.sku;
+      const email=document.getElementById("email").value;
+      sendSubscription(email, sku);
+      modal.style.display="none";
+      subForm.style.display="block";
+      paymentSection.style.display="none";
+    });
+  }
+});

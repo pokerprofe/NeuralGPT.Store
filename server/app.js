@@ -1,38 +1,33 @@
-import express from "express";
-import cors from "cors";
-import bodyParser from "body-parser";
-import crypto from "crypto";
-
+/* --- Registro de suscripciones y hash cuántico --- */
+const express = require("express");
+const crypto = require("crypto");
+const cors = require("cors");
 const app = express();
-const PORT = process.env.PORT || 4000;
-
-// 🔐 Seguridad básica
 app.use(cors());
-app.use(bodyParser.json({ limit: "1mb" }));
+app.use(express.json());
 
-// Genera hash cuántico simbólico (proteger integridad)
-function quantumHash(payload) {
-  return crypto.createHash("sha512").update(JSON.stringify(payload)).digest("hex");
-}
+app.post("/api/subscribe", (req, res) => {
+  const { email, sku } = req.body;
+  if (!email || !sku) return res.status(400).json({ error: "Datos incompletos" });
 
-// 🧾 Endpoint principal: PayPal / GPay webhook sandbox
-app.post("/api/payhook", (req, res) => {
-  const data = req.body;
-  const signature = quantumHash(data);
-  console.log("🛰️  Pago recibido:", data);
-  console.log("🔒 Hash cuántico:", signature);
+  const hash = crypto.createHash("sha256").update(email + sku + Date.now()).digest("hex");
+  console.log(`\n🧬 Nueva suscripción:\nEmail: ${email}\nModelo: ${sku}\nHash cuántico: ${hash}`);
 
-  // Simula validación exitosa
-  if (data.status === "COMPLETED" || data.event_type === "PAYMENT.CAPTURE.COMPLETED") {
-    return res.status(200).json({ ok: true, message: "Pago validado en sandbox", signature });
-  } else {
-    return res.status(400).json({ ok: false, message: "Pago no válido" });
-  }
+  // simulación de correo
+  console.log(`📧 Simulando envío de correo a ${email} con confirmación...`);
+
+  res.json({
+    status: "SUCCESS",
+    message: "Registro completado. Recibirás el acceso en tu correo.",
+    hash
+  });
 });
 
-// 🧠 Endpoint de estado del servidor
 app.get("/api/status", (req, res) => {
   res.json({ status: "online", timestamp: Date.now() });
 });
 
-app.listen(PORT, () => console.log(`🚀 NeuralGPT.store backend escuchando en puerto ${PORT}`));
+const PORT = 4000;
+app.listen(PORT, () => {
+  console.log(`\nNeuralGPT.store backend escuchando en puerto ${PORT}`);
+});
