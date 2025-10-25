@@ -1,48 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>NeuralGPT.Store IA</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-<style>
-:root{--gold:#d4af37;--gold2:#c69728;--bg:#000;--panel:#0e0e0e;--line:#1a1a1a;--ink:#e5e5e5;--mut:#9a9a9a}
-*{box-sizing:border-box}
-html,body{margin:0;background:#000;color:var(--ink);font-family:Inter,system-ui,Segoe UI,Arial}
-header{padding:64px 20px 24px;border-bottom:2px solid var(--gold);text-align:center;background:linear-gradient(180deg,#000 70%,#0b0b0b)}
-.brand{font-size:56px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold)}
-.brand .ia{color:var(--gold2)}
-.sub{margin-top:6px;color:var(--gold2);font-weight:600}
-.container{max-width:1180px;margin:36px auto;padding:0 20px}
-.search{width:100%;padding:14px 16px;border:1px solid var(--gold);border-radius:10px;background:#0a0a0a;color:#fff;font-size:18px;text-align:center}
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:26px}
-.card{grid-column:span 4;background:var(--panel);border:1px solid rgba(212,175,55,.25);border-radius:14px;padding:16px;min-height:160px;display:flex;flex-direction:column;gap:10px}
-.card h3{margin:0;color:var(--gold)}
-.card p{margin:0;color:#bdbdbd;line-height:1.4}
-.btns{margin-top:auto;display:flex;gap:8px}
-.btn{flex:1;border:1px solid var(--gold);color:var(--gold);background:#0c0c0c;border-radius:10px;padding:10px 12px;text-align:center;text-decoration:none}
-footer{margin:60px 0 18px;text-align:center;color:var(--gold2)}
-.badge{display:inline-block;padding:6px 10px;border:1px solid #222;border-radius:999px;color:var(--mut);font-size:12px}
-@media (max-width:1024px){.card{grid-column:span 6}}
-@media (max-width:640px){.card{grid-column:span 12}.brand{font-size:40px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NeuralGPT.store AI</title>
+  <link rel="preload" href="/assets/css/main.css" as="style">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta name="description" content="NeuralGPT.store AI — portal premium de agentes de IA.">
 </head>
 <body>
-<header>
-  <div class="brand">NeuralGPT.Store <span class="ia">IA</span></div>
-  <div class="sub">Expose your AI agents — sell them here</div>
-</header>
+  <header class="nav">
+    <div class="brand">
+      <!-- icono geométrico neutro (no marca de terceros) -->
+      <span class="logo" aria-hidden="true"></span>
+      <span class="title">NeuralGPT.store <em>AI</em></span>
+    </div>
+    <nav class="links">
+      <a href="/agents/">Agentes</a>
+      <a href="/pay/">Pago</a>
+      <a href="https://github.com/pokerprofe/NeuralGPT.Store" rel="noopener">GitHub</a>
+    </nav>
+  </header>
 
-<div class="container">
-  <input id="q" class="search" placeholder="Search your next AI agent…"/>
-  <div id="grid" class="grid"></div>
-  <div style="margin-top:18px;text-align:center">
-    <a class="badge" href="upload.html">Developers · Upload your model</a>
-  </div>
-</div>
+  <main class="hero">
+    <h1>Explora tus agentes de IA</h1>
+    <p class="sub">Encuentra y activa el agente perfecto para tu flujo.</p>
+    <div class="search-wrap">
+      <input id="search" type="search" placeholder="Buscar agente por nombre o categoría…" autocomplete="off">
+    </div>
 
-<footer>© 2025 pokershadow.ink · <a href="admin.html" style="color:#d4af37;text-decoration:none;border-bottom:1px dotted #d4af37">Admin</a></footer>
-<script src="js/store.js"></script>
+    <!-- GRID DE AGENTES -->
+    <section id="grid" class="grid">
+      <!-- Tarjetas demo; luego añadimos más o las cargamos por JSON -->
+      <article class="card" data-name="RealEstate GPT" data-tags="inmobiliaria,ventas,propiedades">
+        <div class="card-glow"></div>
+        <h3>RealEstate GPT</h3>
+        <p>Prospección y anuncios inmobiliarios asistidos por IA.</p>
+        <div class="chip">Inmobiliaria</div>
+        <div class="cta">
+          <a class="btn" href="/pay/">Activar · 9,95 €</a>
+        </div>
+      </article>
+
+      <article class="card" data-name="Quantum Pass" data-tags="premium,acceso,suscripción">
+        <div class="card-glow"></div>
+        <h3>Quantum Pass</h3>
+        <p>Acceso premium a toda la red de agentes NeuralGPT.</p>
+        <div class="chip">Suscripción</div>
+        <div class="cta">
+          <a class="btn" href="/pay/">Activar · 19,95 €/mes</a>
+        </div>
+      </article>
+
+      <article class="card" data-name="Analyst GPT" data-tags="datos,analítica,reportes">
+        <div class="card-glow"></div>
+        <h3>Analyst GPT</h3>
+        <p>Dashboards y resúmenes automáticos de datos.</p>
+        <div class="chip">Data</div>
+        <div class="cta">
+          <a class="btn" href="/pay/">Activar</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>©2025 <strong>pokershadow.ink</strong></span>
+    <a href="/legal/privacy.html">Privacidad</a>
+    <a href="/legal/refund.html">Reembolsos</a>
+  </footer>
+
+  <script src="/assets/js/app.js" defer></script>
 </body>
 </html>
