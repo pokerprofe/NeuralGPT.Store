@@ -1,30 +1,5 @@
 [
-  {
-    "id":"atlasmind",
-    "name":"AtlasMind",
-    "blurb":"Modelo avanzado para mapeo mental y creatividad cuántica.",
-    "category":"Investigación",
-    "price":49.95,
-    "premium":true,
-    "color":"#b78a1f"
-  },
-  {
-    "id":"lexoracle",
-    "name":"LexOracle",
-    "blurb":"Asistente jurídico y estrategia contractual.",
-    "category":"Legal",
-    "price":29.95,
-    "premium":true,
-    "color":"#7a9bd6"
-  },
-  {
-    "id":"neural-mothercore",
-    "name":"PokerShadow Ink: The MotherCore AI",
-    "blurb":"Mente central del ecosistema. Expuesta solo como elemento visual — no interactiva.",
-    "category":"Núcleo",
-    "price":0,
-    "premium":false,
-    "displayOnly":true,
-    "color":"#ffb86b"
-  }
+  {"id":"atlasmind","name":"AtlasMind","category":"Datos","blurb":"IA de razonamiento masivo y análisis de información estratégica. Ideal para investigación, ciencia de datos y proyección empresarial.","premium":true,"price":49.95},
+  {"id":"lexoracle","name":"LexOracle","category":"Legal / IA Corporativa","blurb":"Analiza contratos, redacta cláusulas y genera informes jurídicos automatizados. Precisión documental avanzada.","premium":true,"price":29.95},
+  {"id":"iamadre","name":"IA Madre","category":"Ecosistema","blurb":"Supervisa, sincroniza y mantiene la coherencia de todas las inteligencias del entorno NeuralGPT.store AI.","premium":false}
 ]

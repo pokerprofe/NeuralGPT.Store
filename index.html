@@ -3,59 +3,102 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>NeuralGPT.store AI — Ecosistema de IAs</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+  <title>NeuralGPT.store AI — pokershadow.ink</title>
+  <meta name="description" content="Marketplace de agentes de IA de PokerShadow.ink. Ecosistema NeuralGPT.store AI. Quantum Pass y modelos Elite."/>
+  <meta name="google" content="notranslate"/> <!-- permite traducción automática de Google -->
   <link rel="stylesheet" href="assets/css/main.css"/>
-  <meta name="description" content="Explora agentes de IA de alto rendimiento. Quantum Pass, modelos premium y MotherCore AI en exhibición."/>
 </head>
 <body>
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav__inner">
-      <div class="brand">
-        <div class="brand__logo" aria-hidden="true"></div>
-        <div class="brand__name">NeuralGPT.store <span class="brand__ai">AI</span></div>
-      </div>
-      <div class="nav__links">
-        <a class="link" href="./">Inicio</a>
-        <a class="link" href="./premium/">Elite</a>
-        <a class="link" href="./quantum-pass/">Quantum Pass</a>
-        <a class="link" href="pay/index.html">Pasarela</a>
-      </div>
+
+<header style="text-align:center;padding:60px 10px 20px;">
+  <h1 style="font-family:'Orbitron',sans-serif;
+             font-size:clamp(38px,5vw,60px);
+             color:#ffbf40;
+             text-shadow:0 0 25px rgba(255,191,64,.45);
+             margin:0;">
+    NeuralGPT.store <span style="color:#ffd479;">AI</span>
+  </h1>
+  <p style="color:#aaa;font-size:16px;letter-spacing:2px;">©2025 pokershadow.ink — Ecosistema Cuántico de IAs</p>
+</header>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <div class="brand">
+      <div class="brand__logo"></div>
+      <div class="brand__name">NeuralGPT.store <span class="brand__ai">AI</span></div>
     </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero__card">
-      <span class="badge">Ecosistema verificado</span>
-      <h1 class="hero__title">Explora tus agentes de IA</h1>
-      <p class="hero__subtitle">Modelos optimizados para negocio real. Elige agentes premium individuales o accede al pack <strong>Quantum Pass</strong>. MotherCore AI se muestra como pieza exclusiva en vitrina.</p>
-      <div class="search">
-        <input id="search" placeholder="Buscar por nombre o categoría… (ej: marketing, datos, SEO)"/>
-        <button id="btnClear" type="button">Limpiar</button>
-      </div>
+    <div class="nav__links">
+      <a class="link" href="./">Inicio</a>
+      <a class="link" href="./premium/">Elite</a>
+      <a class="link" href="./quantum-pass/">Quantum Pass</a>
+      <a class="link" href="./pay/">Pasarela</a>
     </div>
-    <!-- MotherCore vitrina -->
-    <aside class="hero__card mother">
-      <h3>MotherCore AI — PokerShadow Ink</h3>
-      <p>Inteligencia central del ecosistema NeuralGPT.store AI. Propiedad exclusiva de PokerShadow.ink. Exhibición sin interacción directa.</p>
-      <div class="seal">🔒 Propiedad — Exhibición</div>
-    </aside>
-  </section>
+  </div>
+</nav>
 
-  <!-- CATÁLOGO -->
-  <section class="section">
-    <h2>Catálogo Activo</h2>
-    <div id="grid" class="grid"></div>
-  </section>
+<section class="hero">
+  <div class="hero__card">
+    <span class="badge">Ecosistema verificado</span>
+    <h1 class="hero__title">Explora tus agentes de IA</h1>
+    <p class="hero__subtitle">
+      Modelos optimizados por PokerShadow.ink. Elige agentes individuales o suscripción con Quantum Pass.
+      MotherCore AI se mantiene en exhibición como núcleo simbólico.
+    </p>
+    <div class="search">
+      <input id="search" placeholder="Buscar por nombre o categoría..."/>
+      <button id="btnClear">Limpiar</button>
+    </div>
+  </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    © 2025 PokerShadow.ink — <a href="./quantum-pass/">Quantum Pass</a> · <a href="pay/index.html">Pasarela de pago</a>
-  </footer>
+  <aside class="hero__card mother">
+    <h3>MotherCore AI — PokerShadow Ink</h3>
+    <p>Inteligencia central del ecosistema NeuralGPT.store AI. En exhibición, sin interacción directa.</p>
+    <div class="seal">🔒 Propiedad — Exhibición</div>
+  </aside>
+</section>
 
-  <script src="assets/js/app.js"></script>
+<section class="section">
+  <h2>Catálogo Activo</h2>
+  <div id="grid" class="grid"></div>
+</section>
+
+<footer class="footer">
+  ©2025 pokershadow.ink — Todos los derechos reservados
+</footer>
+
+<script>
+const $=(q,c=document)=>c.querySelector(q);
+let agentes=[];
+fetch("data/agents.json?"+Date.now()).then(r=>r.json()).then(d=>{agentes=d;render(d)});
+
+function render(list){
+  const grid=$("#grid"); grid.innerHTML="";
+  list.forEach(a=>{
+    const card=document.createElement("article");
+    card.className="card";
+    card.innerHTML=`
+      <div class="meta">
+        <span class="chip">${a.category||"IA"}</span>
+        ${a.premium?'<span class="chip chip-premium">Elite</span>':''}
+        ${a.price?'<span class="chip price">'+a.price+'€</span>':''}
+      </div>
+      <div class="title">${a.name}</div>
+      <div class="desc">${a.blurb}</div>
+      <div class="cta">
+        ${a.premium?
+          `<a class="btn btn--gold" href="pay/?sku=${a.id}">Comprar</a>`:
+          `<a class="btn" href="quantum-pass/">Acceder con Pass</a>`}
+        <a class="btn" href="${a.more||'#'}">Detalles</a>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+$("#search").oninput=e=>{
+  const v=e.target.value.toLowerCase();
+  render(agentes.filter(a=>(a.name+a.category+a.blurb).toLowerCase().includes(v)));
+};
+$("#btnClear").onclick=()=>{ $("#search").value=""; render(agentes); };
+</script>
+
 </body>
 </html>
