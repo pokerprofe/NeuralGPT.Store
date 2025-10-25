@@ -27,3 +27,95 @@
   });
 
 })();
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NeuralGPT.store AI</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:;">
+</head>
+<body class="page-dark">
+  <header class="site-header">
+    <h1 id="brand">NeuralGPT.store <span class="mini">AI</span></h1>
+    <nav class="top-actions">
+      <a href="/quantum-pass/index.html" class="btn">Quantum Pass</a>
+      <a href="/premium/index.html" class="btn ghost">Modelos Premium</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="catalog">
+      <h2>Explora tus agentes de IA</h2>
+      <div id="grid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <small>© 2025 PokerShadow.ink — NeuralGPT.store AI</small>
+  </footer>
+
+  <script src="/assets/js/app.js" defer></script>
+  <!-- Panel modal de suscripción -->
+  <div class="modal-overlay" id="subscribeModal">
+    <div class="modal">
+      <button class="modal-close" id="closeModal">&times;</button>
+      <h2>Activar modelo Premium</h2>
+      <p>Introduce tu correo electrónico para recibir tu acceso y recibo.</p>
+      <form id="subForm">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+        <div class="buttons">
+          <button type="submit" class="btn gold">Continuar</button>
+        </div>
+      </form>
+      <div id="paymentSection" style="display:none">
+        <p style="margin-top:18px">Selecciona método de pago:</p>
+        <button id="payGoogle" class="btn">Google Pay</button>
+        <button id="payPayPal" class="btn gold">PayPal</button>
+      </div>
+    </div>
+  </div>
+</body>' | Set-Content "C:\NeuralGPT_Deploy\index.html"
+
+# Lógica del modal (se agrega al final del app.js)
+@'
+/* === Modal de suscripción === */
+const modal=document.getElementById("subscribeModal");
+const closeModal=document.getElementById("closeModal");
+const subForm=document.getElementById("subForm");
+const paymentSection=document.getElementById("paymentSection");
+
+document.addEventListener("click",e=>{
+  const btn=e.target.closest("[data-sku]");
+  if(btn){
+    modal.style.display="flex";
+    subForm.dataset.sku=btn.dataset.sku;
+  }
+});
+closeModal.addEventListener("click",()=>modal.style.display="none");
+
+subForm.addEventListener("submit",e=>{
+  e.preventDefault();
+  const email=e.target.email.value.trim();
+  if(!email)return alert("Introduce un correo válido");
+  subForm.style.display="none";
+  paymentSection.style.display="block";
+});
+
+["payGoogle","payPayPal"].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el){
+    el.addEventListener("click",()=>{
+      const sku=subForm.dataset.sku;
+      const email=document.getElementById("email").value;
+      alert(`(Simulado) Enviando ${sku} y ${email} al servidor para pago seguro...`);
+      modal.style.display="none";
+      subForm.style.display="block";
+      paymentSection.style.display="none";
+    });
+  }
+});
+</html>
