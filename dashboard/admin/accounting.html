@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'/>
+  <title>NeuralGPT.Store — Accounting</title>
+  <link rel='stylesheet' href='/dashboard/css/accounting.css'/>
+</head>
+<body class='acc-body'>
+  <header class='acc-header'>
+    <h1>Accounting Dashboard</h1>
+    <p>NeuralGPT.Store — EDO ecosystem</p>
+  </header>
+
+  <main class='acc-main'>
+    <section class='acc-cards'>
+      <div class='card'>
+        <div class='label'>Total Income</div>
+        <div id='acc_income' class='value'>0 €</div>
+      </div>
+      <div class='card'>
+        <div class='label'>Total Expense</div>
+        <div id='acc_expense' class='value'>0 €</div>
+      </div>
+      <div class='card'>
+        <div class='label'>Balance</div>
+        <div id='acc_balance' class='value'>0 €</div>
+      </div>
+    </section>
+
+    <section class='acc-table-section'>
+      <div class='sec-header'>
+        <h2>Last records</h2>
+        <button id='btn_export' class='btn-export'>Export CSV</button>
+      </div>
+      <table class='acc-table'>
+        <thead>
+          <tr>
+            <th>Date</th><th>Type</th><th>Amount</th><th>Currency</th><th>Source</th><th>User</th><th>Description</th>
+          </tr>
+        </thead>
+        <tbody id='acc_rows'></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src='/dashboard/js/accounting.js'></script>
+</body>
+</html>

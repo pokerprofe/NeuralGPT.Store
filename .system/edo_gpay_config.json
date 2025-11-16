@@ -1,0 +1,7 @@
+{
+  "environment": "TEST",
+  "merchantId": "REPLACE_WITH_MERCHANT_ID",
+  "merchantName": "NeuralGPT.Store",
+  "price": "50.00",
+  "currencyCode": "EUR"
+}

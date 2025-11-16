@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Payment Compliance Control</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+th,td{padding:8px;border-bottom:1px solid #333;font-size:13px;}
+select,input{background:#111;color:#d4af37;border:1px solid #444;padding:4px;}
+button{padding:6px 10px;background:#d4af37;color:#000;border:none;cursor:pointer;}
+.status-ok{color:#00ff6e;font-weight:bold;}
+.status-blocked{color:red;font-weight:bold;}
+.status-pending{color:#ffae00;font-weight:bold;}
+</style>
+</head>
+<body>
+<h1>Payment Compliance Control</h1>
+<p>Manage vendor commission status. Blocked vendors are hidden from the public catalog.</p>
+
+<table id='tbl'>
+  <tr>
+    <th>Vendor ID</th>
+    <th>Status</th>
+    <th>Reason</th>
+    <th>Set</th>
+  </tr>
+</table>
+
+<script>
+async function loadCompliance(){
+  const res = await fetch('/api/vendor/compliance/list');
+  const data = await res.json();
+  const tbl = document.getElementById('tbl');
+
+  (data.items || []).forEach(v=>{
+    const tr = document.createElement('tr');
+    let cls = 'status-ok';
+    if(v.status === 'blocked') cls = 'status-blocked';
+    if(v.status === 'pending') cls = 'status-pending';
+
+    tr.innerHTML = \
+      <td>\</td>
+      <td class="\">\</td>
+      <td>\</td>
+      <td>
+        <select id="st-\">
+          <option value="ok">ok</option>
+          <option value="pending">pending</option>
+          <option value="blocked">blocked</option>
+        </select>
+        <input id="rs-\" placeholder="reason" style="width:140px;">
+        <button onclick="setComp('\')">Save</button>
+      </td>
+    \;
+    tbl.appendChild(tr);
+  });
+}
+
+async function setComp(id){
+  const st = document.getElementById('st-'+id).value;
+  const rs = document.getElementById('rs-'+id).value;
+  const res = await fetch('/api/vendor/compliance/set',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ vendorId:id, status:st, reason:rs })
+  });
+  const data = await res.json();
+  alert('Updated: '+ JSON.stringify(data.compliance));
+  location.reload();
+}
+
+loadCompliance();
+</script>
+</body>
+</html>

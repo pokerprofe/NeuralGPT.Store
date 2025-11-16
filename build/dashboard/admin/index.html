@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8' />
+<title>Admin Dashboard — NeuralGPT.Store</title>
+<link rel='stylesheet' href='./admin.css'>
+  <link rel="stylesheet" href="/assets/css/notifications.css"></head>
+
+<body>
+<div class='topbar'>NeuralGPT.Store — Control Panel</div>
+
+<div class='grid'>
+  <div class='card' id='statsVisits'>
+    <h3>Total Visits</h3>
+    <span class='value'>…</span>
+  </div>
+
+  <div class='card' id='statsUsers'>
+    <h3>Registered Users</h3>
+    <span class='value'>…</span>
+  </div>
+
+  <div class='card' id='statsModels'>
+    <h3>AI Models</h3>
+    <span class='value'>…</span>
+  </div>
+
+  <div class='card' id='statsChat'>
+    <h3>Chat Messages</h3>
+    <span class='value'>…</span>
+  </div>
+</div>
+
+<script src='./admin.js'></script>
+<script src="/app/js/i18n.js"></script>
+<div class='gpanel-box' id='guardian-panel'>
+  <div class='g-title'>Guardian Status</div>
+  <div id='g-status' class='g-status g-yellow'>Checking...</div>
+  <div class='g-log' id='g-log'>Loading logs...</div>
+</div>
+<script src=\"/dashboard/js/guardian_panel.js\"></script>
+<link rel=\"stylesheet\" href=\"/dashboard/css/guardian_panel.css\">  <script src="/dashboard/js/notifications.js"></script>\n  <div id="toast-root" class="toast-root"></div>\n</body>
+</html>
+
+
+
+
+

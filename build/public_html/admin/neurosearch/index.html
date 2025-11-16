@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>NeuroSearch — Global Engine</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+input{
+  width:100%;padding:12px;margin-bottom:20px;
+  background:#000;border:1px solid #333;color:#d4af37;
+}
+pre{
+  background:#111;border:1px solid #333;padding:15px;
+  color:#d4af37;font-size:13px;overflow:auto;
+}
+button{
+  background:#d4af37;color:#000;padding:10px;border:none;
+  margin-bottom:20px;cursor:pointer;font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<h1>NeuroSearch Engine</h1>
+<input id='q' placeholder='Type anything… (vendor, product, email, country, category...)'>
+<button onclick='runSearch()'>Search</button>
+<pre id='out'></pre>
+
+<script>
+async function runSearch(){
+  const q = document.getElementById('q').value;
+  const res = await fetch('/api/search?q='+encodeURIComponent(q));
+  const data = await res.json();
+  document.getElementById('out').textContent =
+    JSON.stringify(data.results,null,2);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "r001",
+    "name": "Kit Robótica IA – Starter",
+    "desc": "Robot educativo con sensores, control desde PC y módulos IA básicos.",
+    "price": 129.90,
+    "category": "robotica",
+    "img": "assets/img/robot_ia_starter.png",
+    "sales": 0
+  },
+  {
+    "id": "g001",
+    "name": "Consola 8K Quantum Gaming",
+    "desc": "Consola next-gen optimizada para IA y streaming 8K.",
+    "price": 599.00,
+    "category": "gaming",
+    "img": "assets/img/console_quantum.png",
+    "sales": 0
+  },
+  {
+    "id": "ga001",
+    "name": "Gafas AR Holográficas Irene",
+    "desc": "Interfaz holográfica ligera con tracking de manos.",
+    "price": 349.00,
+    "category": "gadgets",
+    "img": "assets/img/glasses_irene.png",
+    "sales": 0
+  },
+  {
+    "id": "h001",
+    "name": "GPU Titan Black Gold 24GB",
+    "desc": "Tarjeta gráfica edición oro 28K para IA y gaming extremo.",
+    "price": 1299.00,
+    "category": "hardware",
+    "img": "assets/img/gpu_titan_blackgold.png",
+    "sales": 0
+  },
+  {
+    "id": "d001",
+    "name": "Pack Maker Pro – Arduino + ESP32",
+    "desc": "Kit completo para proyectos de electrónica y IoT avanzado.",
+    "price": 189.00,
+    "category": "dev",
+    "img": "assets/img/maker_pro_pack.png",
+    "sales": 0
+  },
+  {
+    "id": "m001",
+    "name": "Smartphone NeuralCore 5G",
+    "desc": "Móvil optimizado para apps de IA y productividad máxima.",
+    "price": 799.00,
+    "category": "moviles",
+    "img": "assets/img/phone_neuralcore.png",
+    "sales": 0
+  },
+  {
+    "id": "t001",
+    "name": "Set Herramientas Pro Repair",
+    "desc": "Kit profesional para reparación de portátiles y móviles.",
+    "price": 89.90,
+    "category": "tools",
+    "img": "assets/img/tools_repair_pro.png",
+    "sales": 0
+  },
+  {
+    "id": "s001",
+    "name": "Pack Domótica Quantum Home",
+    "desc": "Hub + sensores + iluminación inteligente integrable con IA.",
+    "price": 219.00,
+    "category": "smarthome",
+    "img": "assets/img/smarthome_quantum.png",
+    "sales": 0
+  }
+]

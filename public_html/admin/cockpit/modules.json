@@ -1,0 +1,10 @@
+{
+  "sistema":   { "desc": "Estado general del servidor y monitor avanzado" },
+  "analytics": { "desc": "Eventos, estadísticas y radar de amenazas" },
+  "productos": { "desc": "Catálogo dinámico de la Tech Store" },
+  "agentes":   { "desc": "Agentes IA premium (50 slots)" },
+  "proveedores": { "desc": "Módulo B2B de proveedores" },
+  "clientes":  { "desc": "Base de clientes y registros" },
+  "seguridad": { "desc": "Guardian, logs y notificaciones" },
+  "neural":    { "desc": "NeuralCore, IA interna y pulsos del sistema" }
+}

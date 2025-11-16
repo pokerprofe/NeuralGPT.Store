@@ -1,0 +1,89 @@
+<section class='form-shell'>
+  <div class='form-card'>
+    <h1 class='form-title'>Vendor Onboarding</h1>
+    <p class='form-subtitle'>
+      Apply as a technology vendor to list your robotics, hardware
+      or development products in our Tech Store. We manually review each request.
+    </p>
+
+    <form id='vendorRegisterForm'>
+      <div class='form-grid'>
+        <div class='form-field'>
+          <label>Company name</label>
+          <input type='text' name='company' required />
+        </div>
+        <div class='form-field'>
+          <label>Contact person</label>
+          <input type='text' name='contact' required />
+        </div>
+        <div class='form-field'>
+          <label>Business e-mail</label>
+          <input type='email' name='email' required />
+        </div>
+        <div class='form-field'>
+          <label>Website (optional)</label>
+          <input type='url' name='website' />
+        </div>
+        <div class='form-field'>
+          <label>Country</label>
+          <input type='text' name='country' required />
+        </div>
+        <div class='form-field'>
+          <label>VAT / Tax ID</label>
+          <input type='text' name='tax_id' required />
+        </div>
+      </div>
+
+      <hr class='form-separator' />
+
+      <h2 class='form-subtitle'>First product to list</h2>
+
+      <div class='form-grid'>
+        <div class='form-field'>
+          <label>Product name</label>
+          <input type='text' name='product_name' required />
+        </div>
+        <div class='form-field'>
+          <label>Product link (URL)</label>
+          <input type='url' name='product_url' required />
+        </div>
+        <div class='form-field'>
+          <label>Main category</label>
+          <select name='category'>
+            <option value='robotics'>Robotics</option>
+            <option value='hardware'>Hardware components</option>
+            <option value='development'>Dev boards & kits</option>
+            <option value='gadgets'>Gadgets</option>
+            <option value='tools'>Tools & testers</option>
+          </select>
+        </div>
+        <div class='form-field'>
+          <label>Suggested commission model</label>
+          <select name='commission'>
+            <option value='revshare'>Revenue share per sale</option>
+            <option value='fixed'>Fixed monthly fee</option>
+            <option value='hybrid'>Hybrid model</option>
+          </select>
+        </div>
+      </div>
+
+      <div class='form-field'>
+        <label>Short technical description</label>
+        <textarea name='product_desc' rows='4' required></textarea>
+      </div>
+
+      <div class='form-legal'>
+        <label>
+          <input type='checkbox' name='accept_terms' required />
+          I confirm that all products comply with EU/US regulations and export rules.
+        </label>
+        <label>
+          <input type='checkbox' name='accept_privacy' required />
+          I accept NeuralGPT.Store Vendor Terms & Privacy Policy.
+        </label>
+      </div>
+
+      <button type='submit' class='btn-gold-main'>Send vendor request</button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+.seller-box{background:#0a0c12;border:1px solid #1b1e2a;padding:16px;border-radius:12px;}
+.seller-box input, .seller-box textarea{ width:100%;padding:8px;margin:6px 0;border-radius:8px; border:1px solid #25283a;background:#050608;color:#f4f4f4;
+}
+.seller-box button{ width:100%;padding:10px;background:#f4c857;color:#050608; border:none;border-radius:10px;font-weight:bold;cursor:pointer;
+}
+#slr_hp{display:none;} .seller-wrapper{ padding:32px; background:#050608; color:#f4f4f4;
+}
+.seller-title{ font-size:24px; font-weight:700; color:#f4c857; margin-bottom:6px;
+}
+.seller-subtitle{ font-size:13px; opacity:0.8; margin-bottom:16px;
+}
+.field{ display:flex; flex-direction:column; gap:4px; margin-bottom:10px;
+}
+.field label{ font-size:12px; opacity:0.85;
+}
+.seller-status{ margin-top:8px; font-size:12px; opacity:0.9;
+}
+.seller-note{ margin-top:14px; font-size:12px; opacity:0.75;
+} 

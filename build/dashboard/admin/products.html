@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=\"UTF-8\">
+  <title>Products — neuralGPT.store</title>
+  <link rel=\"stylesheet\" href=\"/assets/css/admin.css\">
+  <script src=\"products.js\" defer></script>
+</head>
+
+<body>
+  <h1 class=\"admin-title\">Tech Store – Product Manager</h1>
+  <p class=\"admin-subtitle\">Create, edit and remove products for your store.</p>
+
+  <div class=\"product-form rgb-frame\">
+    <input id=\"p_title\"    type=\"text\"  placeholder=\"Title\">
+    <input id=\"p_sku\"      type=\"text\"  placeholder=\"SKU\">
+    <input id=\"p_cat\"      type=\"text\"  placeholder=\"Category\">
+    <input id=\"p_price\"    type=\"number\" placeholder=\"Price (€)\">
+    <input id=\"p_stock\"    type=\"number\" placeholder=\"Stock\">
+    <input id=\"p_img\"      type=\"text\"  placeholder=\"Image URL\">
+    <input id=\"p_vendor\"   type=\"text\"  placeholder=\"Vendor link (for commissions)\">
+
+    <button id=\"p_save\">Save</button>
+  </div>
+
+  <div id=\"productList\" class=\"product-grid\"></div>
+</body>
+</html>

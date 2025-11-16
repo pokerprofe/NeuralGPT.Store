@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>Neuro Analytics Cockpit</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial,Helvetica,sans-serif;margin:0;padding:20px;}
+h1{margin-top:0;}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:25px;}
+.card{background:#080808;border:1px solid #333;border-radius:10px;padding:15px;box-shadow:0 0 10px #111;}
+.card h3{margin:0 0 5px 0;font-size:15px;color:#d4af37;}
+.card .value{font-size:22px;font-weight:bold;}
+.card .label{font-size:11px;color:#aaa;}
+.row{display:grid;grid-template-columns:2fr 2fr;gap:20px;}
+canvas{background:#020202;border-radius:10px;border:1px solid #222;}
+.small{font-size:11px;color:#888;margin-top:10px;}
+</style>
+</head>
+<body>
+<h1>Neuro Analytics Cockpit</h1>
+<p class='small'>Executive view of the NeuroCommerce ecosystem: products, vendors, subscriptions and system activity.</p>
+
+<div id='ts' class='small'></div>
+
+<div class='grid'>
+  <div class='card'><h3>Total Products</h3><div class='value' id='k-prod'>-</div><div class='label'>Catalog size</div></div>
+  <div class='card'><h3>Vendors</h3><div class='value' id='k-ven'>-</div><div class='label'>Active / onboarded</div></div>
+  <div class='card'><h3>Subscribers</h3><div class='value' id='k-sub'>-</div><div class='label'>Quantum Pass & plans</div></div>
+  <div class='card'><h3>Avg Price</h3><div class='value' id='k-price'>-</div><div class='label'>Across all products</div></div>
+</div>
+
+<div class='grid'>
+  <div class='card'><h3>Security Events</h3><div class='value' id='k-sec'>-</div><div class='label'>Firewall & hardening logs</div></div>
+  <div class='card'><h3>Auto Tasks</h3><div class='value' id='k-tasks'>-</div><div class='label'>Irene Local background jobs</div></div>
+  <div class='card'><h3>Top Category</h3><div class='value' id='k-topcat'>-</div><div class='label'>Best represented segment</div></div>
+  <div class='card'><h3>Health</h3><div class='value' id='k-health'>OK</div><div class='label'>Synthetic status (local)</div></div>
+</div>
+
+<div class='row'>
+  <div>
+    <h3>Products by Category</h3>
+    <canvas id='catChart' width='400' height='250'></canvas>
+  </div>
+  <div>
+    <h3>New Products Timeline</h3>
+    <canvas id='dayChart' width='400' height='250'></canvas>
+  </div>
+</div>
+
+<p class='small'>All metrics are computed locally from JSON and logs. No external APIs, no external costs.</p>
+
+<script>
+async function loadMetrics(){
+  const res = await fetch('/api/metrics/overview');
+  const st = await res.json();
+
+  document.getElementById('ts').textContent = 'Last update: ' + (st.ts || '');
+  const k = st.kpi || {};
+  document.getElementById('k-prod').textContent  = k.totalProducts ?? '-';
+  document.getElementById('k-ven').textContent   = k.totalVendors ?? '-';
+  document.getElementById('k-sub').textContent   = k.totalSubs ?? '-';
+  document.getElementById('k-price').textContent = k.avgPrice ? k.avgPrice + ' €' : '-';
+  document.getElementById('k-sec').textContent   = k.securityEvents ?? '0';
+  document.getElementById('k-tasks').textContent = k.autoTasks ?? '0';
+
+  const cats = st.byCategory || {};
+  let topCat = '-';
+  let max = 0;
+  Object.keys(cats).forEach(c=>{
+    if(cats[c] > max){ max = cats[c]; topCat = c; }
+  });
+  document.getElementById('k-topcat').textContent = topCat;
+
+  drawBarChart('catChart', cats, 'Categories');
+  drawLineChart('dayChart', st.byDay || {}, 'Products per day');
+}
+
+function drawBarChart(id, data, label){
+  const canvas = document.getElementById(id);
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  const keys = Object.keys(data);
+  if(!keys.length){
+    ctx.fillStyle = '#d4af37';
+    ctx.fillText('No data', 20, 40);
+    return;
+  }
+
+  const values = keys.map(k=>data[k]);
+  const max = Math.max.apply(null, values) || 1;
+
+  const margin = 30;
+  const w = canvas.width - margin*2;
+  const h = canvas.height - margin*2;
+  const barWidth = w / keys.length * 0.7;
+
+  ctx.strokeStyle = '#333';
+  ctx.strokeRect(margin, margin, w, h);
+
+  keys.forEach((k,i)=>{
+    const v = values[i];
+    const x = margin + i * (w/keys.length) + (w/keys.length - barWidth)/2;
+    const bh = h * (v / max);
+    const y = margin + h - bh;
+
+    ctx.fillStyle = '#d4af37';
+    ctx.fillRect(x, y, barWidth, bh);
+
+    ctx.fillStyle = '#aaa';
+    ctx.font = '10px Arial';
+    ctx.fillText(k.substring(0,8), x, canvas.height - 5);
+  });
+}
+
+function drawLineChart(id, data, label){
+  const canvas = document.getElementById(id);
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  const keys = Object.keys(data).sort();
+  if(!keys.length){
+    ctx.fillStyle = '#d4af37';
+    ctx.fillText('No data', 20, 40);
+    return;
+  }
+
+  const values = keys.map(k=>data[k]);
+  const max = Math.max.apply(null, values) || 1;
+
+  const margin = 30;
+  const w = canvas.width - margin*2;
+  const h = canvas.height - margin*2;
+
+  ctx.strokeStyle = '#333';
+  ctx.strokeRect(margin, margin, w, h);
+
+  ctx.strokeStyle = '#d4af37';
+  ctx.beginPath();
+  keys.forEach((k,i)=>{
+    const v = values[i];
+    const x = margin + (w/(keys.length-1 || 1))*i;
+    const y = margin + h - (h * (v / max));
+    if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+
+  ctx.fillStyle = '#aaa';
+  ctx.font = '10px Arial';
+  keys.forEach((k,i)=>{
+    const v = values[i];
+    const x = margin + (w/(keys.length-1 || 1))*i;
+    const y = margin + h - (h * (v / max));
+    ctx.fillRect(x-2,y-2,4,4);
+    if(i % 3 === 0){
+      ctx.fillText(k.substring(5), x-10, canvas.height-5);
+    }
+  });
+}
+
+loadMetrics();
+</script>
+</body>
+</html>

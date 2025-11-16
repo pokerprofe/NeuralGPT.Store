@@ -1,28 +1,100 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Upload — NeuralGPT.Store IA</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Upload AI Project • NeuralGPT.Store AI</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#d4af37;--panel:#0e0e0e;--ink:#e5e5e5}
-html,body{margin:0;background:#000;color:var(--ink);font-family:Inter,system-ui}
-.header{padding:24px 20px;border-bottom:1px solid #1a1a1a;color:var(--gold);font-weight:900}
-.wrap{max-width:900px;margin:24px auto;padding:0 20px}
-.card{background:var(--panel);border:1px solid rgba(212,175,55,.25);border-radius:14px;padding:16px}
-label{display:block;margin:10px 0 6px;color:var(--gold)}
-input,textarea{width:100%;padding:12px;border:1px solid #333;background:#0c0c0c;color:#fff;border-radius:10px}
-.btn{margin-top:14px;border:1px solid var(--gold);color:var(--gold);background:#0c0c0c;border-radius:10px;padding:10px 12px}
-.note{color:#c69728;margin-top:8px}
-</style></head>
+  :root{--bg:#0a0a0b;--fg:#e9b24a;--fg2:#caa24a;--muted:#a7a7a7;--card:#111217;--stroke:#2a2b30}
+  *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Arial}
+  body{margin:0;background:radial-gradient(1200px 600px at 70% -10%,#1b1d25 0,#0a0a0b 65%) fixed;color:#eee}
+  .wrap{max-width:960px;margin:48px auto;padding:0 20px}
+  h1{font-size:28px;margin:0 0 16px;color:var(--fg)}
+  p.lead{color:var(--muted);margin:0 0 24px}
+  form{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:20px;display:grid;gap:14px}
+  label{font-size:13px;color:#bbb}
+  input,textarea,select{background:#0d0f13;border:1px solid #23242a;border-radius:12px;color:#eaeaea;padding:12px 14px;outline:none}
+  input:focus,textarea:focus,select:focus{border-color:#3a3f4a}
+  textarea{min-height:120px;resize:vertical}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .hint{font-size:12px;color:#8a8a8a}
+  .actions{display:flex;gap:12px;margin-top:6px}
+  .btn{padding:12px 16px;border-radius:12px;border:1px solid #3a3f4a;background:#141820;color:#eaeaea;cursor:pointer}
+  .btn.primary{background:linear-gradient(180deg,#2b2f3a,#181b22);border-color:#50442a;color:var(--fg)}
+  .note{font-size:12px;color:#9a9a9a;margin-top:10px}
+  a{color:var(--fg2);text-decoration:none}
+</style>
+</head>
 <body>
-<div class="header">Developers · Upload</div>
-<div class="wrap">
-  <div class="card">
-    <p class="note">GitHub Pages is static. Upload & payments require the Workspace deployment (next block).</p>
-    <label>Model name</label><input placeholder="e.g. AtlasMind Pro">
-    <label>Description</label><textarea rows="5" placeholder="What it does and for whom"></textarea>
-    <label>Image</label><input type="file" disabled>
-    <button class="btn" disabled>Publish (Workspace only)</button>
+  <div class="wrap">
+    <h1>Upload AI project</h1>
+    <p class="lead">Publish your agent / automation. Add a thumbnail (PNG/JPG). Your PayPal or Google Pay will be saved for payouts.</p>
+
+    <form id="f">
+      <div class="row">
+        <div>
+          <label>Model name</label>
+          <input name="nombre" placeholder="e.g. Llama Index Agent" required/>
+        </div>
+        <div>
+          <label>Category</label>
+          <select name="categoria">
+            <option>Agent</option><option>Automation</option><option>Dataset</option><option>Tool</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label>Description</label>
+        <textarea name="descripcion" placeholder="What it does, inputs/outputs, setup notes…" required></textarea>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>PayPal link (PayPal.me or email)</label>
+          <input name="paypal" placeholder="https://paypal.me/yourname or name@email.com"/>
+          <div class="hint">Used to route buyer to your PayPal. Optional for now.</div>
+        </div>
+        <div>
+          <label>Google Pay (UPI / address)</label>
+          <input name="gpay" placeholder="e.g. user@okbank or your gpay address"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Project site / docs (optional)</label>
+          <input name="enlace" placeholder="https://…"/>
+        </div>
+        <div>
+          <label>Thumbnail (PNG/JPG)</label>
+          <input name="imagen" type="file" accept=".png,.jpg,.jpeg"/>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" type="button" onclick="location.href='index.html'">← Back</button>
+        <button class="btn primary" type="submit">Publish</button>
+      </div>
+      <div class="note">By publishing you confirm you own the content and agree to remove unsafe material if requested.</div>
+    </form>
   </div>
-</div>
-</body></html>
+
+<script>
+const API = "http://localhost:4000";
+document.getElementById("f").addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  // API expects field name 'imagen' for file; others are plain fields.
+  try{
+    const r = await fetch(API + "/api/upload", { method:"POST", body: fd });
+    const j = await r.json();
+    alert(j.ok ? "Published!" : ("Error: " + (j.error||"unknown")));
+    if(j.ok) location.href = "index.html";
+  }catch(err){ alert("Network error"); }
+});
+</script>
+</body>
+</html>

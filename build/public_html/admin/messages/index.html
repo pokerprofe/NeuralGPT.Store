@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+<meta charset='UTF-8'>
+<title>Mensajes — Admin</title>
+<link rel='stylesheet' href='messages.css'>
+</head>
+<body style='background:#000;color:#d4af37;'>
+<h1>Centro de Mensajes Internos</h1>
+
+<div id='form'>
+  <input id='from' placeholder='De'>
+  <input id='to' placeholder='Para'>
+  <textarea id='msg' placeholder='Mensaje'></textarea>
+  <button onclick='sendMsg()'>Enviar</button>
+</div>
+
+<h2>Bandeja de Entrada</h2>
+<div id='inbox'></div>
+
+<script src='messages.js'></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "neuralgpt-store-api",
+  "version": "1.0.0",
+  "description": "API local gratuita para subir modelos a NeuralGPT.Store",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "google-auth-library": "^10.5.0",
+    "helmet": "^8.1.0",
+    "multer": "^2.0.2",
+    "node-fetch": "^2.7.0",
+    "nodemailer": "^7.0.10",
+    "path": "^0.12.7"
+  }
+}

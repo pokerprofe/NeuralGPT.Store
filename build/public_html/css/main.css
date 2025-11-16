@@ -1,0 +1,40 @@
+:root{
+  --bg:#0a0a0a;
+  --panel:#0f0f0f;
+  --ink:#c9c9c9;
+  --muted:#8e8e8e;
+  --line:#1a1a1a;
+  --gold:#d4af37;
+  --gold-deep:#b9921f;
+  --gold-soft:#e7c96a;
+  --accent:#17f1e7;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#050505,#0b0b0b);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Arial}
+a{color:var(--ink);text-decoration:none}
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 22px;border-bottom:1px solid var(--line);backdrop-filter:saturate(110%) blur(6px);background:rgba(0,0,0,.6)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .mark{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold-soft),var(--gold-deep));box-shadow:0 0 18px rgba(212,175,55,.45)}
+.brand .name{font-weight:800;letter-spacing:.2px}
+.brand .name span{color:var(--gold)}
+.nav a{padding:8px 12px;border-radius:10px;border:1px solid transparent}
+.nav a:hover{border-color:var(--line)}
+.nav a.active{border-color:rgba(212,175,55,.28);color:var(--gold)}
+.hero{padding:42px 22px 22px;max-width:1200px;margin:auto;border-bottom:1px solid var(--line)}
+.hero h1{margin:0 0 8px;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-soft));-webkit-background-clip:text;background-clip:text;color:transparent;font-size:32px;font-weight:800}
+.hero p{margin:0 0 16px;color:var(--muted)}
+.search{width:360px;max-width:100%;background:#0e0e0e;border:1px solid #1f1f1f;color:var(--ink);padding:12px 14px;border-radius:12px}
+.grid{max-width:1200px;margin:20px auto;padding:0 22px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.card{background:var(--panel);border:1px solid rgba(212,175,55,.18);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.card h3{margin:0;color:var(--gold)}
+.card p{margin:0;color:var(--ink);opacity:.9;font-size:14px;line-height:1.5}
+.card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.btn{padding:10px 12px;border-radius:10px;border:1px solid var(--gold);color:var(--gold);background:#101010;display:inline-block}
+.btn:hover{box-shadow:0 0 18px rgba(212,175,55,.18)}
+.foot{border-top:1px solid var(--line);padding:20px;text-align:center;color:var(--muted)}
+.brandgold{color:var(--gold);font-weight:700}
+.gt-fixed{position:fixed;top:10px;right:10px;z-index:99}
+@media (max-width:640px){
+  .hero{padding:28px 16px 12px}
+  .search{width:100%}
+}

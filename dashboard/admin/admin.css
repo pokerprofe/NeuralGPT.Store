@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  background: #050608;
+  font-family: Arial, sans-serif;
+  color: #f4f4f4;
+}
+
+.topbar {
+  background: #0a0c12;
+  padding: 16px;
+  font-size: 20px;
+  text-align: center;
+  border-bottom: 1px solid #1b1e2a;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: #0a0c12;
+  border: 1px solid #1b1e2a;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+  color: #f4c857;
+}
+
+.value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+}
