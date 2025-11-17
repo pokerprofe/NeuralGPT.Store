@@ -1,0 +1,15 @@
+[
+  "irene_core.cjs",
+  "irene_autofix.cjs",
+  "irene_scheduler.cjs",
+  "irene_notify.cjs",
+  "irene_diag.cjs",
+  "irene_guardian.cjs",
+  "irene_health.cjs",
+  "irene_math.cjs",
+  "irene_logics.cjs",
+  "irene_prediction.cjs",
+  "irene_planner.cjs",
+  "irene_brain.cjs",
+  "kb_intents.json"
+]
