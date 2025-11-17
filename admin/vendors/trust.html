@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vendor Trust Engine</title>
+<meta charset='UTF-8'>
+<style>
+body { background:#000;color:#d4af37;font-family:Arial;padding:20px; }
+table { width:100%;border-collapse:collapse;margin-top:20px; }
+th,td { padding:10px;border-bottom:1px solid #333;font-size:13px; }
+th { color:#d4af37; }
+.approved { color:#00ff6e;font-weight:bold; }
+.rejected { color:red;font-weight:bold; }
+</style>
+</head>
+<body>
+<h1>Vendor Trust Engine</h1>
+<p>Automatic evaluation system</p>
+
+<table id='vend-table'>
+  <tr>
+    <th>Company</th>
+    <th>Score</th>
+    <th>Status</th>
+    <th>Date</th>
+  </tr>
+</table>
+
+<script>
+async function loadVendors(){
+  const res = await fetch('/server/vendor_engine/vendor_scores.json')
+  const list = await res.json();
+  const t = document.getElementById('vend-table');
+
+  list.forEach(v=>{
+    const tr = document.createElement('tr');
+    const status = v.approved ? '<span class="approved">APPROVED</span>' : '<span class="rejected">REJECTED</span>';
+
+    tr.innerHTML = \
+      <td>\</td>
+      <td>\</td>
+      <td>\app.get('/api/neural/status', (req,res)=>{
+  res.json(neural.systemHealth());
+});</td>
+      <td>\</td>
+    \;
+
+    t.appendChild(tr);
+  });
+}
+
+loadVendors();
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>NeuroSales Intelligence</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+th,td{padding:8px;border-bottom:1px solid #333;font-size:13px;}
+.high{color:#00ff6e;font-weight:bold;}
+.medium{color:#ffd700;font-weight:bold;}
+.low{color:#ff5a5a;font-weight:bold;}
+</style>
+</head>
+<body>
+<h1>NeuroSales Predictive Engine</h1>
+<p>AI-driven vendor prioritization for B2B outreach.</p>
+
+<table id='tbl'>
+  <tr>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Category</th>
+    <th>Email</th>
+    <th>Score</th>
+    <th>Priority</th>
+  </tr>
+</table>
+
+<script>
+async function loadAll(){
+  const res = await fetch('/api/neurosales/prioritize');
+  const data = await res.json();
+
+  const tbl = document.getElementById('tbl');
+
+  (data.items || []).forEach(e=>{
+    const tr = document.createElement('tr');
+    const cls = e.priority;
+    tr.innerHTML = \
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td class="\">\</td>
+    \;
+    tbl.appendChild(tr);
+  });
+}
+
+loadAll();
+</script>
+</body>
+</html>

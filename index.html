@@ -1,104 +1,173 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>NeuralGPT.store AI — pokershadow.ink</title>
-  <meta name="description" content="Marketplace de agentes de IA de PokerShadow.ink. Ecosistema NeuralGPT.store AI. Quantum Pass y modelos Elite."/>
-  <meta name="google" content="notranslate"/> <!-- permite traducción automática de Google -->
-  <link rel="stylesheet" href="assets/css/main.css"/>
-</head>
-<body>
+C:\Users\poker
 
-<header style="text-align:center;padding:60px 10px 20px;">
-  <h1 style="font-family:'Orbitron',sans-serif;
-             font-size:clamp(38px,5vw,60px);
-             color:#ffbf40;
-             text-shadow:0 0 25px rgba(255,191,64,.45);
-             margin:0;">
-    NeuralGPT.store <span style="color:#ffd479;">AI</span>
-  </h1>
-  <p style="color:#aaa;font-size:16px;letter-spacing:2px;">©2025 pokershadow.ink — Ecosistema Cuántico de IAs</p>
-</header>
 
-<nav class="nav">
-  <div class="nav__inner">
-    <div class="brand">
-      <div class="brand__logo"></div>
-      <div class="brand__name">NeuralGPT.store <span class="brand__ai">AI</span></div>
-    </div>
-    <div class="nav__links">
-      <a class="link" href="./">Inicio</a>
-      <a class="link" href="./premium/">Elite</a>
-      <a class="link" href="./quantum-pass/">Quantum Pass</a>
-      <a class="link" href="./pay/">Pasarela</a>
-    </div>
-  </div>
+
+<li><a href="sections/register.html">Registro</a></li>
+
+<footer style='margin-top:50px; padding:20px; border-top:1px solid #d4af37; text-align:center;'>
+  <a href='legal/aviso-legal.html' style='color:#d4af37;'>Aviso Legal</a> |
+  <a href='legal/privacidad.html' style='color:#d4af37;'>Privacidad</a> |
+  <a href='legal/terminos.html' style='color:#d4af37;'>Términos de Uso</a> |
+  <a href='legal/cookies.html' style='color:#d4af37;'>Cookies</a>
+</footer>
+<nav style='text-align:center;margin-top:15px;'>
+  <a href='about/index.html' style='color:#d4af37;'>Quiénes somos</a>
+</nav>
+<section style='margin-top:40px;padding:25px;background:#111;border:1px solid #d4af37;'>
+  <h2 style='color:#d4af37;text-align:center;'>NeuroCommerce</h2>
+  <p style='text-align:center;color:#d4af37;'>
+    Plataforma de comercio inteligente impulsada por IA.  
+    Arquitectura diseñada y dirigida por <b>PokerShadow Ink — CEO Global</b>.
+  </p>
+</section>
+
+
+<nav style='text-align:center;margin-top:10px;'>
+  <a href='corporate/index.html' style='color:#d4af37;'>NeuroCommerce · Global AI Infrastructure</a>
+</nav>
+<nav style='text-align:center;margin-top:10px;'>
+  <a href='providers/index.html' style='color:#d4af37;'>Global Provider Hub</a>
+</nav>
+<nav style='text-align:center;margin-top:10px;'>
+  <a href='investors/index.html' style='color:#d4af37;'>Investor Relations</a>
+</nav>
+<nav style='text-align:center;margin-top:10px;'>
+  <a href='enterprise/index.html' style='color:#d4af37;'>Enterprise Suite Access</a>
 </nav>
 
-<section class="hero">
-  <div class="hero__card">
-    <span class="badge">Ecosistema verificado</span>
-    <h1 class="hero__title">Explora tus agentes de IA</h1>
-    <p class="hero__subtitle">
-      Modelos optimizados por PokerShadow.ink. Elige agentes individuales o suscripción con Quantum Pass.
-      MotherCore AI se mantiene en exhibición como núcleo simbólico.
-    </p>
-    <div class="search">
-      <input id="search" placeholder="Buscar por nombre o categoría..."/>
-      <button id="btnClear">Limpiar</button>
-    </div>
-  </div>
+<div class='card'>
+  <h3>AI Subscription</h3>
+  <p>Access full NeuroCommerce Suite</p>
+  <a href='subscribe/index.html' class='btn'>Subscribe Now</a>
+</div>
+<div class='card'>
+  <h3>Pricing</h3>
+  <p>Discover your access plan</p>
+  <a href='pricing/index.html' class='btn'>Pricing Page</a>
+</div>
+<script src='i18n/i18n.js'></script>
 
-  <aside class="hero__card mother">
-    <h3>MotherCore AI — PokerShadow Ink</h3>
-    <p>Inteligencia central del ecosistema NeuralGPT.store AI. En exhibición, sin interacción directa.</p>
-    <div class="seal">🔒 Propiedad — Exhibición</div>
-  </aside>
+<div style='position:fixed;top:20px;right:20px;z-index:9999;'>
+  <select onchange='changeLang(this.value)' style='padding:5px;background:#111;color:#d4af37;border:1px solid #d4af37;'>
+    <option value='en'>EN</option>
+    <option value='es'>ES</option>
+    <option value='fr'>FR</option>
+    <option value='de'>DE</option>
+    <option value='pt'>PT</option>
+  </select>
+</div>
+<section id='recommended-products' style='max-width:1100px;margin:40px auto;padding:20px;background:#111;border:1px solid #d4af37;'>
+  <h2 style='color:#d4af37;'>Recommended for you</h2>
+  <div id='rec-grid' style='display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;'></div>
 </section>
-
-<section class="section">
-  <h2>Catálogo Activo</h2>
-  <div id="grid" class="grid"></div>
-</section>
-
-<footer class="footer">
-  ©2025 pokershadow.ink — Todos los derechos reservados
-</footer>
 
 <script>
-const $=(q,c=document)=>c.querySelector(q);
-let agentes=[];
-fetch("data/agents.json?"+Date.now()).then(r=>r.json()).then(d=>{agentes=d;render(d)});
-
-function render(list){
-  const grid=$("#grid"); grid.innerHTML="";
-  list.forEach(a=>{
-    const card=document.createElement("article");
-    card.className="card";
-    card.innerHTML=`
-      <div class="meta">
-        <span class="chip">${a.category||"IA"}</span>
-        ${a.premium?'<span class="chip chip-premium">Elite</span>':''}
-        ${a.price?'<span class="chip price">'+a.price+'€</span>':''}
-      </div>
-      <div class="title">${a.name}</div>
-      <div class="desc">${a.blurb}</div>
-      <div class="cta">
-        ${a.premium?
-          `<a class="btn btn--gold" href="pay/?sku=${a.id}">Comprar</a>`:
-          `<a class="btn" href="quantum-pass/">Acceder con Pass</a>`}
-        <a class="btn" href="${a.more||'#'}">Detalles</a>
-      </div>`;
-    grid.appendChild(card);
-  });
+async function loadRecommendations(){
+  try{
+    const res = await fetch('/api/recommend?userId=anonymous');
+    const data = await res.json();
+    const grid = document.getElementById('rec-grid');
+    if(!grid) return;
+    grid.innerHTML = '';
+    (data.items || []).forEach(p=>{
+      const div = document.createElement('div');
+      div.style.border = '1px solid #d4af37';
+      div.style.padding = '10px';
+      div.style.background = '#000';
+      div.innerHTML = 
+        <h3 style="color:#d4af37;">\</h3>
+        <p style="color:#aaa;">\</p>
+      ;
+      grid.appendChild(div);
+    });
+  }catch(e){
+    console.log('Recommender error', e);
+  }
 }
-$("#search").oninput=e=>{
-  const v=e.target.value.toLowerCase();
-  render(agentes.filter(a=>(a.name+a.category+a.blurb).toLowerCase().includes(v)));
-};
-$("#btnClear").onclick=()=>{ $("#search").value=""; render(agentes); };
+document.addEventListener('DOMContentLoaded', loadRecommendations);
+</script>
+<section id='trending-products' style='max-width:1100px;margin:40px auto;padding:20px;background:#111;border:1px solid #d4af37;'>
+  <h2 style='color:#d4af37;'>Trending Now</h2>
+  <div id='trend-grid' style='display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;'></div>
+</section>
+
+<script>
+async function loadTrending(){
+  try{
+    const res = await fetch('/api/trending');
+    const data = await res.json();
+    const grid = document.getElementById('trend-grid');
+    if(!grid) return;
+    grid.innerHTML = '';
+    (data.items || []).forEach(p=>{
+      const div = document.createElement('div');
+      div.style.border = '1px solid #d4af37';
+      div.style.padding = '10px';
+      div.style.background = '#000';
+      div.innerHTML = 
+        <h3 style="color:#d4af37;">\</h3>
+        <p style="color:#aaa;">\</p>
+      ;
+      grid.appendChild(div);
+    });
+  }catch(e){
+    console.log('Trending error', e);
+  }
+}
+document.addEventListener('DOMContentLoaded', loadTrending);
+</script>
+<link rel='stylesheet' href='ai_assistant/assistant.css'>
+<script src='ai_assistant/assistant.js' defer></script>
+
+<button id='kx-toggle' onclick='kxToggle()'>NeuroGuide KX</button>
+
+<div id='kx-window'>
+  <div id='kx-header'>NeuroGuide KX · Internal AI Guide</div>
+  <div id='kx-messages'></div>
+  <div id='kx-input-area'>
+    <input id='kx-input' placeholder='Ask about subscription, vendors, security…'>
+    <button id='kx-send' onclick='kxAnswer()'>Send</button>
+  </div>
+</div>
+<div id='global-notifications' style='margin:20px 0;'></div>
+
+<script>
+async function loadGlobalNotifications(){
+  try{
+    const box = document.getElementById('global-notifications');
+    if(!box) return;
+
+    const res = await fetch('/api/notifications/list');
+    const data = await res.json();
+    box.innerHTML = '';
+
+    (data.items || []).forEach(n=>{
+      const div = document.createElement('div');
+      div.style.margin = '10px 0';
+      div.style.padding = '12px';
+      div.style.border = '1px solid #d4af37';
+      div.style.background = '#111';
+      div.style.color = '#d4af37';
+
+      const t = n.type === 'alert'
+        ? 'background:#3a0000;border:1px solid red;color:red;'
+        : n.type === 'warning'
+          ? 'background:#332800;border:1px solid #d4af37;color:#d4af37;'
+          : 'background:#111;border:1px solid #d4af37;color:#d4af37;';
+
+      div.style = t + 'padding:12px;margin:10px 0;';
+
+      div.innerHTML = 
+        <strong>\</strong><br>
+        <span style='color:#ccc;font-size:13px;'>\</span>
+      ;
+      box.appendChild(div);
+    });
+  }catch(e){
+    console.log('Notification error', e);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadGlobalNotifications);
 </script>
 
-</body>
-</html>

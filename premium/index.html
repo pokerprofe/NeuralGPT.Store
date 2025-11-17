@@ -1,12 +1,43 @@
-<!doctype html>
-<html lang="es">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Modelos Premium — NeuralGPT</title><link rel="stylesheet" href="/assets/css/main.css"></head>
-<body class="page-dark">
-  <header><h1>Modelos Premium</h1></header>
-  <main>
-    <div id="premium-grid" class="grid"></div>
-  </main>
-  <a href="/" class="link">Volver al catálogo</a>
-  <script src="/assets/js/app.js" defer></script>
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>Quantum Pass – NeuralGPT.Store</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:40px;}
+h1{font-size:32px;margin-bottom:5px;}
+p{color:#c9b16d;}
+.input{width:350px;padding:10px;border-radius:8px;border:none;margin-top:10px;background:#111;color:#d4af37;}
+button{background:#d4af37;color:#000;border:none;padding:10px 20px;border-radius:6px;margin-top:12px;font-weight:bold;cursor:pointer;}
+button:hover{filter:brightness(1.1);}
+.box{background:#070707;border:1px solid #333;border-radius:10px;padding:20px;width:380px;}
+pre{white-space:pre-wrap;background:#050505;padding:15px;border-radius:10px;border:1px solid #222;color:#d4af37;margin-top:20px;}
+</style>
+</head>
+
+<body>
+<h1>Quantum Pass Access</h1>
+<p>Premium access to the entire NeuroCommerce ecosystem. One subscription. All IA tools. All modules. Infinite knowledge.</p>
+
+<div class='box'>
+  <input id='email' class='input' placeholder='Email for subscription'>
+  <button onclick='gen()'>Generate Quantum Key</button>
+</div>
+
+<pre id='out'></pre>
+
+<script>
+async function gen(){
+  const email = document.getElementById('email').value;
+  const res = await fetch('/api/quantum/generate',{
+    method:'POST',
+    headers:{ 'Content-Type':'application/json' },
+    body: JSON.stringify({ email })
+  });
+  const data = await res.json();
+  document.getElementById('out').textContent = JSON.stringify(data,null,2);
+}
+</script>
+
 </body>
 </html>
