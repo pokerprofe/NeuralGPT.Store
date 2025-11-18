@@ -1,7 +1,11 @@
-const path = require("path");
-const fs = require("fs");
-const crypto = require("crypto");
-const fetch = require("node-fetch");
+import path from "path";
+import fs from "fs";
+import crypto from "crypto";
+import fetch from "node-fetch";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // === Paths ===
 const DATA_DIR = path.join(__dirname, "..", "database");
@@ -85,7 +89,7 @@ async function verifyRecaptcha(token) {
   }
 }
 
-// === Middleware (future protected routes) ===
+// === Middleware ===
 function requireUser(req, res, next) {
   cleanupSessions();
   const token =
@@ -111,11 +115,11 @@ function requireUser(req, res, next) {
   next();
 }
 
-// === Export routes ===
-module.exports = function (app) {
+// === Export function ===
+export default function registerAuth(app) {
   console.log("[auth] Routes loaded");
 
-  // === Register ===
+  // Register
   app.post("/api/auth/register", async (req, res) => {
     const { email, nick, token } = req.body || {};
 
@@ -148,7 +152,7 @@ module.exports = function (app) {
     return res.json({ ok: true, user });
   });
 
-  // === Login ===
+  // Login
   app.post("/api/auth/login", async (req, res) => {
     const { email, token } = req.body || {};
 
@@ -183,10 +187,10 @@ module.exports = function (app) {
     });
   });
 
-  // === Me ===
+  // Me
   app.get("/api/auth/me", requireUser, (req, res) => {
     res.json({ ok: true, user: req.user });
   });
 
   console.log("[auth] Ready at /api/auth/*");
-};
+}

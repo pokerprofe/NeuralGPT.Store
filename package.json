@@ -4,7 +4,7 @@
   "description": "Backend NeuralGPT.store AI",
   "type": "commonjs",
   "scripts": {
-    "start": "node server/app.cjs"
+    "start": "node app.cjs"
   },
   "dependencies": {
     "body-parser": "^1.20.3",
