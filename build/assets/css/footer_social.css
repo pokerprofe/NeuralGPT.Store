@@ -1,0 +1,12 @@
+.footer-social-box{ width:100%; text-align:center; margin-top:40px; padding:20px 0; border-top:1px solid #25283a;
+} .fs-title{ color:#f4c857; font-size:18px; margin-bottom:16px; letter-spacing:1px;
+} .fs-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:18px;
+} .fs-btn{ width:42px; height:42px; border-radius:50%; display:inline-block; background:#050608; border:2px solid #f4c857; background-size:24px; background-repeat:no-repeat; background-position:center; transition:0.3s; cursor:pointer;
+} .fs-btn:hover{ box-shadow:0 0 12px #f4c857; transform:scale(1.12);
+} .fs-tiktok { background-image:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg'); }
+.fs-facebook { background-image:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg'); }
+.fs-instagram { background-image:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg'); }
+.fs-twitter { background-image:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg'); }
+.fs-youtube { background-image:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg'); }
+.fs-linkedin { background-image:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg'); }
+.fs-telegram { background-image:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg'); } 

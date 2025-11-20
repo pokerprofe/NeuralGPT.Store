@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Master Automations Lab — NeuralGPT.Store</title>
+  <link rel="stylesheet" href="/dashboard/css/automations.css"/>
+</head>
+<body class="auto-body">
+  <header class="auto-header">
+    <h1>Master Automations Lab</h1>
+    <p>Upload, manage and showcase your AI + n8n blueprints & maps.</p>
+  </header>
+
+  <main class="auto-main">
+    <section class="auto-upload-grid">
+      <div class="auto-card">
+        <h2>Upload Automation Map</h2>
+        <p>Images of n8n / Make / system diagrams.</p>
+        <form id="form_map">
+          <input type="text" name="title" placeholder="Title" required/>
+          <textarea name="notes" placeholder="Notes (internal)" rows="3"></textarea>
+          <select name="visibility">
+            <option value="private">Private</option>
+            <option value="showcase">Showcase (public case study)</option>
+          </select>
+          <input type="file" name="file" accept="image/*" required/>
+          <button type="submit">Upload Map</button>
+        </form>
+      </div>
+
+      <div class="auto-card">
+        <h2>Upload Agent Blueprint</h2>
+        <p>Long prompts, docs, pipelines, PDFs.</p>
+        <form id="form_blue">
+          <input type="text" name="title" placeholder="Title" required/>
+          <textarea name="notes" placeholder="Notes (internal)" rows="3"></textarea>
+          <select name="visibility">
+            <option value="private">Private</option>
+            <option value="showcase">Showcase (public case study)</option>
+          </select>
+          <input type="file" name="file" accept=".txt,.md,.pdf,.doc,.docx,.json" required/>
+          <button type="submit">Upload Blueprint</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="auto-list-sec">
+      <div class="auto-list-header">
+        <h2>Your Automations Library</h2>
+        <button id="btn_reload">Reload</button>
+      </div>
+      <div id="auto_list" class="auto-list"></div>
+    </section>
+  </main>
+
+  <script src="/dashboard/js/automations.js"></script>
+</body>
+</html>

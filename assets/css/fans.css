@@ -1,0 +1,11 @@
+.fans-wrapper { padding: 32px; background: #050608; color: #f4f4f4;
+} .fans-title { font-size: 26px; font-weight: 700; margin-bottom: 8px; color: #f4c857;
+} .fans-subtitle { font-size: 14px; opacity: 0.75; margin-bottom: 18px;
+} .chat-box { height: 480px; overflow-y: auto; background: #0a0c12; border-radius: 12px; padding: 14px; border: 1px solid #1b1e2a; margin-bottom: 14px;
+} .chat-msg { margin: 8px 0; padding: 8px 10px; max-width: 70%; border-radius: 12px; font-size: 14px; line-height: 1.35;
+} .msg-me { background: #f4c857; color: #050608; margin-left: auto; border-bottom-right-radius: 2px;
+} .msg-other { background: #1b1e2a; color: #f4f4f4; margin-right: auto; border-bottom-left-radius: 2px;
+} .chat-input-area { display: flex; gap: 8px;
+} .chat-input-area input { flex: 1; padding: 10px; border-radius: 10px; border: 1px solid #25283a; background: #050608; color: #f4f4f4; font-size: 14px;
+} .fans-btn { padding: 10px 16px; background: linear-gradient(135deg, #f4c857, #c7911a); color: #050608; border: none; border-radius: 10px; font-weight: 700; cursor: pointer;
+} 

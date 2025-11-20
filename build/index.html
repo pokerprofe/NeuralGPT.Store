@@ -1,0 +1,172 @@
+C:\Users\poker
+
+
+
+<li><a href="sections/register.html">Registro</a></li>
+
+<footer style='margin-top:50px; padding:20px; border-top:1px solid #d4af37; text-align:center;'>
+  <a href='legal/aviso-legal.html' style='color:#d4af37;'>Aviso Legal</a> |
+  <a href='legal/privacidad.html' style='color:#d4af37;'>Privacidad</a> |
+  <a href='legal/terminos.html' style='color:#d4af37;'>Términos de Uso</a> |
+  <a href='legal/cookies.html' style='color:#d4af37;'>Cookies</a>
+</footer>
+<nav style='text-align:center;margin-top:15px;'>
+  <a href='about/index.html' style='color:#d4af37;'>Quiénes somos</a>
+</nav>
+<section style='margin-top:40px;padding:25px;background:#111;border:1px solid #d4af37;'>
+  <h2 style='color:#d4af37;text-align:center;'>NeuroCommerce</h2>
+  <p style='text-align:center;color:#d4af37;'>
+    Plataforma de comercio inteligente impulsada por IA.  
+    Arquitectura diseñada y dirigida por <b>PokerShadow Ink — CEO Global</b>.
+  </p>
+</section>
+
+
+<nav style='text-align:center;margin-top:10px;'>
+  <a href='corporate/index.html' style='color:#d4af37;'>NeuroCommerce · Global AI Infrastructure</a>
+</nav>
+<nav style='text-align:center;margin-top:10px;'>
+  <a href='providers/index.html' style='color:#d4af37;'>Global Provider Hub</a>
+</nav>
+<nav style='text-align:center;margin-top:10px;'>
+  <a href='investors/index.html' style='color:#d4af37;'>Investor Relations</a>
+</nav>
+<nav style='text-align:center;margin-top:10px;'>
+  <a href='enterprise/index.html' style='color:#d4af37;'>Enterprise Suite Access</a>
+</nav>
+
+<div class='card'>
+  <h3>AI Subscription</h3>
+  <p>Access full NeuroCommerce Suite</p>
+  <a href='subscribe/index.html' class='btn'>Subscribe Now</a>
+</div>
+<div class='card'>
+  <h3>Pricing</h3>
+  <p>Discover your access plan</p>
+  <a href='pricing/index.html' class='btn'>Pricing Page</a>
+</div>
+<script src='i18n/i18n.js'></script>
+
+<div style='position:fixed;top:20px;right:20px;z-index:9999;'>
+  <select onchange='changeLang(this.value)' style='padding:5px;background:#111;color:#d4af37;border:1px solid #d4af37;'>
+    <option value='en'>EN</option>
+    <option value='es'>ES</option>
+    <option value='fr'>FR</option>
+    <option value='de'>DE</option>
+    <option value='pt'>PT</option>
+  </select>
+</div>
+<section id='recommended-products' style='max-width:1100px;margin:40px auto;padding:20px;background:#111;border:1px solid #d4af37;'>
+  <h2 style='color:#d4af37;'>Recommended for you</h2>
+  <div id='rec-grid' style='display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;'></div>
+</section>
+
+<script>
+async function loadRecommendations(){
+  try{
+    const res = await fetch('/api/recommend?userId=anonymous');
+    const data = await res.json();
+    const grid = document.getElementById('rec-grid');
+    if(!grid) return;
+    grid.innerHTML = '';
+    (data.items || []).forEach(p=>{
+      const div = document.createElement('div');
+      div.style.border = '1px solid #d4af37';
+      div.style.padding = '10px';
+      div.style.background = '#000';
+      div.innerHTML = 
+        <h3 style="color:#d4af37;">\</h3>
+        <p style="color:#aaa;">\</p>
+      ;
+      grid.appendChild(div);
+    });
+  }catch(e){
+    console.log('Recommender error', e);
+  }
+}
+document.addEventListener('DOMContentLoaded', loadRecommendations);
+</script>
+<section id='trending-products' style='max-width:1100px;margin:40px auto;padding:20px;background:#111;border:1px solid #d4af37;'>
+  <h2 style='color:#d4af37;'>Trending Now</h2>
+  <div id='trend-grid' style='display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;'></div>
+</section>
+
+<script>
+async function loadTrending(){
+  try{
+    const res = await fetch('/api/trending');
+    const data = await res.json();
+    const grid = document.getElementById('trend-grid');
+    if(!grid) return;
+    grid.innerHTML = '';
+    (data.items || []).forEach(p=>{
+      const div = document.createElement('div');
+      div.style.border = '1px solid #d4af37';
+      div.style.padding = '10px';
+      div.style.background = '#000';
+      div.innerHTML = 
+        <h3 style="color:#d4af37;">\</h3>
+        <p style="color:#aaa;">\</p>
+      ;
+      grid.appendChild(div);
+    });
+  }catch(e){
+    console.log('Trending error', e);
+  }
+}
+document.addEventListener('DOMContentLoaded', loadTrending);
+</script>
+<link rel='stylesheet' href='ai_assistant/assistant.css'>
+<script src='ai_assistant/assistant.js' defer></script>
+
+<button id='kx-toggle' onclick='kxToggle()'>NeuroGuide KX</button>
+
+<div id='kx-window'>
+  <div id='kx-header'>NeuroGuide KX · Internal AI Guide</div>
+  <div id='kx-messages'></div>
+  <div id='kx-input-area'>
+    <input id='kx-input' placeholder='Ask about subscription, vendors, security…'>
+    <button id='kx-send' onclick='kxAnswer()'>Send</button>
+  </div>
+</div>
+<div id='global-notifications' style='margin:20px 0;'></div>
+
+<script>
+async function loadGlobalNotifications(){
+  try{
+    const box = document.getElementById('global-notifications');
+    if(!box) return;
+
+    const res = await fetch('/api/notifications/list');
+    const data = await res.json();
+    box.innerHTML = '';
+
+    (data.items || []).forEach(n=>{
+      const div = document.createElement('div');
+      div.style.margin = '10px 0';
+      div.style.padding = '12px';
+      div.style.border = '1px solid #d4af37';
+      div.style.background = '#111';
+      div.style.color = '#d4af37';
+
+      const t = n.type === 'alert'
+        ? 'background:#3a0000;border:1px solid red;color:red;'
+        : n.type === 'warning'
+          ? 'background:#332800;border:1px solid #d4af37;color:#d4af37;'
+          : 'background:#111;border:1px solid #d4af37;color:#d4af37;';
+
+      div.style = t + 'padding:12px;margin:10px 0;';
+
+      div.innerHTML = 
+        <strong>\</strong><br>
+        <span style='color:#ccc;font-size:13px;'>\</span>
+      ;
+      box.appendChild(div);
+    });
+  }catch(e){
+    console.log('Notification error', e);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadGlobalNotifications);
+</script>

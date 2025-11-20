@@ -1,0 +1,16 @@
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.querySelectorAll('.nav-item').forEach(item=>{
+    item.addEventListener('click',()=>{
+      const view = item.getAttribute('data-view');
+      loadView(view);
+    });
+  });
+});
+
+function loadView(v){
+  fetch('screens/' + v + '.html')
+    .then(r=>r.text())
+    .then(html=>{
+      document.querySelector('#main').innerHTML = html;
+    });
+}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang='es'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Marketplace · NeuralGPT.Store</title>
+<link rel='stylesheet' href='../styles/main.css'>
+<style>
+  body{background:#0b0b0b;color:#d9b65c;font-family:system-ui,Segoe UI,Roboto}
+  .wrap{max-width:1100px;margin:40px auto;padding:0 16px}
+  h1{font-weight:800;letter-spacing:.5px}
+  .filters{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 24px}
+  select,input[type=search]{background:#121212;color:#d9b65c;border:1px solid #2a2a2a;padding:10px;border-radius:10px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+  .card{background:#111;border:1px solid #222;border-radius:16px;padding:16px}
+  .card h3{margin:0 0 6px;font-size:18px}
+  .meta{font-size:12px;opacity:.75;margin-bottom:8px}
+  .btn{display:inline-block;padding:10px 14px;border:1px solid #d9b65c;border-radius:10px;color:#d9b65c;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Marketplace de Software, Agentes y Automatismos</h1>
+  <p>Explora proyectos listos para usar. Compras mediadas por NeuralGPT.Store (intermediación, sin contacto directo con el desarrollador).</p>
+  <div class="filters">
+    <select id="cat">
+      <option value="">Todas las categorías</option>
+      <option>Productividad</option>
+      <option>Estudios</option>
+      <option>Automatización Empresarial</option>
+      <option>Marketing</option>
+      <option>Datos/Trading</option>
+      <option>Otros</option>
+    </select>
+    <input id="q" type="search" placeholder="Buscar por nombre…">
+  </div>
+  <div id="grid" class="grid"></div>
+</div>
+<script src="../assets/js/ngpt-common.js"></script>
+<script>
+async function load(){
+  const res = await fetch('../data/models.json').catch(()=>null);
+  const data = res ? await res.json() : [];
+  const grid = document.getElementById('grid');
+  const q = document.getElementById('q');
+  const cat = document.getElementById('cat');
+  const render = ()=>{
+    const term = (q.value||'').toLowerCase();
+    const c = cat.value;
+    grid.innerHTML = '';
+    data.filter(x=>{
+      const okCat = !c || (x.category||'')===c;
+      const okQ = !term || (x.name||'').toLowerCase().includes(term);
+      return okCat && okQ;
+    }).forEach(x=>{
+      const price = Number(x.price||0);
+      const card = document.createElement('div');
+      card.className='card';
+      card.innerHTML = \
+        <h3>\</h3>
+        <div class="meta">\ • v\</div>
+        <p>\</p>
+        <p><strong>Precio propuesto:</strong> \ € · <strong>Con IVA (25%):</strong> \ €</p>
+        <a class="btn" href="#" data-id="\">Solicitar compra</a>
+      \;
+      card.querySelector('a.btn').onclick=(e)=>{
+        e.preventDefault();
+        const body = [
+          'Proyecto: ' + (x.name||''),
+          'ID: ' + (x.id||''),
+          'Categoría: ' + (x.category||''),
+          'Precio propuesto: ' + price.toFixed(2) + ' €',
+          'Precio c/IVA(25%): ' + NGPT.priceWithVAT(price) + ' €',
+          '',
+          'Mensaje: Me interesa comprar este proyecto a través de NeuralGPT.Store.'
+        ].join('%0A');
+        NGPT.mailTo('wilfre@neuralgpt.store','Solicitud de compra — ' + (x.name||''), decodeURIComponent(body));
+      };
+      grid.appendChild(card);
+    });
+  };
+  q.oninput=render; cat.onchange=render; render();
+}
+load();
+</script>
+</body>
+</html>

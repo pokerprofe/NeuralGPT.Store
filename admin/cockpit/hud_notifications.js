@@ -1,0 +1,14 @@
+async function loadNotifications(){
+  try{
+    const res = await fetch('/api/notify/last');
+    const data = await res.json();
+    const box = document.getElementById('console');
+    (data.list || []).slice(-5).forEach(n=>{
+      box.textContent += '\\n['+n.type.toUpperCase()+'] '+n.msg;
+    });
+    box.scrollTop = box.scrollHeight;
+  }catch(e){
+    // silencioso
+  }
+}
+setInterval(loadNotifications, 7000);

@@ -1,0 +1,55 @@
+.models-wrapper{ padding:40px 20px;
+} .models-title{ text-align:center; font-size:34px; font-weight:800; color:#f4c857;
+} .models-subtitle{ text-align:center; font-size:14px; opacity:0.8; margin-top:4px; margin-bottom:40px;
+} .models-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:26px;
+} .model-card{ background:#050608; border-radius:14px; padding:20px; position:relative; transition:all 0.25s ease; cursor:pointer; border:1px solid #1b1e2a;
+} .model-card:hover{ transform:translateY(-6px); border-color:#f4c857; box-shadow:0 0 22px rgba(244,200,87,0.18);
+} .rgb-frame{ position:relative; overflow:hidden;
+}
+.rgb-frame::before{ content:""; position:absolute; inset:-2px; background:linear-gradient(120deg, #f4c857, #c7911a, #05f2f2, #7a00ff, #f4c857); background-size:300% 300%; animation:rgbMove 6s linear infinite; z-index:-1;
+}
+.rgb-frame::after{ content:""; position:absolute; inset:2px; background:#050608; border-radius:12px; z-index:1;
+}
+@keyframes rgbMove{ 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;}
+} .model-card *{ position:relative; z-index:2;
+} .model-header{ display:flex; align-items:center; gap:10px; margin-bottom:12px;
+} .model-logo{ width:42px; height:42px; object-fit:cover; border-radius:8px;
+} .model-name{ font-size:20px; color:#c8b78a; font-weight:700;
+} .model-desc{ font-size:13px; opacity:0.8; margin-bottom:12px;
+} .tag{ display:inline-block; padding:3px 8px; background:#25283a; color:#f4c857; border-radius:6px; font-size:11px; margin-bottom:12px; text-transform:uppercase;
+} .model-btn{ width:100%; padding:10px; background:linear-gradient(135deg,#f4c857,#c7911a); border:none; color:#050608; font-weight:700; border-radius:10px; cursor:pointer; margin-top:8px;
+} .lock-tag{ position:absolute; top:12px; right:12px; background:#f44336; padding:3px 8px; color:white; border-radius:6px; font-size:11px; z-index:20;
+} .badge{ position:absolute; top:12px; left:12px; background:#05f2f2; padding:3px 8px; color:#050608; border-radius:6px; font-weight:700; font-size:11px; z-index:20;
+} .model-card{ position:relative; background:#050608; border:1px solid #1b1e2a; border-radius:14px; padding:18px; transition:all .35s ease; box-shadow:0 0 14px rgba(0,0,0,0.55); overflow:hidden;
+} .model-card:hover{ border-color:#f4c857; box-shadow:0 0 22px rgba(244,200,87,0.55); transform:translateY(-4px);
+} .model-card::before{ content:""; position:absolute; inset:0; border-radius:14px; padding:2px; background:linear-gradient(135deg,#f4c857,#c7911a,#f4c857); -webkit-mask:linear-gradient(#c8b78a 0 0) content-box,linear-gradient(#c8b78a 0 0); -webkit-mask-composite:xor; mask-composite:exclude; animation:breath 4s ease-in-out infinite; opacity:0.35;
+} @keyframes breath{ 0%{opacity:0.20} 50%{opacity:0.55} 100%{opacity:0.20}
+} .model-badge{ position:absolute; top:10px; right:10px; background:#f4c857; color:#050608; padding:4px 10px; border-radius:8px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; opacity:0.90;
+} .badge-featured{ background:#ff8f97; }
+.badge-pro{ background:#8fc8ff; }
+.badge-exp{ background:#ffcf66; } .model-info h3{ margin-top:10px; margin-bottom:4px; font-size:18px;
+}
+.model-info p{ font-size:13px; opacity:0.8;
+} .model-card{ background:#000000; border:2px solid #f4c857; border-radius:18px; padding:20px; color:#f4c857; box-shadow:0 0 12px rgba(244,200,87,0.25); transition:0.35s; position:relative; overflow:hidden;
+} .model-card:hover{ transform:scale(1.02); box-shadow:0 0 22px rgba(244,200,87,0.45);
+} .model-card:before{ content:""; position:absolute; top:0; left:0; width:100%; height:100%; border-radius:18px; padding:2px; background:linear-gradient(120deg, #f4c857, #ff00ea, #00eaff, #f4c857); background-size:400% 400%; animation:rgbGlow 9s ease infinite; z-index:0;
+} .model-card > *{ position:relative; z-index:1;
+} @keyframes rgbGlow{ 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;}
+} .model-card h2, .model-card h3{ color:#f4c857; font-weight:800; letter-spacing:1px;
+} .model-meta, .model-desc{ color:#c8b78a; opacity:0.85;
+} .model-badge-featured{ background:#f4c857; color:#000000; font-weight:800;
+} .model-badge-pro{ background:#c7911a; color:#000000; font-weight:800;
+} .model-badge-new{ background:#ff4970; color:#000000; font-weight:700;
+} .model-badge-experimental{ background:#00eaff; color:#000000; font-weight:700;
+} /* ============================ PREMIUM TECH GRID – ORO 28K ============================ */ #storeGrid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:26px; padding:20px; animation: fadeIn 0.8s ease;
+} .model-card{ background:#000; border:2px solid #C79E29; border-radius:18px; padding:18px; box-shadow:0 0 14px rgba(255,215,0,0.18); transition:transform 0.25s ease, box-shadow 0.3s ease; cursor:pointer; position:relative; overflow:hidden;
+} .model-card:hover{ transform:scale(1.04); box-shadow:0 0 22px rgba(255,215,0,0.45);
+} .model-card:before{ content:""; position:absolute; top:-60%; left:-60%; width:220%; height:220%; background:conic-gradient(from 0deg, #ff0040, #ff8a00, #f9ff00, #0aff00, #00f6ff, #1300ff, #ff00de, #ff0040); animation: rgbSpin 6s linear infinite; opacity:0.08;
+} @keyframes rgbSpin{ 0%{ transform:rotate(0deg);} 100%{ transform:rotate(360deg);}
+} .model-img{ width:100%; height:180px; object-fit:contain; filter:drop-shadow(0 0 6px #C79E29);
+} .model-title{ font-size:22px; color:#C79E29; font-weight:800; letter-spacing:1px; margin:12px 0 6px 0;
+} .model-meta{ font-size:15px; color:#f4e1c1; opacity:0.9; margin-bottom:8px;
+} .model-price{ font-size:19px; font-weight:700; color:#C79E29; letter-spacing:1px;
+} .model-badge-featured{ background:#C79E29; color:#000; font-weight:800; padding:4px 10px; border-radius:8px; display:inline-block; margin-top:8px;
+} @keyframes fadeIn{ from{opacity:0;} to{opacity:1;}
+} 

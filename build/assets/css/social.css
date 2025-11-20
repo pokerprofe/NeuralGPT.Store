@@ -1,0 +1,7 @@
+.social-bar{ margin-top:40px; display:flex; justify-content:center; gap:20px;
+} .social-btn{ width:42px; height:42px; border-radius:50%; background:#050608; border:1px solid #C7911A; display:flex; justify-content:center; align-items:center; cursor:pointer; transition:0.25s ease-in-out; box-shadow:0 0 12px rgba(0,0,0,.55);
+}
+.social-btn:hover{ transform:scale(1.12); box-shadow:0 0 12px #F4C857;
+}
+.social-icon{ width:20px; height:20px; filter:invert(78%) sepia(45%) saturate(950%) hue-rotate(12deg);
+} 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AutoVendor Uploader</title>
+<meta charset='UTF-8'>
+<style>
+body { background:#000;color:#d4af37;font-family:Arial;padding:20px; }
+input,textarea,select { width:100%;margin:10px 0;padding:8px;background:#111;color:#d4af37;border:1px solid #333; }
+button { padding:10px;background:#d4af37;color:#000;border:none;cursor:pointer;width:100%; }
+.product-card { background:#111;padding:15px;border:1px solid #333;margin:10px 0; }
+</style>
+</head>
+<body>
+<h1>AutoVendor Uploader</h1>
+
+<p>Upload vendor catalog (JSON / CSV / URL)</p>
+
+<label>Vendor ID</label>
+<input id='vendorId'>
+
+<label>Method</label>
+<select id='method'>
+  <option value='json'>JSON raw</option>
+  <option value='csv'>CSV raw</option>
+  <option value='url'>URL</option>
+</select>
+
+<label>Payload</label>
+<textarea id='payload' rows='8'></textarea>
+
+<button onclick='upload()'>Upload & Process</button>
+
+<h2>Generated Product Cards</h2>
+<div id='cards'></div>
+
+<script>
+async function upload(){
+  const vendorId = document.getElementById('vendorId').value;
+  const method = document.getElementById('method').value;
+  const payload = document.getElementById('payload').value;
+
+  const res = await fetch('/api/vendor/uploadCatalog',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ vendorId, method, payload })
+  });
+
+  const out = await res.json();
+  alert(JSON.stringify(out));
+
+  const cards = await fetch('/api/vendor/autocards');
+  const html = await cards.text();
+  document.getElementById('cards').innerHTML = html;
+}
+</script>
+</body>
+</html>

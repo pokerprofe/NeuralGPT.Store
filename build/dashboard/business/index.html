@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang='es'>
+<head>
+<meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Automatizar mi Empresa · NeuralGPT.Store</title>
+<link rel='stylesheet' href='../styles/main.css'>
+<style>
+  body{background:#0b0b0b;color:#d9b65c;font-family:system-ui}
+  .wrap{max-width:900px;margin:40px auto;padding:0 16px}
+  input,select,textarea{width:100%;background:#121212;color:#d9b65c;border:1px solid #2a2a2a;padding:10px;border-radius:10px;margin:6px 0}
+  button{padding:10px 14px;border:1px solid #d9b65c;border-radius:10px;background:#111;color:#d9b65c}
+  .note{opacity:.8}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Automatizar mi Empresa</h1>
+  <p class="note">Cuéntanos tu caso. Te proponemos automatismos existentes o desarrollamos uno a medida.
+  Sin contacto directo con desarrolladores: NeuralGPT.Store intermedia y aplica IVA 25%.</p>
+  <form id="f">
+    <label>Nombre y empresa</label>
+    <input name="who" required>
+    <label>Correo de contacto</label>
+    <input type="email" name="email" required>
+    <label>Área a automatizar</label>
+    <select name="area" required>
+      <option>Ventas/CRM</option><option>Atención al cliente</option><option>Operaciones</option>
+      <option>Marketing</option><option>Finanzas</option><option>Otro</option>
+    </select>
+    <label>Describe tu necesidad</label>
+    <textarea name="desc" rows="6" required></textarea>
+    <label>Presupuesto objetivo (€)</label>
+    <input type="number" name="budget" step="0.01" min="0">
+    <button type="submit">Solicitar propuesta</button>
+  </form>
+</div>
+<script src="../assets/js/ngpt-common.js"></script>
+<script>
+document.getElementById('f').onsubmit=(e)=>{
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const d = Object.fromEntries(fd.entries());
+  const body = [
+    'Solicitud de automatización empresarial:',
+    'Contacto: ' + d.who,
+    'Email: ' + d.email,
+    'Área: ' + d.area,
+    'Descripción: ' + d.desc,
+    'Presupuesto: ' + (d.budget||'N/A') + ' €'
+  ].join('\n');
+  NGPT.mailTo('wilfre@neuralgpt.store','Automatizar mi Empresa — ' + d.who, body);
+};
+</script>
+</body>
+</html>

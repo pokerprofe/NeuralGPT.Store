@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang='es'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>NeuralGPT.Store — Marketplace IA</title>
+<link rel='stylesheet' href='/assets/css/home.css'>
+</head>
+<body>
+  <header class='header'>
+    <div class='brand'>
+      <div class='logo'>◊</div>
+      <div>
+        <h1 style='font-family:Inter, serif'>NeuralGPT.Store</h1>
+        <div style='color:rgba(255,255,255,.55)'>Marketplace de agentes IA, automatismos y apps</div>
+      </div>
+    </div>
+    <nav>
+      <button class='btn' onclick=\"location.href='/dashboard/marketplace/index.html'\">Marketplace</button>
+      <button class='btn' onclick=\"location.href='/dashboard/developer/index.html'\">Ofrecer automatismos</button>
+      <button class='btn' onclick=\"location.href='/dashboard/business/index.html'\">Empresas</button>
+    </nav>
+  </header>
+
+  <section class='hero'>
+    <div class='container'>
+      <h2 style='color:var(--gold);font-size:28px;margin-bottom:6px'>Marketplace de Creaciones IA</h2>
+      <p style='color:var(--muted);max-width:900px;margin:0 auto 18px'>Publica, vende y distribuye tus agentes y automatismos. Nosotros gestionamos cobros y entrega del link de uso.</p>
+      <div class='controls'>
+        <button class='btn' onclick=\"location.href='#productos'\">Ver productos</button>
+        <button class='btn' onclick=\"location.href='/dashboard/marketplace/index.html'\">Subir Proyecto IA</button>
+      </div>
+    </div>
+  </section>
+
+  <main class='container' id='productos'>
+    <div id='grid' class='grid'></div>
+  </main>
+
+  <footer class='footer'>© 2025 NeuralGPT.Store — Marketplace IA. IVA se aplica en el pago final.</footer>
+
+  <script src='/assets/js/home.js'></script>
+</body>
+</html>

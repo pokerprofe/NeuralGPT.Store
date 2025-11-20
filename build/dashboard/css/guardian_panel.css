@@ -1,0 +1,46 @@
+.gpanel-box{
+    background:#050608;
+    border:1px solid #25283a;
+    padding:20px;
+    margin-top:20px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(244,200,87,0.25);
+}
+
+.g-title{
+    font-size:18px;
+    font-weight:700;
+    color:#f4c857;
+    margin-bottom:12px;
+}
+
+.g-status{
+    padding:10px;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:14px;
+    text-align:center;
+}
+
+.g-green{ background:#0fbb65; color:#050608; }
+.g-yellow{ background:#ffdd57; color:#050608; }
+.g-red{ background:#ff4976; color:#fff; }
+
+.g-log{
+    background:#11131a;
+    border:1px solid #25283a;
+    padding:10px;
+    height:140px;
+    overflow-y:auto;
+    font-size:12px;
+    color:#f4f4f4;
+    border-radius:8px;
+}
+
+/* RGB hover */
+.gpanel-box:hover{
+    box-shadow:0 0 20px rgba(0,255,255,0.45),
+               0 0 30px rgba(244,200,87,0.45);
+    transition:.25s;
+}

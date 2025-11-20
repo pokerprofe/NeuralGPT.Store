@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>AutoVendor</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+th,td{padding:8px;border-bottom:1px solid #333;}
+.blocked{color:#ff5a5a;font-weight:bold;}
+.active{color:#00ff6e;font-weight:bold;}
+button{padding:8px 12px;margin:4px;background:#d4af37;color:#000;border:none;cursor:pointer;}
+</style>
+</head>
+<body>
+<h1>AutoVendor Manager</h1>
+
+<table id='tbl'>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Country</th>
+    <th>Website</th>
+    <th>API Key</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+</table>
+
+<script>
+async function loadVendors(){
+  const r = await fetch('/api/vendors/list');
+  const d = await r.json();
+  const tbl = document.getElementById('tbl');
+
+  (d.items || []).forEach(v=>{
+    const tr = document.createElement('tr');
+    const status = v.blocked ? 'blocked' : 'active';
+
+    tr.innerHTML = \
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td style="font-size:12px">\</td>
+      <td class="\app.get('/api/neural/status', (req,res)=>{
+  res.json(neural.systemHealth());
+});">\</td>
+      <td>
+        <button onclick="blockVend(\)">Block</button>
+        <button onclick="unblockVend(\)">Unblock</button>
+      </td>
+    \;
+    tbl.appendChild(tr);
+  });
+}
+
+async function blockVend(id){
+  await fetch('/api/vendors/block',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ id })
+  });
+  location.reload();
+}
+async function unblockVend(id){
+  await fetch('/api/vendors/unblock',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ id })
+  });
+  location.reload();
+}
+
+loadVendors();
+</script>
+</body>
+</html>

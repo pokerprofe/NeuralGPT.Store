@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Business Subscription — NeuralGPT</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+input{padding:10px;width:260px;margin:6px 0;border:1px solid #d4af37;background:#111;color:#d4af37;}
+button{padding:10px 20px;background:#111;border:1px solid #d4af37;color:#d4af37;cursor:pointer;margin-top:10px;}
+.box{max-width:360px;margin:auto;margin-top:80px;border:1px solid #d4af37;padding:25px;}
+h1{text-align:center;}
+label{display:block;margin-top:10px;}
+</style>
+</head>
+
+<body>
+
+<div class='box'>
+  <h1>Business Subscription</h1>
+
+  <label>Company Name</label>
+  <input id='company'/>
+
+  <label>Email (administrator)</label>
+  <input id='email'/>
+
+  <label>Password</label>
+  <input type='password' id='pass'/>
+
+  <button onclick='registerBiz()'>Create Business Account</button>
+
+  <p style='margin-top:20px;text-align:center;'>
+    Includes access for up to <b>10 employees</b>.
+  </p>
+</div>
+
+<script>
+async function registerBiz(){
+  const company = document.getElementById('company').value;
+  const email   = document.getElementById('email').value;
+  const pass    = document.getElementById('pass').value;
+
+  // 1) Crear usuario administrador
+  const u = await fetch('/api/user/register',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ email, pass })
+  });
+
+  const uData = await u.json();
+  if(!uData.ok){ alert('User creation failed'); return; }
+
+  // 2) Crear suscripción empresarial
+  const s = await fetch('/api/subscriptions/business',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ email, company })
+  });
+
+  const sData = await s.json();
+
+  if(!sData.ok){ alert('Subscription failed'); return; }
+
+  alert('Business account created. Please login.');
+  window.location = '/public_html/login.html';
+}
+</script>
+
+<script src='/public_html/assets/js/benefit_popup.js'></script>
+<script>setTimeout(()=>showBenefits('general'),2000);</script>
+</body>
+</html>
+

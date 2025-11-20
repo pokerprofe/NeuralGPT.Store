@@ -1,0 +1,29 @@
+async function loadProducts(){
+    const res = await fetch('/api/products');
+    const data = await res.json();
+    const list = document.getElementById('list');
+    list.innerHTML = '';
+    data.forEach(p=>{
+        const div = document.createElement('div');
+        div.innerHTML = '<b>'+p.name+'</b> — '+p.price+'€ ('+p.category+')';
+        list.appendChild(div);
+    });
+}
+
+async function addProduct(){
+    const body = {
+        name: document.getElementById('name').value,
+        price: parseFloat(document.getElementById('price').value),
+        category: document.getElementById('category').value
+    };
+
+    await fetch('/api/products/add',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(body)
+    });
+
+    loadProducts();
+}
+
+loadProducts();

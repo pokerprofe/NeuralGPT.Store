@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>AI OPS — NeuralGPT.Store</title>
+<style>
+body{
+  background:#000;
+  color:#d4af37;
+  font-family:Arial;
+  padding:20px;
+}
+table{ width:100%; border-collapse:collapse; margin-top:20px; }
+td,th{ padding:10px; border-bottom:1px solid #333; font-size:13px; }
+.ok{ color:#00ff88;font-weight:bold; }
+.bad{ color:red;font-weight:bold; }
+</style>
+</head>
+<body>
+
+<h1>AI OPS — System Autocheck</h1>
+<p>Automated integrity diagnostics & self-repair engine</p>
+
+<button onclick='runCheck()' style='padding:8px 20px;background:#111;border:1px solid #d4af37;color:#d4af37;cursor:pointer;'>Run Diagnostic</button>
+
+<table id='tbl'>
+  <tr>
+    <th>File</th>
+    <th>Status</th>
+    <th>Message</th>
+  </tr>
+</table>
+
+<script>
+async function runCheck(){
+  const res = await fetch('/api/ops/check');
+  const data = await res.json();
+  const t = document.getElementById('tbl');
+  t.innerHTML = '<tr><th>File</th><th>Status</th><th>Message</th></tr>';
+
+  data.results.forEach(r=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = \
+      <td>\</td>
+      <td class="\">\</td>
+      <td>\</td>
+    \;
+    t.appendChild(tr);
+  });
+}
+</script>
+
+</body>
+</html>

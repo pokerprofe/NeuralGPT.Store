@@ -1,0 +1,29 @@
+[
+  {
+    "img": "assets/img/autocorp.png",
+    "title": "AutoCorp AI — Asistente de Ventas",
+    "desc": "Captura leads, agenda citas y redacta propuestas.",
+    "id": "ai-001",
+    "category": "Automatización",
+    "author": "PokerShadow Ink",
+    "price": 49.9
+  },
+  {
+    "img": "assets/img/courseforge.png",
+    "title": "CourseForge AI",
+    "desc": "Genera cursos y contenidos educativos automáticamente.",
+    "id": "ai-002",
+    "category": "Educación",
+    "author": "PokerShadow Ink",
+    "price": 29.9
+  },
+  {
+    "img": "assets/img/webcreator.png",
+    "title": "Web Creator 3.0 AI",
+    "desc": "Crea landing pages y micro-sitios desde prompts.",
+    "id": "ai-003",
+    "category": "Productividad",
+    "author": "PokerShadow Ink",
+    "price": 19.9
+  }
+]

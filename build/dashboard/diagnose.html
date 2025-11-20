@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Diagnose Center</title>
+<link rel="stylesheet" href="../assets/css/diagnose.css">
+<script src="../js/diagnose.js"></script>
+</head>
+<body>
+<div class="diag-box">
+    <h1 class="diag-title">DIAGNOSE CENTER v1 — Irene Debug Terminal</h1>
+
+    <div class="diag-cards">
+        <div class="diag-card" id="c_server">
+            <h2>Errores del Servidor</h2>
+            <div class="diag-val" id="val_server">0</div>
+        </div>
+
+        <div class="diag-card" id="c_browser">
+            <h2>Errores del Navegador</h2>
+            <div class="diag-val" id="val_browser">0</div>
+        </div>
+
+        <div class="diag-card" id="c_guardian">
+            <h2>Alertas del Guardián</h2>
+            <div class="diag-val" id="val_guardian">0</div>
+        </div>
+    </div>
+
+    <div class="diag-buttons">
+        <button onclick="exportLogs()">Exportar para Irene</button>
+        <button onclick="loadFull()">Ver informe completo</button>
+    </div>
+
+    <pre id="full_output"></pre>
+</div>
+</body>
+</html>

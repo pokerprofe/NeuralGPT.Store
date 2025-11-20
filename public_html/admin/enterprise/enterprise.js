@@ -1,0 +1,27 @@
+async function loadEnterprise(){
+  try{
+    const r = await fetch('/api/enterprise/list');
+    const data = await r.json();
+    const tb = document.querySelector('tbody');
+
+    tb.innerHTML = '';
+    data.list.forEach(x=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = \
+        <td>\</td>
+        <td>\</td>
+        <td>\</td>
+        <td>\</td>
+        <td>\</td>
+        <td>\</td>
+        <td>\</td>
+        <td>\</td>
+      \;
+      tb.appendChild(tr);
+    });
+  }catch(e){
+    console.log('Enterprise error');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadEnterprise);

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang=\"en\">
+<head>
+  <meta charset=\"utf-8\" />
+  <title>Payout Settings — NeuralGPT.Store</title>
+  <link rel=\"stylesheet\" href=\"./payout.css\" />
+</head>
+<body>
+  <div class=\"payout-shell\">
+    <h1>Payout Settings</h1>
+    <p class=\"subtitle\">
+      This page is only for the owner. Enter your master password and IBAN.
+      Data is stored encrypted locally and never exposed in code or repositories.
+    </p>
+
+    <div class=\"card\">
+      <div class=\"field\">
+        <label for=\"adminPassword\">Master password</label>
+        <input id=\"adminPassword\" type=\"password\" placeholder=\"Owner password\" />
+      </div>
+
+      <button id=\"loadBtn\" class=\"btn btn-secondary\">Load current payout data</button>
+
+      <div class=\"field\">
+        <label for=\"iban\">IBAN</label>
+        <input id=\"iban\" type=\"text\" placeholder=\"Enter your IBAN\" />
+      </div>
+
+      <div class=\"field\">
+        <label for=\"note\">Internal note (optional)</label>
+        <textarea id=\"note\" placeholder=\"For example: ING Spain account for vendors & users.\"></textarea>
+      </div>
+
+      <button id=\"saveBtn\" class=\"btn btn-primary\">Save payout settings</button>
+
+      <div id=\"status\" class=\"status\"></div>
+    </div>
+  </div>
+
+  <script src=\"./payout.js\"></script>
+</body>
+</html>

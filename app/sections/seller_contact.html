@@ -1,0 +1,38 @@
+<section class=\"seller-wrapper\">
+  <h1 class=\"seller-title\">Vendor Partnership — neuralGPT.store</h1>
+  <p class=\"seller-subtitle\">
+    If you are a technology, robotics or components supplier and want to collaborate with neuralGPT.store,
+    use this secure form. Only verified vendors are accepted.
+  </p>
+
+  <div class=\"seller-box\">
+    <div class=\"field\">
+      <label for=\"slr_vendor\">Company / Vendor name</label>
+      <input id=\"slr_vendor\" type=\"text\" placeholder=\"Your company name\" />
+    </div>
+
+    <div class=\"field\">
+      <label for=\"slr_email\">Business email</label>
+      <input id=\"slr_email\" type=\"email\" placeholder=\"contact@yourcompany.com\" />
+    </div>
+
+    <!-- Honeypot (hidden) -->
+    <input id=\"slr_hp\" type=\"text\" autocomplete=\"off\" />
+
+    <div class=\"field\">
+      <label for=\"slr_msg\">Proposal</label>
+      <textarea id=\"slr_msg\" placeholder=\"Describe your products, commission model and logistics.\"></textarea>
+    </div>
+
+    <button id=\"slr_send\">Send partnership request</button>
+    <div id=\"slr_status\" class=\"seller-status\"></div>
+  </div>
+
+  <p class=\"seller-note\">
+    Reference code for all agreements: <strong>neuralGPT.store</strong>.
+    We only accept providers committed to quality, transparency and fair commissions.
+  </p>
+</section>
+
+<link rel=\"stylesheet\" href=\"/assets/css/sellers.css\" />
+<script src=\"/app/js/sellers.js\"></script>

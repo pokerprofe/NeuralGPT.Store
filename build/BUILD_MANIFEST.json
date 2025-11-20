@@ -1,0 +1,10 @@
+{
+  "build_timestamp": "2025-11-16T07:21:29",
+  "origin": "local_private_build",
+  "includes": [
+    "public_html",
+    "dashboard",
+    "assets"
+  ],
+  "notes": "Este build es 100% estático. Nada de backend. Seguro para GitHub Pages."
+}

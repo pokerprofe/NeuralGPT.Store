@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang='es'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Checkout — NeuralGPT.Store</title>
+<link rel='stylesheet' href='/assets/css/home.css'>
+</head>
+<body>
+  <div class='container'>
+    <h2 style='color:var(--gold)'>Checkout</h2>
+    <div id='productBox' class='card'>
+      <div id='pTitle' class='title'></div>
+      <div id='pDesc' class='desc'></div>
+      <div style='display:flex;align-items:center;justify-content:space-between'>
+        <div id='pPrice' class='price'></div>
+        <div><button id='payBtn' class='cta-buy'>Pagar</button></div>
+      </div>
+      <div style='margin-top:12px;color:var(--muted)'>Después de pagar recibirás en tu email el link y credenciales del producto.</div>
+    </div>
+  </div>
+
+<script>
+async function loadProduct(){
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('product');
+  const res = await fetch('/dashboard/data/models.json');
+  const data = await res.json();
+  const prod = data.find(x=>x.id===id);
+  if(!prod){ document.getElementById('productBox').innerHTML='Producto no encontrado'; return;}
+  document.getElementById('pTitle').innerText = prod.title;
+  document.getElementById('pDesc').innerText = prod.desc;
+  document.getElementById('pPrice').innerText = '€' + prod.price.toFixed(2);
+  document.getElementById('payBtn').addEventListener('click', async ()=>{
+    // Llamamos al endpoint de servidor para crear sesión de pago (example: /create-checkout-session)
+    // DEBES desplegar el servidor de ejemplo y configurar STRIPE_SECRET_KEY
+    const resp = await fetch('/server/create-checkout-session', {
+      method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({productId:prod.id})
+    });
+    const json = await resp.json();
+    if(json.url){ window.location = json.url; } else { alert('Error al crear sesión de pago'); }
+  });
+}
+loadProduct();
+</script>
+</body>
+</html>
