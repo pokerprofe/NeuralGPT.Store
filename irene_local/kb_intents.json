@@ -1,0 +1,9 @@
+{
+  "saludo": ["hola","buenas","hey"],
+  "estado": ["estado del sistema","como va todo","diagnostico"],
+  "ventas": ["ventas","tendencias","prevision","forecast"],
+  "contabilidad": ["ingresos","gastos","balance"],
+  "tareas": ["agenda","plan","prioridades"],
+  "usuarios": ["clientes","afiliados","proveedores"],
+  "seguridad": ["riesgos","intrusiones","guardian"]
+}
