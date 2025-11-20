@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+<meta charset='UTF-8'>
+<title>Proveedores — Panel B2B</title>
+<link rel='stylesheet' href='providers.css'>
+</head>
+<body style='background:#000;color:#d4af37;'>
+
+<h1>Gestión de Proveedores</h1>
+<p>Solicitudes capturadas desde el formulario público.</p>
+
+<div id='filters'>
+  <select id='statusFilter' onchange='loadProviders()'>
+    <option value='all'>Todos</option>
+    <option value='pending'>Pendientes</option>
+    <option value='approved'>Aprobados</option>
+    <option value='rejected'>Rechazados</option>
+  </select>
+</div>
+
+<div id='list'></div>
+
+<script src='providers.js'></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>B2B Outreach Engine</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+th,td{padding:8px;border-bottom:1px solid #333;font-size:13px;}
+.status-new{color:#00bfff;}
+.status-queued{color:#ffd700;}
+.status-contacted{color:#00ff6e;}
+.status-rejected{color:red;}
+input,textarea{background:#111;border:1px solid #333;color:#d4af37;padding:6px;width:100%;}
+button{padding:6px 10px;background:#d4af37;color:#000;border:none;cursor:pointer;}
+</style>
+</head>
+<body>
+<h1>B2B Outreach Engine</h1>
+<p>Manage global technology vendors and send automated invitations.</p>
+
+<h2>Add Prospect</h2>
+<table>
+  <tr><td>Name</td><td><input id='name'></td></tr>
+  <tr><td>Country</td><td><input id='country'></td></tr>
+  <tr><td>Website</td><td><input id='website'></td></tr>
+  <tr><td>Email</td><td><input id='email'></td></tr>
+  <tr><td>Language (optional)</td><td><input id='language' placeholder='en/es/ja/zh-cn/zh-tw/ar'></td></tr>
+  <tr><td>Category</td><td><input id='category' placeholder='robotics, chips, dev kits...'></td></tr>
+  <tr><td>Notes</td><td><textarea id='notes'></textarea></td></tr>
+</table>
+<button onclick='addProspect()'>Save Prospect</button>
+
+<h2>Prospects</h2>
+<table id='tbl'>
+  <tr>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Email</th>
+    <th>Lang</th>
+    <th>Status</th>
+    <th>Last Contact</th>
+    <th>Action</th>
+  </tr>
+</table>
+
+<script>
+async function addProspect(){
+  const body = {
+    name: document.getElementById('name').value,
+    country: document.getElementById('country').value,
+    website: document.getElementById('website').value,
+    email: document.getElementById('email').value,
+    language: document.getElementById('language').value,
+    category: document.getElementById('category').value,
+    notes: document.getElementById('notes').value
+  };
+  const res = await fetch('/api/b2b/prospects/add',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(body)
+  });
+  const data = await res.json();
+  alert('Saved: '+data.prospect.id);
+  location.reload();
+}
+
+async function loadProspects(){
+  const res = await fetch('/api/b2b/prospects/list');
+  const data = await res.json();
+  const tbl = document.getElementById('tbl');
+
+  (data.items || []).forEach(p=>{
+    const tr = document.createElement('tr');
+    const cls = 'status-'+(p.status || 'new');
+    tr.innerHTML = \
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td class="\">\</td>
+      <td>\</td>
+      <td><button onclick="contact(\)">Contact</button></td>
+    \;
+    tbl.appendChild(tr);
+  });
+}
+
+async function contact(id){
+  const res = await fetch('/api/b2b/prospects/contact',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ id })
+  });
+  const data = await res.json();
+  alert('Mail queued for: '+data.result.prospect.email);
+  location.reload();
+}
+
+loadProspects();
+</script>
+</body>
+</html>

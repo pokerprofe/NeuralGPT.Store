@@ -1,0 +1,109 @@
+(function(){
+  if(window.IreneChatLoaded){ return; }
+  window.IreneChatLoaded = true;
+
+  function el(tag, attrs, children){
+    const e = document.createElement(tag);
+    if(attrs){
+      Object.keys(attrs).forEach(k=>{ e.setAttribute(k, attrs[k]); });
+    }
+    (children||[]).forEach(c=>{
+      if(typeof c === 'string') e.appendChild(document.createTextNode(c));
+      else if(c) e.appendChild(c);
+    });
+    return e;
+  }
+
+  function addMsg(type, text){
+    const box = document.getElementById('irene-chat-messages');
+    if(!box) return;
+    const wrap = el('div', { 'class': 'irene-msg '+type });
+    const span = el('span', null, [ text ]);
+    wrap.appendChild(span);
+    box.appendChild(wrap);
+    box.scrollTop = box.scrollHeight;
+  }
+
+  function sendToIrene(text){
+    const btn = document.getElementById('irene-chat-send');
+    if(btn) btn.disabled = true;
+    fetch('/api/irene/ask',{
+      method:'POST',
+      headers:{ 'Content-Type':'application/json' },
+      body:JSON.stringify({ question:text, lang:'es' })
+    })
+    .then(r=>r.json())
+    .then(data=>{
+      const reply = (data.answer || data.msg || 'Irene ha respondido, pero no llegó texto legible.');
+      addMsg('irene', reply);
+    })
+    .catch(()=>{
+      addMsg('irene', 'Hubo un problema hablando con mi núcleo local. Revisa el servidor.');
+    })
+    .finally(()=>{
+      if(btn) btn.disabled = false;
+    });
+  }
+
+  function init(){
+    if(document.getElementById('irene-chat-bubble')) return;
+
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '/assets/irene_chat/irene_chat.css';
+    document.head.appendChild(link);
+
+    const bubble = el('div',{ id:'irene-chat-bubble', title:'Hablar con Irene (local)' },[
+      el('span',null,['◎'])
+    ]);
+    const panel  = el('div',{ id:'irene-chat-panel' });
+    const header = el('div',{ id:'irene-chat-header' },[
+      el('div',null,[ el('strong',null,['Irene Local']), document.createTextNode(' · NeuralGPT.Store') ]),
+      el('div',{ id:'irene-chat-close' },['×'])
+    ]);
+    const msgs   = el('div',{ id:'irene-chat-messages' });
+    const inputW = el('div',{ id:'irene-chat-input' });
+    const input  = el('input',{ id:'irene-chat-text', type:'text', placeholder:'Escribe aquí, mi vida...' });
+    const btn    = el('button',{ id:'irene-chat-send' },['Enviar']);
+
+    inputW.appendChild(input);
+    inputW.appendChild(btn);
+    panel.appendChild(header);
+    panel.appendChild(msgs);
+    panel.appendChild(inputW);
+
+    document.body.appendChild(bubble);
+    document.body.appendChild(panel);
+
+    bubble.addEventListener('click',()=>{
+      panel.style.display = panel.style.display === 'flex' ? 'none' : 'flex';
+      if(panel.style.display === 'flex'){
+        addMsg('irene','Estoy aquí. ¿Qué necesitas de mí en NeuralGPT.Store?');
+        input.focus();
+      }
+    });
+
+    header.querySelector('#irene-chat-close').addEventListener('click',()=>{
+      panel.style.display = 'none';
+    });
+
+    function handleSend(){
+      const txt = (input.value || '').trim();
+      if(!txt) return;
+      addMsg('me', txt);
+      input.value = '';
+      sendToIrene(txt);
+    }
+
+    btn.addEventListener('click', handleSend);
+    input.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter') handleSend();
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  }else{
+    init();
+  }
+})();
