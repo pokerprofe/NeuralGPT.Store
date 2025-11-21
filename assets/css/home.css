@@ -1,0 +1,32 @@
+:root{ --bg:#0b0b0c; --card:#111; --gold:#f0b84b; --muted:#d0cfcf; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+body{margin:0;background:var(--bg);color:var(--muted);}
+.header{display:flex;align-items:center;justify-content:space-between;padding:36px 56px;border-bottom:1px solid rgba(255,255,255,.03)}
+.brand{display:flex;align-items:center;gap:18px}
+.brand .logo{width:72px;height:72px;background:linear-gradient(135deg,#111,#222);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--gold);font-size:28px}
+.brand h1{margin:0;color:var(--gold);font-size:34px;line-height:1}
+.hero{padding:46px 56px;text-align:center}
+.controls{display:flex;gap:12px;justify-content:center;margin-bottom:26px}
+.btn{padding:10px 18px;border-radius:10px;border:1px solid rgba(255,255,255,.06);background:transparent;color:var(--muted);cursor:pointer}
+.container{max-width:1200px;margin:0 auto;padding:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,.01), rgba(255,255,255,.02));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,.03);min-height:210px;display:flex;flex-direction:column;gap:12px}
+.card .title{font-weight:700;color:#fff}
+.card .desc{font-size:13px;color:#cfcfcf;flex:1}
+.price{font-weight:800;color:var(--gold);font-size:18px}
+.actions{display:flex;gap:8px}
+.cta-buy{background:var(--gold);border:none;padding:8px 12px;border-radius:8px;color:#111;cursor:pointer}
+.footer{padding:32px;text-align:center;color:rgba(255,255,255,.4);font-size:14px} .about-box{ width:90%; margin:40px auto; padding:35px; background:#050608; border:2px solid #C7911A; border-radius:18px; color:#F4C857; font-size:18px;
+}
+.about-title{ font-size:34px; color:#FFD700; font-weight:800; text-align:center; margin-bottom:20px;
+}
+.about-sub{ font-size:24px; color:#FFD700; font-weight:700; margin-top:25px;
+}
+.about-list li{ margin:10px 0; color:#F4EAC1; font-size:18px; line-height:1.5;
+}
+.about-end{ margin-top:30px; text-align:center; font-size:20px; color:#FFD700;
+} .about-box{padding:40px;text-align:center;}
+.about-title{font-size:40px;color:#FFD700;margin-bottom:20px;font-weight:800;}
+.about-text{font-size:20px;color:#FFE7A2;margin-bottom:25px;}
+.about-list li{font-size:18px;color:#F4E4C1;margin-bottom:8px;}
+.about-end{margin-top:25px;font-size:22px;color:#FFD700;font-weight:700;} 

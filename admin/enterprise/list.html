@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Enterprise Requests</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+th,td{padding:8px;border-bottom:1px solid #333;font-size:13px;}
+.tier-platinum{color:#00ffea;font-weight:bold;}
+.tier-gold{color:#ffd700;font-weight:bold;}
+.tier-standard{color:#aaa;}
+</style>
+</head>
+<body>
+<h1>Enterprise Requests</h1>
+<table id='tbl'>
+  <tr>
+    <th>Company</th>
+    <th>Sector</th>
+    <th>Country</th>
+    <th>Score</th>
+    <th>Tier</th>
+    <th>Date</th>
+  </tr>
+</table>
+
+<script>
+async function loadAll(){
+  const res = await fetch('/api/enterprise/list');
+  const data = await res.json();
+  const tbl = document.getElementById('tbl');
+
+  (data.items || []).forEach(e=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = \
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td class='tier-\'>\</td>
+      <td>\</td>
+    \;
+    tbl.appendChild(tr);
+  });
+}
+
+loadAll();
+</script>
+</body>
+</html>

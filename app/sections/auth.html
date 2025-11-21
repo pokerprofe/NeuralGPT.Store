@@ -1,0 +1,88 @@
+<section id="authSection" class="auth-wrapper">
+  <h1 class="auth-title">Access NeuralGPT.Store</h1>
+  <p class="auth-subtitle">
+    Create your free account with just email and nickname. No personal data required.
+  </p>
+
+  <div class="auth-grid">
+    <div class="auth-card">
+      <h2>Register</h2>
+      <p class="auth-text">
+        Join the EDO ecosystem, participate in the community chat and prepare your account for future EDO subscription.
+      </p>
+      <form id="registerForm">
+        <div class="field">
+          <label for="regEmail">Email</label>
+          <input id="regEmail" type="email" required />
+        </div>
+        <div class="field">
+          <label for="regNick">Nickname</label>
+          <input id="regNick" type="text" required />
+        </div>
+        <button class="btn-primary" type="submit">Create account</button>
+      </form>
+      <div id="registerMessage" class="auth-message"></div>
+    </div>
+
+    <div class="auth-card">
+      <h2>Login</h2>
+      <p class="auth-text">
+        If you already registered, log in with your email. Your session will be valid for a limited time.
+      </p>
+      <form id="loginForm">
+        <div class="field">
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" type="email" required />
+        </div>
+        <button class="btn-primary" type="submit">Login</button>
+      </form>
+      <div id="loginMessage" class="auth-message"></div>
+
+      <div class="auth-status" id="userStatus"></div>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="/assets/css/auth.css" />
+<script src="/app/js/auth.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<div class="g-recaptcha" data-sitekey="6LcI5gssAAAAAI7Pd5XbikV05cBnO0wr1HoTVOyv"></div>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<div class="g-recaptcha" data-sitekey="6LcI5gssAAAAAI7Pd5XBikV05cBnO0wr1HoTVOyv"></div>
+<div class="g-recaptcha" data-sitekey="6LcI5gssAAAAAI7Pd5XBikV05cBnO0wr1HoTVOyv"></div>
+<script src="https://www.google.com/recaptcha/api.js" defer></script>
+<div class="g-recaptcha" data-sitekey="6LcI5gssAAAAAI7Pd5XBikV05cBnO0wr1HoTVOyv"></div>
+<!-- reCAPTCHA v2 -->
+<div class="g-recaptcha"
+     data-sitekey="6LcI5gssAAAAAAP7d5XBikV05cBnO0wr1HoTV0Yv"
+     style="margin-top:20px;">
+</div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!-- ========================= -->
+<!--   Google Login Button     -->
+<!-- ========================= -->
+
+<div style="margin-top:30px; text-align:center;">
+  <hr style="border:0; border-top:1px solid #444; margin:20px 0;">
+  <p style="color:#ccc; font-size:14px;">o inicia sesión con</p>
+
+  <a href="/oauth/google"
+     style="
+        display:inline-flex;
+        align-items:center;
+        padding:10px 20px;
+        border-radius:6px;
+        background:#fff;
+        color:#000;
+        font-size:15px;
+        font-weight:600;
+        text-decoration:none;
+        box-shadow:0 2px 4px rgba(0,0,0,0.3);
+     ">
+     <img src="https://developers.google.com/identity/images/g-logo.png"
+          style="width:20px;height:20px;margin-right:10px;">
+     Continuar con Google
+  </a>
+</div>

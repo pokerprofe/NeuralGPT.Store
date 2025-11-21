@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Upload AI Project • NeuralGPT.Store AI</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0a0a0b;--fg:#e9b24a;--fg2:#caa24a;--muted:#a7a7a7;--card:#111217;--stroke:#2a2b30}
+  *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Arial}
+  body{margin:0;background:radial-gradient(1200px 600px at 70% -10%,#1b1d25 0,#0a0a0b 65%) fixed;color:#eee}
+  .wrap{max-width:960px;margin:48px auto;padding:0 20px}
+  h1{font-size:28px;margin:0 0 16px;color:var(--fg)}
+  p.lead{color:var(--muted);margin:0 0 24px}
+  form{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:20px;display:grid;gap:14px}
+  label{font-size:13px;color:#bbb}
+  input,textarea,select{background:#0d0f13;border:1px solid #23242a;border-radius:12px;color:#eaeaea;padding:12px 14px;outline:none}
+  input:focus,textarea:focus,select:focus{border-color:#3a3f4a}
+  textarea{min-height:120px;resize:vertical}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .hint{font-size:12px;color:#8a8a8a}
+  .actions{display:flex;gap:12px;margin-top:6px}
+  .btn{padding:12px 16px;border-radius:12px;border:1px solid #3a3f4a;background:#141820;color:#eaeaea;cursor:pointer}
+  .btn.primary{background:linear-gradient(180deg,#2b2f3a,#181b22);border-color:#50442a;color:var(--fg)}
+  .note{font-size:12px;color:#9a9a9a;margin-top:10px}
+  a{color:var(--fg2);text-decoration:none}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Upload AI project</h1>
+    <p class="lead">Publish your agent / automation. Add a thumbnail (PNG/JPG). Your PayPal or Google Pay will be saved for payouts.</p>
+
+    <form id="f">
+      <div class="row">
+        <div>
+          <label>Model name</label>
+          <input name="nombre" placeholder="e.g. Llama Index Agent" required/>
+        </div>
+        <div>
+          <label>Category</label>
+          <select name="categoria">
+            <option>Agent</option><option>Automation</option><option>Dataset</option><option>Tool</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label>Description</label>
+        <textarea name="descripcion" placeholder="What it does, inputs/outputs, setup notes…" required></textarea>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>PayPal link (PayPal.me or email)</label>
+          <input name="paypal" placeholder="https://paypal.me/yourname or name@email.com"/>
+          <div class="hint">Used to route buyer to your PayPal. Optional for now.</div>
+        </div>
+        <div>
+          <label>Google Pay (UPI / address)</label>
+          <input name="gpay" placeholder="e.g. user@okbank or your gpay address"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Project site / docs (optional)</label>
+          <input name="enlace" placeholder="https://…"/>
+        </div>
+        <div>
+          <label>Thumbnail (PNG/JPG)</label>
+          <input name="imagen" type="file" accept=".png,.jpg,.jpeg"/>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" type="button" onclick="location.href='index.html'">← Back</button>
+        <button class="btn primary" type="submit">Publish</button>
+      </div>
+      <div class="note">By publishing you confirm you own the content and agree to remove unsafe material if requested.</div>
+    </form>
+  </div>
+
+<script>
+const API = "http://localhost:4000";
+document.getElementById("f").addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  // API expects field name 'imagen' for file; others are plain fields.
+  try{
+    const r = await fetch(API + "/api/upload", { method:"POST", body: fd });
+    const j = await r.json();
+    alert(j.ok ? "Published!" : ("Error: " + (j.error||"unknown")));
+    if(j.ok) location.href = "index.html";
+  }catch(err){ alert("Network error"); }
+});
+</script>
+</body>
+</html>

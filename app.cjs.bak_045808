@@ -1,0 +1,412 @@
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
+const bodyParser = require('body-parser');
+const app = express();
+const PORT = 4000;
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../app')));
+
+const usersFile = path.join(__dirname, 'users.json');
+if (!fs.existsSync(usersFile)) fs.writeFileSync(usersFile, '[]');
+
+// Endpoint de registro y pago simulado
+app.post('/subscribe', (req, res) => {
+  try {
+    const { email, plan, method } = req.body;
+    let users = JSON.parse(fs.readFileSync(usersFile, 'utf8'));
+    users.push({ email, plan, method, date: new Date().toISOString() });
+    fs.writeFileSync(usersFile, JSON.stringify(users, null, 2));
+    res.json({ ok: true, message: 'Suscripción activada' });
+  } catch (e) {
+    res.status(500).json({ error: 'Error en suscripción' });
+  }
+});
+
+app.get('/subscribers', (req, res) => {
+  try {
+    const users = JSON.parse(fs.readFileSync(usersFile, 'utf8'));
+    res.json(users);
+  } catch (e) {
+    res.status(500).json({ error: 'Error leyendo suscriptores' });
+  }
+});
+
+app.listen(PORT, () => {
+  
+});
+const adsFile = path.join(__dirname, 'ads.json');
+
+app.get('/ads', (req, res) => {
+  try {
+    const ads = JSON.parse(fs.readFileSync(adsFile, 'utf8'));
+    res.json(ads.slice(0, 10));
+  } catch (e) {
+    res.status(500).json({ error: 'Error cargando anuncios' });
+  }
+});
+
+app.post('/ads/view', (req, res) => {
+  try {
+    const ads = JSON.parse(fs.readFileSync(adsFile, 'utf8'));
+    const id = req.body.id;
+    const index = ads.findIndex(a => a.id === id);
+    if (index !== -1) ads[index].vistas++;
+    fs.writeFileSync(adsFile, JSON.stringify(ads, null, 2));
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: 'Error actualizando vistas' });
+  }
+});
+
+// Actualización visual RGB
+setInterval(() => {
+  
+}, 30000);
+const statsFile = path.join(__dirname, 'stats.json');
+
+// Middleware de estadísticas global
+app.use((req, res, next) => {
+  try {
+    const stats = JSON.parse(fs.readFileSync(statsFile, 'utf8'));
+    const hoy = new Date().toISOString().split('T')[0];
+    stats.visitasTotales++;
+    stats.visitasPorDia[hoy] = (stats.visitasPorDia[hoy] || 0) + 1;
+    fs.writeFileSync(statsFile, JSON.stringify(stats, null, 2));
+  } catch (e) {
+    console.error('Error actualizando estadísticas:', e);
+  }
+  next();
+});
+
+// Endpoint público de estadísticas resumidas
+app.get('/stats', (req, res) => {
+  try {
+    const stats = JSON.parse(fs.readFileSync(statsFile, 'utf8'));
+    res.json({
+      total: stats.visitasTotales,
+      hoy: stats.visitasPorDia[new Date().toISOString().split('T')[0]] || 0,
+      anuncios: stats.anunciosVistos || 0,
+      agentes: stats.agentesActivos || 0
+    });
+  } catch (e) {
+    res.status(500).json({ error: 'Error cargando estadísticas' });
+  }
+});
+const feedbackFile = path.join(__dirname, 'feedback.json');
+
+// Registrar nuevo comentario o valoración
+app.post('/feedback', (req, res) => {
+  try {
+    const data = JSON.parse(fs.readFileSync(feedbackFile, 'utf8'));
+    const nuevo = {
+      fecha: new Date().toLocaleString(),
+      usuario: req.body.usuario || 'Anónimo',
+      mensaje: req.body.mensaje || '',
+      rating: req.body.rating || 0
+    };
+    data.push(nuevo);
+    fs.writeFileSync(feedbackFile, JSON.stringify(data, null, 2));
+    res.json({ ok: true, mensaje: 'Feedback recibido correctamente' });
+  } catch (e) {
+    console.error('Error guardando feedback:', e);
+    res.status(500).json({ error: 'Error guardando feedback' });
+  }
+});
+
+// Obtener todos los comentarios
+app.get('/feedback', (req, res) => {
+  try {
+    const data = JSON.parse(fs.readFileSync(feedbackFile, 'utf8'));
+    res.json(data.slice(-20)); // mostrar últimos 20 comentarios
+  } catch (e) {
+    res.status(500).json({ error: 'Error cargando feedback' });
+  }
+});
+
+// Consola de resumen
+setInterval(() => {
+  try {
+    const data = JSON.parse(fs.readFileSync(feedbackFile, 'utf8'));
+    
+  } catch (e) {}
+}, 60000);
+
+
+
+
+
+
+try {
+  const feedbackFile = path.join(__dirname, "feedback.json");
+  if (fs.existsSync(feedbackFile)) {
+    const data = JSON.parse(fs.readFileSync(feedbackFile, "utf8"));
+    console.log("🧠 Feedback activos:", data.length, "entradas.");
+  } else {
+    console.log("🧠 Feedback: sin datos todavía.");
+  }
+} catch (err) {
+  console.error("Error leyendo feedback:", err.message);
+}
+const newsFile = path.join(__dirname, "news.json");
+
+// Endpoint público de noticias
+app.get("/news", (req, res) => {
+  try {
+    if (!fs.existsSync(newsFile)) {
+      fs.writeFileSync(newsFile, JSON.stringify([{ 
+        titulo: "Bienvenido a NeuralGPT.Store", 
+        contenido: "Panel de noticias IA y tecnología activo.", 
+        fecha: new Date().toLocaleString() 
+      }], null, 2));
+    }
+    const news = JSON.parse(fs.readFileSync(newsFile, "utf8"));
+    res.json(news.slice(-10)); // mostrar últimas 10 noticias
+  } catch (err) {
+    res.status(500).json({ error: "Error cargando noticias", details: err.message });
+  }
+});
+
+// Actualización automática del panel de noticias cada 5 minutos
+setInterval(() => {
+  try {
+    const data = fs.existsSync(newsFile) ? JSON.parse(fs.readFileSync(newsFile, "utf8")) : [];
+    data.push({
+      titulo: "Actualización IA " + new Date().toLocaleTimeString(),
+      contenido: "Evento o descubrimiento reciente en el mundo de la IA.",
+      fecha: new Date().toLocaleString()
+    });
+    fs.writeFileSync(newsFile, JSON.stringify(data.slice(-50), null, 2)); // mantener 50 máx
+    console.log("📰 Noticias IA actualizadas automáticamente");
+  } catch (err) {
+    console.error("Error actualizando noticias:", err.message);
+  }
+}, 300000);
+const sponsorsFile = path.join(__dirname, "sponsors.json");
+
+// Endpoint público de sponsors (máx 10 visibles)
+app.get("/sponsors", (req,res)=>{
+  try {
+    if(!fs.existsSync(sponsorsFile)){
+      fs.writeFileSync(sponsorsFile, JSON.stringify([
+        {nombre:"NeuralGPT Core AI", url:"#"},
+        {nombre:"Quantum Security Labs", url:"#"},
+        {nombre:"OpenFuture Tech", url:"#"}
+      ],null,2));
+    }
+    const sponsors = JSON.parse(fs.readFileSync(sponsorsFile,"utf8"));
+    res.json(sponsors.slice(0,10));
+  }catch(e){
+    res.status(500).json({error:"Error cargando sponsors"});
+  }
+});
+
+// Endpoint privado (añadir sponsor)
+app.post("/sponsors/add",(req,res)=>{
+  try{
+    const token=req.get("X-Admin-Token")||"";
+    const validToken=fs.readFileSync(path.join(__dirname,"admin.token"),"utf8").trim();
+    if(token!==validToken)return res.status(403).json({error:"Forbidden"});
+    const data=fs.existsSync(sponsorsFile)?JSON.parse(fs.readFileSync(sponsorsFile,"utf8")):[];
+    data.push({
+      nombre:req.body.nombre||"Anuncio IA",
+      url:req.body.url||"#",
+      fecha:new Date().toLocaleString()
+    });
+    fs.writeFileSync(sponsorsFile,JSON.stringify(data.slice(-10),null,2));
+    res.json({ok:true});
+  }catch(e){res.status(500).json({error:"Error añadiendo sponsor"});}
+});
+
+// Integrar registro seguro (Google / Microsoft mock)
+app.post("/auth",(req,res)=>{
+  const {provider,email}=req.body;
+  if(!email)return res.status(400).json({error:"Correo obligatorio"});
+  const userFile=path.join(__dirname,"users.json");
+  const users=fs.existsSync(userFile)?JSON.parse(fs.readFileSync(userFile,"utf8")):[];
+  if(!users.find(u=>u.email===email)){
+    users.push({email,provider,fecha:new Date().toLocaleString()});
+    fs.writeFileSync(userFile,JSON.stringify(users,null,2));
+  }
+  res.json({ok:true,usuario:email,proveedor:provider});
+});
+const paymentsFile = path.join(__dirname, "payments.json");
+
+// Endpoint para registrar pago mensual de sponsor
+app.post("/sponsor/pay",(req,res)=>{
+  try {
+    const {nombre,monto,metodo}=req.body;
+    if(!nombre||!monto)return res.status(400).json({error:"Faltan datos"});
+    const pagos=fs.existsSync(paymentsFile)?JSON.parse(fs.readFileSync(paymentsFile,"utf8")):[];
+    pagos.push({
+      nombre,
+      monto,
+      metodo: metodo||"transferencia",
+      fecha: new Date().toLocaleString(),
+      id: pagos.length+1
+    });
+    fs.writeFileSync(paymentsFile,JSON.stringify(pagos,null,2));
+    res.json({ok:true,mensaje:"Pago registrado correctamente"});
+  }catch(err){
+    console.error("Error en pasarela de pago:",err.message);
+    res.status(500).json({error:"Error interno"});
+  }
+});
+
+// Panel RGB interactivo de sponsors (efecto hover dinámico)
+app.get("/sponsors/panel",(req,res)=>{
+  try {
+    const sponsors = fs.existsSync(path.join(__dirname,"sponsors.json")) ?
+      JSON.parse(fs.readFileSync(path.join(__dirname,"sponsors.json"),"utf8")) : [];
+    const html = `
+    <html><head>
+    <meta charset="UTF-8"><title>Panel Sponsors</title>
+    <style>
+      body {background:black;color:#fff;font-family:Arial;text-align:center;padding:20px;}
+      .sponsor {display:inline-block;margin:10px;padding:20px;border:2px solid #f90;border-radius:10px;
+                transition:box-shadow 0.3s;}
+      .sponsor:hover {box-shadow:0 0 20px 5px rgba(255,200,0,0.7);}
+      .rgb-border {animation:rgbPulse 3s infinite;}
+      @keyframes rgbPulse {
+        0% {border-color:red;} 33% {border-color:lime;} 66% {border-color:blue;} 100% {border-color:red;}
+      }
+    </style></head><body>
+    <h1>🌐 Sponsors Activos</h1>
+    ${sponsors.map(s=>`<div class='sponsor rgb-border'><b>${s.nombre}</b><br>${s.url}</div>`).join("")}
+    </body></html>`;
+    res.send(html);
+  }catch(e){
+    res.status(500).send("Error generando panel de sponsors");
+  }
+});
+const adsSecureFile = path.join(__dirname,"ads_secure.json");
+const clickFile = path.join(__dirname,"ads_clicks.json");
+
+// Endpoint para añadir anuncio (admin seguro)
+app.post("/ads/add",(req,res)=>{
+  try{
+    const token=req.get("X-Admin-Token")||"";
+    const valid=fs.readFileSync(path.join(__dirname,"admin.token"),"utf8").trim();
+    if(token!==valid)return res.status(403).json({error:"Unauthorized"});
+    const data=fs.existsSync(adsSecureFile)?JSON.parse(fs.readFileSync(adsSecureFile,"utf8")):[];
+    const anuncio={
+      id:data.length+1,
+      titulo:req.body.titulo||"Anuncio IA",
+      url:req.body.url||"#",
+      imagen:req.body.imagen||"https://via.placeholder.com/468x60?text=Publicidad",
+      fecha:new Date().toLocaleString(),
+      activo:true,
+      vistas:0,
+      clicks:0,
+      expira:Date.now()+(1000*60*60*24*30) // expira en 30 días
+    };
+    data.push(anuncio);
+    fs.writeFileSync(adsSecureFile,JSON.stringify(data,null,2));
+    res.json({ok:true,mensaje:"Anuncio añadido correctamente"});
+  }catch(err){
+    console.error("Error añadiendo anuncio:",err.message);
+    res.status(500).json({error:"Error interno"});
+  }
+});
+
+// Endpoint público rotativo (protección básica anti-bots)
+app.get("/ads/rotator",(req,res)=>{
+  try{
+    const userAgent=(req.headers["user-agent"]||"").toLowerCase();
+    if(userAgent.includes("bot")||userAgent.includes("crawler")) 
+      return res.status(403).json({error:"Bloqueado"});
+    const ads=fs.existsSync(adsSecureFile)?JSON.parse(fs.readFileSync(adsSecureFile,"utf8")):[];
+    const activos=ads.filter(a=>a.activo && Date.now()<a.expira);
+    if(!activos.length)return res.json([]);
+    activos[Math.floor(Math.random()*activos.length)].vistas++;
+    fs.writeFileSync(adsSecureFile,JSON.stringify(ads,null,2));
+    res.json(activos.slice(0,5)); // máx 5 simultáneos
+  }catch(e){res.status(500).json({error:"Error cargando anuncios"});}
+});
+
+// Registrar clics en anuncios
+app.post("/ads/click",(req,res)=>{
+  try{
+    const id=req.body.id;
+    const ads=JSON.parse(fs.readFileSync(adsSecureFile,"utf8"));
+    const i=ads.findIndex(a=>a.id===id);
+    if(i>=0)ads[i].clicks++;
+    fs.writeFileSync(adsSecureFile,JSON.stringify(ads,null,2));
+    const clicks=fs.existsSync(clickFile)?JSON.parse(fs.readFileSync(clickFile,"utf8")):[];
+    clicks.push({id,fecha:new Date().toLocaleString(),ip:req.ip});
+    fs.writeFileSync(clickFile,JSON.stringify(clicks,null,2));
+    res.json({ok:true});
+  }catch(e){res.status(500).json({error:"Error registrando clic"});}
+});
+
+// Inyección automática en páginas (simulación tipo ad-server)
+app.use((req,res,next)=>{
+  res.setHeader("X-AdServer","NeuralGPT-Secure");
+  next();
+});
+
+// Generar estadísticas
+app.get("/ads/stats", (req, res) => {
+  try {
+    const token = req.get("X-Admin-Token") || "";
+    const valid = fs.readFileSync(path.join(__dirname, "admin.token"), "utf8").trim();
+    if (token !== valid) return res.status(403).json({ error: "Unauthorized" });
+
+    const ads = fs.existsSync(adsSecureFile) ? JSON.parse(fs.readFileSync(adsSecureFile, "utf8")) : [];
+    const resumen = {
+      total: ads.length,
+      activos: ads.filter(a => a.activo && Date.now() < a.expira).length,
+      expiranHoy: ads.filter(a => a.expira < Date.now() + 86400000).length,
+      vistasTotales: ads.reduce((sum, a) => sum + (a.vistas || 0), 0),
+      clicksTotales: ads.reduce((sum, a) => sum + (a.clicks || 0), 0),
+      ctr: ads.reduce((sum, a) => sum + ((a.clicks || 0) / Math.max(a.vistas || 1, 1)), 0) / Math.max(ads.length, 1)
+    };
+
+    fs.writeFileSync(statsFile, JSON.stringify(resumen, null, 2));
+    res.json(resumen);
+  } catch (err) {
+    console.error("Error generando estadísticas:", err.message);
+    res.status(500).json({ error: "Error interno" });
+  }
+});
+
+// Interfaz visual del panel de estadísticas
+app.get("/panel/ads", (req, res) => {
+  try {
+    const token = req.query.token || "";
+    const valid = fs.readFileSync(path.join(__dirname, "admin.token"), "utf8").trim();
+    if (token !== valid) return res.status(403).send("<h3>Acceso denegado</h3>");
+
+    const stats = fs.existsSync(statsFile) ? JSON.parse(fs.readFileSync(statsFile, "utf8")) : {};
+    const html = `
+    <html><head>
+      <meta charset="UTF-8"><title>Panel de Estadísticas</title>
+      <style>
+        body {background:#000;color:#fff;font-family:Consolas;text-align:center;padding:20px;}
+        .box {display:inline-block;border:3px solid #f90;padding:20px;margin:10px;border-radius:10px;
+              box-shadow:0 0 20px rgba(255,150,0,0.7);transition:all 0.3s;}
+        .box:hover {box-shadow:0 0 30px rgba(0,255,255,0.7);transform:scale(1.05);}
+        .rgb-border {animation:rgbCycle 4s infinite;}
+        @keyframes rgbCycle {
+          0%{border-color:red;}33%{border-color:lime;}66%{border-color:blue;}100%{border-color:red;}
+        }
+      </style>
+    </head>
+    <body>
+      <h1>📊 Panel de Estadísticas Publicitarias NeuralGPT.Store</h1>
+      <div class='box rgb-border'><h2>Total anuncios</h2><p>${stats.total || 0}</p></div>
+      <div class='box rgb-border'><h2>Activos</h2><p>${stats.activos || 0}</p></div>
+      <div class='box rgb-border'><h2>Expiran hoy</h2><p>${stats.expiranHoy || 0}</p></div>
+      <div class='box rgb-border'><h2>Vistas totales</h2><p>${stats.vistasTotales || 0}</p></div>
+      <div class='box rgb-border'><h2>Clics totales</h2><p>${stats.clicksTotales || 0}</p></div>
+      <div class='box rgb-border'><h2>CTR promedio</h2><p>${(stats.ctr * 100).toFixed(2)}%</p></div>
+    </body></html>`;
+    res.send(html);
+  } catch (err) {
+    res.status(500).send("Error generando panel");
+  }
+});
+
+
+
+

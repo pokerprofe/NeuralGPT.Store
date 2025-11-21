@@ -1,0 +1,41 @@
+<section id=\"edoSection\" class=\"edo-wrapper\">
+  <h1 class=\"edo-title\">EDO Subscription — Full AI Access</h1>
+  <p class=\"edo-subtitle\">
+    50€ / year. Unlock all NeuralGPT.Store AI models, premium tools and future upgrades.
+  </p>
+
+  <div id=\"edoStatusBox\" class=\"edo-status-box\">
+    Checking your subscription status...
+  </div>
+
+  <div class=\"edo-pay-card\">
+    <h2>Activate EDO</h2>
+    <p class=\"edo-text\">
+      When Google Pay Business is connected, you will be able to complete the payment here in one tap.
+    </p>
+
+    <div id=\"gpayContainer\" class=\"edo-gpay-container\">
+      <!-- Google Pay button placeholder -->
+      <div id=\"gpayButtonPlaceholder\" class=\"edo-gpay-placeholder\">
+        Google Pay button will appear here (TEST mode).
+      </div>
+    </div>
+
+    <div class=\"edo-manual-test\">
+      <h3>Local test (no real payment)</h3>
+      <p class=\"edo-text-small\">
+        For local testing only. Activates EDO for the email currently logged in, using the admin password.
+      </p>
+      <div class=\"edo-field\">
+        <label for=\"edoAdminPassword\">Admin password</label>
+        <input id=\"edoAdminPassword\" type=\"password\" placeholder=\"Prozerg1@#\" />
+      </div>
+      <button id=\"edoManualBtn\" class=\"edo-btn\">Activate EDO (local test)</button>
+      <div id=\"edoManualStatus\" class=\"edo-manual-status\"></div>
+    </div>
+  </div>
+</section>
+
+<link rel=\"stylesheet\" href=\"/assets/css/edo.css\" />
+<script src=\"/app/js/edo.js\"></script>
+<script src=\"/app/js/edo_pay.js\"></script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+<meta charset='UTF-8'>
+<title>Panel NeuralGPT.Store</title>
+<style>
+body{background:#000;color:#ffb000;font-family:Orbitron, sans-serif;padding:18px;}
+h1{color:#ffd84d;text-align:center;}
+button{background:#ffb000;border:none;padding:8px 14px;margin:6px;cursor:pointer;border-radius:6px;font-weight:bold;}
+.ad{background:#111;border:1px solid #ffb000;padding:10px;margin:8px;border-radius:8px;}
+</style>
+</head>
+<body>
+<h1>Panel administrativo NeuralGPT.Store</h1>
+<div id='info'>Consola segura local</div>
+<div id='ads'></div>
+<button onclick="fetch('/admin/clear',{method:'POST',headers:{'X-Admin-Token':'REPLACE_TOKEN'}}).then(()=>load())">Eliminar todos</button>
+<script>
+async function load(){
+ const res = await fetch('/admin/get-ads',{headers:{'X-Admin-Token':'REPLACE_TOKEN'}});
+ const data = await res.json();
+ document.getElementById('ads').innerHTML = data.map(a=>'<div class="ad">'+a.text+'</div>').join('');
+}
+load();
+</script>
+</body>
+</html>

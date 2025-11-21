@@ -1,0 +1,21 @@
+async function subscribe(){
+  const email = document.getElementById('email').value.trim();
+  const out = document.getElementById('result');
+
+  if(!email){
+    out.textContent = 'Introduce un email válido.';
+    return;
+  }
+
+  try{
+    const res = await fetch('/api/subscription/add',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ email })
+    });
+    const data = await res.json();
+    out.textContent = JSON.stringify(data, null, 2);
+  }catch(e){
+    out.textContent = 'Error conectando con el servidor.';
+  }
+}

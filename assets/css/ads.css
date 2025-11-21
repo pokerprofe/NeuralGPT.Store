@@ -1,0 +1,8 @@
+.ad-unit { background: #0a0c12; border: 1px solid #1b1e2a; border-radius: 12px; padding: 10px; margin-bottom: 10px; font-size: 12px; color: #f4f4f4;
+} .ad-img-wrap { width: 100%; max-height: 120px; overflow: hidden; border-radius: 10px; margin-bottom: 6px;
+} .ad-img-wrap img { width: 100%; display: block; object-fit: cover;
+} .ad-text { display: flex; flex-direction: column; gap: 2px;
+} .ad-title { font-weight: 600; color: #f4c857;
+} .ad-advertiser { opacity: 0.75;
+} .ad-link { margin-top: 4px; text-decoration: none; font-weight: 500; color: #f4c857; opacity: 0.95;
+} 

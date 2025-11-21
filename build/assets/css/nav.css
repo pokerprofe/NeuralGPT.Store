@@ -1,0 +1,6 @@
+.nav-bar { width: 100%; background: #050608; border-bottom: 1px solid #1b1e2a; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center;
+} .nav-logo { color: #f4c857; font-size: 18px; font-weight: 700;
+} .nav-links { list-style: none; display: flex; gap: 18px;
+} .nav-links li { color: #f4f4f4; cursor: pointer; font-size: 14px; padding: 6px; border-radius: 8px;
+} .nav-links li:hover { background: #0a0c12; border: 1px solid #2a2e44; color: #f4c857;
+} 

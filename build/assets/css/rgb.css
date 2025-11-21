@@ -1,0 +1,6 @@
+.rgb-frame { position: relative; border-radius: 12px; overflow: hidden;
+} .rgb-frame::before { content: ''; position: absolute; inset: 0; padding: 2px; border-radius: 12px; background: linear-gradient( 90deg, #ff0066, #ffcc00, #00ffcc, #6600ff, #ff0066 ); background-size: 300% 300%; animation: rgbGlow 6s linear infinite; z-index: 0;
+} .rgb-frame > * { position: relative; z-index: 1;
+} @keyframes rgbGlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
+} .rgb-frame:hover::before { filter: brightness(1.4);
+} 

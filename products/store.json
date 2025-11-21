@@ -1,0 +1,13 @@
+[
+  {
+    "id": "robotic_arm_01",
+    "name": "Robotic Arm X1",
+    "img": "/assets/img/robotic_arm.jpg",
+    "description": "High-precision programmable robotic arm for labs and prototyping.",
+    "price": "249.99",
+    "vendorName": "Shenzhen Tech Labs",
+    "vendorUrl": "https://vendor-site.com/robotic-arm?ref=NEURALGPT_EDO",
+    "commission": "12%",
+    "category": "Robotics"
+  }
+]

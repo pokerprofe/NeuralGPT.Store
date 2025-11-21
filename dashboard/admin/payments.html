@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Payments Control — neuralGPT.store</title>
+  <link rel="stylesheet" href="/assets/css/admin.css">
+  <link rel="stylesheet" href="/assets/css/rgb.css">
+  <script src="payments.js" defer></script>
+</head>
+
+<body>
+  <h1 class="admin-title">Payments & Merchant Control</h1>
+  <p class="admin-subtitle">
+    Configure Google Pay & gateway credentials for neuralGPT.store.
+  </p>
+
+  <div class="pay-panel rgb-frame">
+    <div class="pay-inner">
+      <h2>Google Pay configuration</h2>
+
+      <div class="field">
+        <label>Merchant name</label>
+        <input id="p_merchantName" type="text" placeholder="NeuralGPT.Store">
+      </div>
+
+      <div class="field">
+        <label>Merchant ID</label>
+        <input id="p_merchantId" type="text" placeholder="Paste merchant ID from Google Pay Business">
+        <div id="p_merchantStatus" class="hint"></div>
+      </div>
+
+      <div class="field">
+        <label>Gateway</label>
+        <input id="p_gateway" type="text" placeholder="example / your-gateway">
+      </div>
+
+      <div class="field">
+        <label>Gateway Merchant ID</label>
+        <input id="p_gatewayMerchantId" type="text" placeholder="ID from your gateway">
+      </div>
+
+      <div class="field">
+        <label>Admin password</label>
+        <input id="p_adminPwd" type="password" placeholder="Prozerg1@#">
+      </div>
+
+      <button id="p_save" type="button" class="pay-btn">Save configuration</button>
+      <div id="p_status" class="pay-status"></div>
+    </div>
+  </div>
+</body>
+</html>

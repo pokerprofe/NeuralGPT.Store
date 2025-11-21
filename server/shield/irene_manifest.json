@@ -1,0 +1,38 @@
+[
+  {
+    "file": "C:\\NeuralGPT.Store\\server\\irene_local\\irene_autofix.cjs",
+    "hash": "C6ECF8E97A90CF7A6C34815A4A3F98D7F9F1AFC3DF8AC4C9DE0E7A6228F5D1B4"
+  },
+  {
+    "file": "C:\\NeuralGPT.Store\\server\\irene_local\\irene_core.cjs",
+    "hash": "85AC2C42C2115BABE51E06DBC116AC3A101E86C8B7406181ABD9456D9AF1C33A"
+  },
+  {
+    "file": "C:\\NeuralGPT.Store\\server\\irene_local\\irene_diag.cjs",
+    "hash": "39C40EA04DAA838B52131FA0B43D8C7BD685D987278D4B4FF27F84FF4BEDD051"
+  },
+  {
+    "file": "C:\\NeuralGPT.Store\\server\\irene_local\\irene_guardian.cjs",
+    "hash": "154D79AF7DED8F76B2F4946770C33E6A0741B18E77B2642A47BBA3AEAAF1118A"
+  },
+  {
+    "file": "C:\\NeuralGPT.Store\\server\\irene_local\\irene_health.cjs",
+    "hash": "A9DE10B9B8637C7A76543C343D3F415A7D10E2102BD3CF425A679C2D0A5B7FB8"
+  },
+  {
+    "file": "C:\\NeuralGPT.Store\\server\\irene_local\\irene_notify.cjs",
+    "hash": "F0915699FAEB55A4235474BDC5897918F18F6E9EA19921BE7166704700C28A22"
+  },
+  {
+    "file": "C:\\NeuralGPT.Store\\server\\irene_local\\irene_scheduler.cjs",
+    "hash": "44725A96FFC386DC6C85297F42CB94E2D4BE54404049430C54EF098B4197FA2D"
+  },
+  {
+    "file": "C:\\NeuralGPT.Store\\server\\irene_local\\kb_intents.json",
+    "hash": "BFE2D3D194E56213FFDA4881C4766106CCCB1DF68D476CF1DB1FAB2562BEC31E"
+  },
+  {
+    "file": "C:\\NeuralGPT.Store\\server\\pokerkernel\\pokerkernel.cjs",
+    "hash": "FFD97789BE881E5DED013A4A1A9C63F481F5A41D84B26749D5F5B77582CB7AFC"
+  }
+]

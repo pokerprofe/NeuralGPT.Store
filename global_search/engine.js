@@ -1,0 +1,29 @@
+async function runSearch(){
+  const q = document.getElementById('q').value.trim();
+  const box = document.getElementById('results');
+
+  if(q.length < 2){
+    box.innerHTML = '<p>Type more to search…</p>';
+    return;
+  }
+
+  try{
+    const res = await fetch('/api/search?q=' + encodeURIComponent(q));
+    const data = await res.json();
+
+    box.innerHTML = '';
+    data.results.forEach(r=>{
+      const div = document.createElement('div');
+      div.className='item';
+      div.innerHTML = 
+        <h3>\</h3>
+        <p>\</p>
+        <p style='font-size:12px;color:#666;'>Type: \</p>
+      ;
+      box.appendChild(div);
+    });
+
+  }catch(e){
+    box.innerHTML = '<p>Error searching.</p>';
+  }
+}

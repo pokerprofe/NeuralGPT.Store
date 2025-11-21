@@ -1,0 +1,20 @@
+{
+  "system_status": "OK",
+  "version": "2.0",
+  "capabilities": [
+    "responder dudas",
+    "guiar clientes",
+    "moderar chat",
+    "explicar productos",
+    "ayuda administrativa",
+    "alertas internas",
+    "integracion cockpit",
+    "consultar notificaciones"
+  ],
+  "products_info": {},
+  "faq": {
+    "envio": "Envíos globales 24-72h con socios logísticos premium.",
+    "pagos": "Aceptamos PayPal, Google Pay (TEST), tarjetas y crypto en fase futura.",
+    "seguridad": "Tu información está protegida con cifrado interno."
+  }
+}

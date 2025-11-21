@@ -1,0 +1,10 @@
+{
+  "critical_files": [
+    "C:/NeuralGPT.Store/server/app.cjs",
+    "C:/NeuralGPT.Store/server/guardian_v5.cjs",
+    "C:/NeuralGPT.Store/server/irene_local/irene_core.cjs",
+    "C:/NeuralGPT.Store/server/inventoryless/inventoryless_engine.cjs",
+    "C:/NeuralGPT.Store/server/vendor_engine/vendor_engine.cjs"
+  ],
+  "backup_root": "C:/NeuralGPT.Store/backups"
+}

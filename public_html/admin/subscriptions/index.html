@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Subscriptions</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+button{padding:8px;background:#111;border:1px solid #d4af37;color:#d4af37;cursor:pointer;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+td,th{padding:8px;border-bottom:1px solid #333;font-size:13px;}
+</style>
+</head>
+
+<body>
+
+<h1>Subscription Center</h1>
+<p>All subscribers</p>
+
+<button onclick='loadSubs()'>Refresh</button>
+
+<table id='tbl'>
+  <tr><th>Email</th><th>Plan</th><th>Created</th><th>Expires</th></tr>
+</table>
+
+<script>
+async function loadSubs(){
+  const res = await fetch('/api/subscriptions/list');
+  const data = await res.json();
+  const t = document.getElementById('tbl');
+
+  t.innerHTML = '<tr><th>Email</th><th>Plan</th><th>Created</th><th>Expires</th></tr>';
+
+  (data.items || []).forEach(s=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = \
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+    \;
+    t.appendChild(tr);
+  });
+}
+
+loadSubs();
+</script>
+
+</body>
+</html>

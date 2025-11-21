@@ -1,0 +1,63 @@
+<section class='form-shell'>
+  <div class='form-card'>
+    <h1 class='form-title'>User Registration</h1>
+    <p class='form-subtitle'>
+      Register to access our tech ecosystem, IA tools and future updates.
+      Only e-mail is required. Other fields are optional but useful for legal and security purposes.
+    </p>
+
+    <form id='userRegisterForm'>
+      <div class='form-grid'>
+        <div class='form-field'>
+          <label>Full name / Alias (optional)</label>
+          <input type='text' name='name' autocomplete='name' />
+        </div>
+        <div class='form-field'>
+          <label>E-mail (required)</label>
+          <input type='email' name='email' required autocomplete='email' />
+        </div>
+        <div class='form-field'>
+          <label>Country</label>
+          <input type='text' name='country' autocomplete='country' />
+        </div>
+        <div class='form-field'>
+          <label>City / Region</label>
+          <input type='text' name='city' autocomplete='address-level2' />
+        </div>
+        <div class='form-field'>
+          <label>Phone (optional)</label>
+          <input type='tel' name='phone' autocomplete='tel' />
+        </div>
+        <div class='form-field'>
+          <label>Are you acting on behalf of a company?</label>
+          <select name='is_company'>
+            <option value='no'>No</option>
+            <option value='yes'>Yes</option>
+          </select>
+        </div>
+        <div class='form-field'>
+          <label>Company / VAT / Tax ID (optional)</label>
+          <input type='text' name='tax_id' />
+        </div>
+      </div>
+
+      <div class='form-field'>
+        <label>Notes / Use case (optional)</label>
+        <textarea name='notes' rows='4'></textarea>
+      </div>
+
+      <div class='form-legal'>
+        <label>
+          <input type='checkbox' name='accept_terms' required />
+          I accept the Terms & Conditions and EU/US legal notice for digital services.
+        </label>
+        <label>
+          <input type='checkbox' name='accept_privacy' required />
+          I have read and accept the Privacy Policy (GDPR compliant).
+        </label>
+      </div>
+
+      <button type='submit' class='btn-gold-main'>Create account</button>
+    </form>
+  </div>
+</section>

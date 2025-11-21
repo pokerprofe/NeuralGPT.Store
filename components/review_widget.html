@@ -1,0 +1,60 @@
+<div id='review-section' style='margin-top:20px;'>
+  <h3 style='color:#d4af37;'>Reviews</h3>
+  <div id='rev-list' style='color:#aaa;'></div>
+
+  <h4 style='color:#d4af37;margin-top:20px;'>Leave a review</h4>
+  <input id='rev-stars' type='number' min='1' max='5' value='5' style='width:60px;'>
+  <br><br>
+  <textarea id='rev-text' placeholder='Your review...' style='width:100%;height:80px;'></textarea>
+  <br><br>
+  <button onclick='submitReview()' style='padding:10px;background:#d4af37;color:#000;border:none;cursor:pointer;'>
+    Submit Review
+  </button>
+</div>
+
+<script>
+async function loadReviews(productId){
+  const res = await fetch('/api/reviews/list?productId=' + productId);
+  const data = await res.json();
+  const box = document.getElementById('rev-list');
+  box.innerHTML = '';
+
+  data.reviews.forEach(r=>{
+    const div = document.createElement('div');
+    div.style.borderBottom = '1px solid #444';
+    div.style.padding = '10px 0';
+    div.innerHTML = \
+      <strong style="color:#d4af37;">\ </strong>
+      <span style="color:#888;font-size:12px;">(\)</span>
+      <p>\</p>
+      <button onclick='helpful(\)' style='background:#222;color:#d4af37;border:1px solid #d4af37;padding:5px;cursor:pointer;'>
+        Helpful (\)
+      </button>
+    \;
+    box.appendChild(div);
+  });
+}
+
+async function submitReview(){
+  const stars = document.getElementById('rev-stars').value;
+  const text = document.getElementById('rev-text').value;
+  const productId = window.currentProductId || 1;
+
+  await fetch('/api/reviews/add',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ productId, stars, text })
+  });
+
+  loadReviews(productId);
+}
+
+async function helpful(id){
+  await fetch('/api/reviews/helpful',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ id })
+  });
+  loadReviews(window.currentProductId);
+}
+</script>

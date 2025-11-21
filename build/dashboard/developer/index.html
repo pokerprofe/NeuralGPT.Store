@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang='es'>
+<head>
+<meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Ofrecer Automatismos · NeuralGPT.Store</title>
+<link rel='stylesheet' href='../styles/main.css'>
+<style>
+  body{background:#0b0b0b;color:#d9b65c;font-family:system-ui}
+  .wrap{max-width:900px;margin:40px auto;padding:0 16px}
+  input,select,textarea{width:100%;background:#121212;color:#d9b65c;border:1px solid #2a2a2a;padding:10px;border-radius:10px;margin:6px 0}
+  button{padding:10px 14px;border:1px solid #d9b65c;border-radius:10px;background:#111;color:#d9b65c}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Publicar Automatismo / Agente IA</h1>
+  <p>Envío mediado. El comprador no tendrá contacto directo contigo; NeuralGPT.Store gestiona la operación.</p>
+  <form id="f">
+    <label>Nombre del proyecto</label>
+    <input name="name" required>
+    <label>Categoría</label>
+    <select name="category" required>
+      <option>Productividad</option><option>Estudios</option><option>Automatización Empresarial</option>
+      <option>Marketing</option><option>Datos/Trading</option><option>Otros</option>
+    </select>
+    <label>Descripción</label>
+    <textarea name="desc" rows="6" required></textarea>
+    <label>Precio sugerido (€)</label>
+    <input type="number" name="price" step="0.01" min="0" required>
+    <label>URL demo / repo (opcional)</label>
+    <input name="link">
+    <button type="submit">Enviar propuesta</button>
+  </form>
+  <p style="opacity:.7;font-size:12px">Al enviar, se prepara un correo a <strong>wilfre@neuralgpt.store</strong> con tus datos.</p>
+</div>
+<script src="../assets/js/ngpt-common.js"></script>
+<script>
+document.getElementById('f').onsubmit=(e)=>{
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const data = Object.fromEntries(fd.entries());
+  const body = [
+    'Nuevo proyecto para revisión:',
+    'Nombre: ' + data.name,
+    'Categoría: ' + data.category,
+    'Descripción: ' + data.desc,
+    'Precio sugerido: ' + data.price + ' €',
+    'Precio con IVA(25%): ' + NGPT.priceWithVAT(Number(data.price)) + ' €',
+    'Demo/Repo: ' + (data.link||'N/A')
+  ].join('\n');
+  NGPT.mailTo('wilfre@neuralgpt.store','Alta de Automatismo — ' + data.name, body);
+};
+</script>
+</body>
+</html>

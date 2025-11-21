@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Login — NeuralGPT</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+input{padding:10px;width:250px;margin:6px 0;border:1px solid #d4af37;background:#111;color:#d4af37;}
+button{padding:10px 20px;background:#111;border:1px solid #d4af37;color:#d4af37;cursor:pointer;margin-top:10px;}
+.box{max-width:340px;margin:auto;margin-top:100px;border:1px solid #d4af37;padding:20px;}
+h1{text-align:center;}
+</style>
+</head>
+
+<body>
+
+<div class='box'>
+  <h1>Login</h1>
+  
+  <label>Email</label>
+  <input type='email' id='email'/>
+
+  <label>Password</label>
+  <input type='password' id='pass'/>
+
+  <button onclick='login()'>Login</button>
+</div>
+
+<script>
+async function login(){
+  const email = document.getElementById('email').value;
+  const pass  = document.getElementById('pass').value;
+
+  const res = await fetch('/api/auth/login',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ email, pass })
+  });
+
+  const data = await res.json();
+
+  if(!data.ok){
+    alert('Invalid credentials');
+    return;
+  }
+
+  localStorage.setItem('session_token', data.session.token);
+  window.location = '/public_html/user/dashboard.html';
+}
+</script>
+
+<script src='/public_html/assets/js/benefit_popup.js'></script>
+<script>setTimeout(()=>showBenefits('general'),2000);</script>
+</body>
+</html>
+

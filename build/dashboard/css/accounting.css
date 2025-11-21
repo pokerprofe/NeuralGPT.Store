@@ -1,0 +1,75 @@
+.acc-body{
+  font-family: system-ui, sans-serif;
+  background:#050608;
+  color:#f4f4f4;
+  margin:0;
+  padding:24px;
+}
+.acc-header{
+  margin-bottom:24px;
+}
+.acc-header h1{
+  margin:0;
+  font-size:26px;
+  color:#F4C857;
+}
+.acc-main{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+.acc-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+.card{
+  background:#060b10;
+  border:1px solid #25283a;
+  border-radius:14px;
+  padding:16px;
+  box-shadow:0 0 14px rgba(0,0,0,.55);
+}
+.card .label{
+  font-size:13px;
+  opacity:.8;
+}
+.card .value{
+  margin-top:8px;
+  font-size:20px;
+  font-weight:700;
+}
+.acc-table-section{
+  background:#060b10;
+  border-radius:14px;
+  padding:16px;
+  border:1px solid #25283a;
+}
+.sec-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+.btn-export{
+  padding:8px 16px;
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,#F4C857,#C7911A);
+  color:#050608;
+  font-weight:600;
+  cursor:pointer;
+}
+.acc-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
+.acc-table th,
+.acc-table td{
+  padding:6px 8px;
+  border-bottom:1px solid #222632;
+}
+.acc-table tbody tr:nth-child(even){
+  background:#070b12;
+}

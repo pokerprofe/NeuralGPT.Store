@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Notifications — NeuralGPT.Store</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+th,td{padding:8px;border-bottom:1px solid #333;font-size:13px;}
+.type-system{color:#00bfff;}
+.type-vendor{color:#00ff6e;}
+.type-product{color:#ffd700;}
+.type-subscription{color:#ff9e00;}
+.type-compliance{color:#ff5a5a;}
+.type-b2b{color:#c084fc;}
+</style>
+</head>
+<body>
+
+<h1>System Notifications</h1>
+
+<table id='tbl'>
+  <tr>
+    <th>Date</th>
+    <th>Type</th>
+    <th>Message</th>
+    <th>Meta</th>
+  </tr>
+</table>
+
+<script>
+async function loadAll(){
+  const res = await fetch('/api/notifications/list');
+  const data = await res.json();
+  const tbl = document.getElementById('tbl');
+
+  (data.items || []).forEach(n=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = \
+      <td>\</td>
+      <td class="type-\">\</td>
+      <td>\</td>
+      <td><pre style="background:#111;border:1px solid #333;color:#d4af37;font-size:11px;">\</pre></td>
+    \;
+    tbl.appendChild(tr);
+  });
+}
+
+loadAll();
+</script>
+
+</body>
+</html>

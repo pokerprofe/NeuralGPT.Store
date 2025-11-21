@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+<meta charset='UTF-8'>
+<title>Centro de Mando — NeuralGPT.Store</title>
+<link rel='stylesheet' href='cockpit.css'>
+</head>
+<body>
+<div id='hud'>
+  <div id='title'>HALCÓN NEURAL — CENTRO DE MANDO</div>
+
+  <div id='panels'>
+    <div class='panel' data-module='sistema'><h2>SISTEMA</h2><p>Estado servidor /status</p></div>
+    <div class='panel' data-module='analytics'><h2>ANALYTICS</h2><p>Eventos y estadísticas</p></div>
+    <div class='panel' data-module='productos'><h2>PRODUCTOS</h2><p>Catálogo dinámico</p></div>
+    <div class='panel' data-module='agentes'><h2>AGENTES IA</h2><p>50 slots premium</p></div>
+    <div class='panel' data-module='proveedores'><h2>PROVEEDORES</h2><p>B2B tipo Alibaba</p></div>
+    <div class='panel' data-module='clientes'><h2>CLIENTES</h2><p>Base de datos clientes</p></div>
+    <div class='panel' data-module='seguridad'><h2>SEGURIDAD</h2><p>Guardian + radar</p></div>
+    <div class='panel' data-module='neural'><h2>NEURALCORE</h2><p>IA interna del sistema</p></div>
+  </div>
+
+  <div id='output'>
+    <h3>CONSOLa DEL COMANDANTE</h3>
+    <pre id='console'></pre>
+  </div>
+
+  <section id='ai-box'>
+    <h2>Asistente Interno NeuralGPT.Store</h2>
+    <input id='aiQ' placeholder='Pregúntame lo que quieras sobre el sistema, productos o IA...'>
+    <button onclick='askAI()'>Preguntar a la IA</button>
+    <pre id='aiA'></pre>
+  </section>
+</div>
+
+<script src='cockpit.js'></script>
+<script src='assistant.js'></script>
+<script src='hud_notifications.js'></script>
+</body>
+</html>

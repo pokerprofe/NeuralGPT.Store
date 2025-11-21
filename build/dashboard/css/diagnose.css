@@ -1,0 +1,72 @@
+body{
+    background:#050505;
+    font-family:Arial;
+    color:#d4af37;
+    padding:20px;
+}
+
+.diag-title{
+    font-size:32px;
+    text-align:center;
+    color:#d4af37;
+    margin-bottom:30px;
+}
+
+.diag-cards{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    margin-bottom:20px;
+}
+
+.diag-card{
+    width:220px;
+    padding:20px;
+    background:#000;
+    border:2px solid #d4af37;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 0 12px rgba(212,175,55,0.4);
+    transition:0.4s;
+}
+
+.diag-card.alert{
+    box-shadow:0 0 22px red;
+    border-color:red;
+}
+
+.diag-val{
+    font-size:42px;
+    margin-top:10px;
+    font-weight:800;
+}
+
+.diag-buttons{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.diag-buttons button{
+    padding:12px 24px;
+    margin:5px;
+    border:none;
+    background:#d4af37;
+    color:#000;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.diag-buttons button:hover{
+    background:#fff2b0;
+}
+
+#full_output{
+    background:#111;
+    padding:20px;
+    border-radius:8px;
+    white-space:pre-wrap;
+    font-size:13px;
+}

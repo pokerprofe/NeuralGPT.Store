@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NeuralGPT.Store IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#d4af37;--gold2:#c69728;--bg:#000;--panel:#0e0e0e;--line:#1a1a1a;--ink:#e5e5e5;--mut:#9a9a9a}
+*{box-sizing:border-box}
+html,body{margin:0;background:#000;color:var(--ink);font-family:Inter,system-ui,Segoe UI,Arial}
+header{padding:64px 20px 24px;border-bottom:2px solid var(--gold);text-align:center;background:linear-gradient(180deg,#000 70%,#0b0b0b)}
+.brand{font-size:56px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold)}
+.brand .ia{color:var(--gold2)}
+.sub{margin-top:6px;color:var(--gold2);font-weight:600}
+.container{max-width:1180px;margin:36px auto;padding:0 20px}
+.search{width:100%;padding:14px 16px;border:1px solid var(--gold);border-radius:10px;background:#0a0a0a;color:#fff;font-size:18px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:26px}
+.card{grid-column:span 4;background:var(--panel);border:1px solid rgba(212,175,55,.25);border-radius:14px;padding:16px;min-height:160px;display:flex;flex-direction:column;gap:10px}
+.card h3{margin:0;color:var(--gold)}
+.card p{margin:0;color:#bdbdbd;line-height:1.4}
+.btns{margin-top:auto;display:flex;gap:8px}
+.btn{flex:1;border:1px solid var(--gold);color:var(--gold);background:#0c0c0c;border-radius:10px;padding:10px 12px;text-align:center;text-decoration:none}
+footer{margin:60px 0 18px;text-align:center;color:var(--gold2)}
+.badge{display:inline-block;padding:6px 10px;border:1px solid #222;border-radius:999px;color:var(--mut);font-size:12px}
+@media (max-width:1024px){.card{grid-column:span 6}}
+@media (max-width:640px){.card{grid-column:span 12}.brand{font-size:40px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">NeuralGPT.Store <span class="ia">IA</span></div>
+  <div class="sub">Expose your AI agents — sell them here</div>
+</header>
+
+<div class="container">
+  <input id="q" class="search" placeholder="Search your next AI agent…"/>
+  <div id="grid" class="grid"></div>
+  <div style="margin-top:18px;text-align:center">
+    <a class="badge" href="upload.html">Developers · Upload your model</a>
+  </div>
+</div>
+
+<footer>© 2025 pokershadow.ink · <a href="admin.html" style="color:#d4af37;text-decoration:none;border-bottom:1px dotted #d4af37">Admin</a></footer>
+<script src="js/store.js"></script>
+<script src="/assets/irene_chat/irene_chat.js"></script>
+</body>
+</html>
+
+<li><a href='../sections/register.html'>Registrar proveedor / cliente</a></li>
+
+
+<div class="card" id="card-register">
+    <h3>Registro Proveedores / Clientes</h3>
+    <p>Gestiona nuevas altas, solicitudes y verificaciones.</p>
+    <a href="../public_html/sections/register.html" class="btn">Abrir</a>
+</div>
+
+<div style='margin-top:15px;text-align:center;color:#d4af37;font-size:14px;'>
+  NeuroCommerce · PokerShadow Ink — CEO Global
+</div>
+<div class='card'>
+  <h3>Vendor Trust Score</h3>
+  <p>Verification & Risk Monitor</p>
+  <a href='vendors/vendors.html' class='btn'>Open Panel</a>
+</div>
+<div class='card'>
+  <h3>NeuralCommerce Status Monitor</h3>
+  <p>Live Metrics</p>
+  <a href='status/index.html' class='btn'>Open Dashboard</a>
+</div>
+<div class='card'>
+  <h3>Security Sentinel</h3>
+  <p>Security Monitor</p>
+  <a href='security/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Subscribers Panel</h3>
+  <p>Manage active subscriptions</p>
+  <a href='subscribers/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Vendor Trust Engine</h3>
+  <p>Automatic vendor scoring</p>
+  <a href='vendors_trust/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Investor Proposals</h3>
+  <p>Equity & partnership offers</p>
+  <a href='investors/index.html' class='btn'>Open</a>
+</div>
+
+<div class='card'>
+  <h3>NeuralGPT Suite</h3>
+  <p>All AI modules</p>
+  <a href='suite/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Global Search</h3>
+  <p>Universal Finder</p>
+  <a href='global_search/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>NeuralGate Access</h3>
+  <p>User Roles & Authentication</p>
+  <a href='../public_html/admin/suite/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Enterprise Suite</h3>
+  <p>Corporate Access Requests</p>
+  <a href='../public_html/admin/enterprise/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Payment Core</h3>
+  <p>Stripe · PayPal · GooglePay</p>
+  <a href='../public_html/admin/payments/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Customer Reviews</h3>
+  <p>Moderation & Insights</p>
+  <a href='../public_html/admin/reviews/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>NeuroGuide KX</h3>
+  <p>Internal AI-style Guide</p>
+  <span>Local, rule-based, zero cost.</span>
+</div>
+<div class='card'>
+  <h3>Blocked IPs</h3>
+  <p>Security Sentinel Reports</p>
+  <a href='../public_html/admin/security/blocked.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Activity Log</h3>
+  <p>Global System Events</p>
+  <a href='../public_html/admin/logs/activity.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>AutoVendor Queue</h3>
+  <p>Automatic vendor onboarding</p>
+  <a href='../public_html/admin/vendors/autovendor.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Payment Compliance</h3>
+  <p>Vendor commission status</p>
+  <a href='../public_html/admin/vendors/compliance.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>B2B Outreach</h3>
+  <p>Global vendor prospects</p>
+  <a href='../public_html/admin/b2b/outreach.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>NeuroSales Engine</h3>
+  <p>Predictive B2B Intelligence</p>
+  <a href='../public_html/admin/neurosales/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>NeuroMarket Analytics</h3>
+  <p>Global Tech Trends</p>
+  <a href='../public_html/admin/neuroanalytics/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Notifications</h3>
+  <p>System Event Log</p>
+  <a href='../public_html/admin/notifications/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>AI OPS — AutoCheck</h3>
+  <p>Integrity, autocheck & autorepair</p>
+  <a href='../public_html/admin/ops/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>AI Supervisor</h3>
+  <p>Module integrity & orchestration</p>
+  <a href='../public_html/admin/supervisor/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Auto Documentation</h3>
+  <p>Generate system docs</p>
+  <a href='../public_html/admin/docs/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Fisco Engine</h3>
+  <p>Tax organizer & expenses log</p>
+  <a href='../public_html/admin/tax/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Neural Backup Suite</h3>
+  <p>Snapshots & Rollback</p>
+  <a href='../public_html/admin/backup/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Error Tracker</h3>
+  <p>System error center</p>
+  <a href='../public_html/admin/errors/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Performance Center</h3>
+  <p>CPU & RAM Monitor</p>
+  <a href='../public_html/admin/performance/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Subscription Center</h3>
+  <p>Manage Subscribers</p>
+  <a href='../public_html/admin/subscriptions/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>User Manager</h3>
+  <p>Accounts & Roles</p>
+  <a href='../public_html/admin/users/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>User Dashboard</h3>
+  <p>View User Panel</p>
+  <a href='../public_html/user/dashboard.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Business Subscription</h3>
+  <p>Create Business Account</p>
+  <a href='../public_html/register_business.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>System Health Monitor</h3>
+  <p>Status of core modules, security and AI engines.</p>
+  <a href='../public_html/admin/health/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Product Catalog Manager</h3>
+  <p>Centralized product administration</p>
+  <a href='../public_html/admin/products/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Neuro Analytics Cockpit</h3>
+  <p>Executive dashboard with KPIs and live charts.</p>
+  <a href='../public_html/admin/analytics/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Irene Local Command Center</h3>
+  <p>Realtime diagnostic of AI, backend and tasks.</p>
+  <a href='../public_html/admin/irene/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>NeuroLingua Local</h3>
+  <p>Translate text to multiple languages (local engine).</p>
+  <a href='../public_html/admin/translator/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Quantum Pass Premium</h3>
+  <p>Generate encrypted access keys for premium users.</p>
+  <a href='../public_html/premium/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Quantum Pass Access</h3>
+  <p>Manage premium signatures and encrypted keys.</p>
+  <a href='../public_html/quantum_pass/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Payment Sandbox</h3>
+  <p>Google Pay / PayPal / Stripe – Test Mode.</p>
+  <a href='../public_html/pay_test/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Provider Verification</h3>
+  <p>Check risk and trust scores for vendors.</p>
+  <a href='../public_html/admin/providers_verify/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>Irene Desktop Guardian</h3>
+  <p>Local bridge: system overview, logs and project control (no payments).</p>
+  <a href='../public_html/admin/desktop/index.html' class='btn'>Open</a>
+</div>
+<div class='card'>
+  <h3>SEO Engine</h3>
+  <p>Generar sitemap.xml, robots.txt y JSON-LD.</p>
+  <a href='#' onclick=\"fetch('/api/seo/build').then(r=>r.json()).then(d=>alert('SEO rebuilt: '+d.ok));\" class='btn'>Rebuild SEO</a>
+</div>
+

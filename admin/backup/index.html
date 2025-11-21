@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Neural Backup Suite</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+button{padding:10px;background:#111;border:1px solid #d4af37;color:#d4af37;cursor:pointer;margin:4px;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+td,th{padding:8px;border-bottom:1px solid #333;font-size:13px;}
+</style>
+</head>
+<body>
+
+<h1>Neural Backup Suite</h1>
+<p>Full snapshots & rollback manager.</p>
+
+<button onclick='createSnap()'>Create Snapshot</button>
+<button onclick='loadSnap()'>Refresh</button>
+
+<table id='tbl'>
+  <tr><th>Snapshot</th><th>Action</th></tr>
+</table>
+
+<script>
+async function loadSnap(){
+  const res = await fetch('/api/backup/list');
+  const data = await res.json();
+  const t = document.getElementById('tbl');
+
+  t.innerHTML = '<tr><th>Snapshot</th><th>Action</th></tr>';
+
+  data.snapshots.forEach(s=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = \
+      <td>\panels</td>
+      <td>
+        <button onclick="restore('\panels')">Restore</button>
+      </td>
+    \;
+    t.appendChild(tr);
+  });
+}
+
+async function createSnap(){
+  await fetch('/api/backup/create',{ method:'POST' });
+  alert('Snapshot created');
+  loadSnap();
+}
+
+async function restore(n){
+  if(!confirm('Restore snapshot '+n+' ?')) return;
+  await fetch('/api/backup/restore',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ name:n })
+  });
+  alert('Restored');
+}
+
+loadSnap();
+</script>
+
+</body>
+</html>
