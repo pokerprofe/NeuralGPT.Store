@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Fisco Engine / Tax Organizer</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+input,select,textarea{
+  background:#111;border:1px solid #444;color:#d4af37;
+  padding:6px;margin:4px 0;width:100%;
+}
+button{
+  padding:8px 16px;background:#111;border:1px solid #d4af37;color:#d4af37;
+  cursor:pointer;margin-top:8px;
+}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+th,td{padding:8px;border-bottom:1px solid #333;font-size:13px;}
+.summary{margin-top:15px;}
+</style>
+</head>
+<body>
+
+<h1>Fisco Engine / Tax Organizer</h1>
+<p>Local expenses register for Spanish tax reporting (and beyond).</p>
+
+<h2>Registrar gasto</h2>
+<label>Fecha</label>
+<input type='date' id='date'>
+<label>Concepto</label>
+<input id='concept'>
+<label>CategorÃ­a</label>
+<select id='category'>
+  <option value='software'>Software / Suscripciones</option>
+  <option value='hardware'>Hardware / Equipos</option>
+  <option value='dominios'>Dominios / Hosting</option>
+  <option value='marketing'>Marketing / Publicidad</option>
+  <option value='servicios'>Servicios profesionales</option>
+  <option value='otros'>Otros</option>
+</select>
+<label>Proveedor</label>
+<input id='provider'>
+<label>Base imponible (EUR)</label>
+<input id='base' type='number' step='0.01'>
+<label>IVA (EUR)</label>
+<input id='vat' type='number' step='0.01'>
+<label>Total (EUR)</label>
+<input id='total' type='number' step='0.01'>
+<label>Nota</label>
+<textarea id='note'></textarea>
+
+<button onclick='saveExpense()'>Guardar gasto</button>
+
+<h2>Filtro y resumen</h2>
+<label>AÃ±o</label>
+<input id='f_year' type='number'>
+<label>Trimestre (1-4)</label>
+<input id='f_quarter' type='number' min='1' max='4'>
+<label>CategorÃ­a</label>
+<select id='f_category'>
+  <option value=''>Todas</option>
+  <option value='software'>Software / Suscripciones</option>
+  <option value='hardware'>Hardware / Equipos</option>
+  <option value='dominios'>Dominios / Hosting</option>
+  <option value='marketing'>Marketing / Publicidad</option>
+  <option value='servicios'>Servicios profesionales</option>
+  <option value='otros'>Otros</option>
+</select>
+
+<button onclick='loadExpenses()'>Aplicar filtro</button>
+<button onclick='exportCSV()'>Exportar CSV</button>
+
+<div class='summary' id='summary'></div>
+
+<table id='tbl'>
+  <tr>
+    <th>Fecha</th>
+    <th>Concepto</th>
+    <th>CategorÃ­a</th>
+    <th>Proveedor</th>
+    <th>Base</th>
+    <th>IVA</th>
+    <th>Total</th>
+    <th>Nota</th>
+  </tr>
+</table>
+
+<script>
+async function saveExpense(){
+  const body = {
+    date: document.getElementById('date').value,
+    concept: document.getElementById('concept').value,
+    category: document.getElementById('category').value,
+    provider: document.getElementById('provider').value,
+    base: document.getElementById('base').value,
+    vat: document.getElementById('vat').value,
+    total: document.getElementById('total').value,
+    note: document.getElementById('note').value
+  };
+
+  await fetch('/api/tax/expenses',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(body)
+  });
+  alert('Gasto guardado');
+  loadExpenses();
+}
+
+function getFilterQuery(){
+  const y = document.getElementById('f_year').value;
+  const q = document.getElementById('f_quarter').value;
+  const c = document.getElementById('f_category').value;
+  const params = [];
+  if(y) params.push('year='+encodeURIComponent(y));
+  if(q) params.push('quarter='+encodeURIComponent(q));
+  if(c) params.push('category='+encodeURIComponent(c));
+  return params.length ? '?'+params.join('&') : '';
+}
+
+async function loadExpenses(){
+  const query = getFilterQuery();
+  const res = await fetch('/api/tax/expenses'+query);
+  const data = await res.json();
+  const t = document.getElementById('tbl');
+  t.innerHTML = '<tr><th>Fecha</th><th>Concepto</th><th>CategorÃ­a</th><th>Proveedor</th><th>Base</th><th>IVA</th><th>Total</th><th>Nota</th></tr>';
+
+  (data.items || []).forEach(e=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = \
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+    \;
+    t.appendChild(tr);
+  });
+
+  const sumRes = await fetch('/api/tax/summary'+query);
+  const sumData = await sumRes.json();
+  const s = sumData.summary || { base:0,vat:0,total:0,count:0 };
+
+  document.getElementById('summary').innerText =
+    'Gastos: '+s.count+
+    ' | Base: '+s.base.toFixed(2)+' EUR'+
+    ' | IVA: '+s.vat.toFixed(2)+' EUR'+
+    ' | Total: '+s.total.toFixed(2)+' EUR';
+}
+
+async function exportCSV(){
+  const query = getFilterQuery();
+  window.location.href = '/api/tax/export'+query;
+}
+
+loadExpenses();
+</script>
+
+<script src='/js/lazyload.js'></script></body>
+</html>
+

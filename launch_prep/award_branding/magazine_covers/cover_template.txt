@@ -1,0 +1,15 @@
+﻿NEURALGPT.STORE  MAGAZINE COVER (Plantilla)
+=============================================
+Revistas Objetivo:
+ Wired
+ MIT Technology Review
+ Forbes Tech
+ Fast Company
+ Entrepreneur
+ Time (Tech Edition)
+
+Elementos Visuales:
+- Fondo negro mate
+- Tipografía dorada 28K
+- Foto futurista del sistema
+- Logo PokerShadow Ink

@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>Irene Local â€“ Command Center</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial,Helvetica,sans-serif;margin:0;padding:20px;}
+h1{margin-top:0;}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:25px;}
+.card{background:#070707;border:1px solid #333;border-radius:12px;padding:15px;box-shadow:0 0 12px #101010;}
+.card h3{margin:0 0 5px 0;font-size:15px;}
+.value{font-size:20px;font-weight:bold;}
+.label{font-size:11px;color:#aaa;}
+.row{display:grid;grid-template-columns:2fr 1fr;gap:20px;}
+pre{background:#050505;border:1px solid #222;border-radius:10px;padding:10px;font-size:11px;overflow:auto;max-height:250px;}
+button{background:#d4af37;color:#000;border:none;padding:8px 12px;border-radius:6px;font-weight:bold;cursor:pointer;margin-right:5px;margin-top:5px;}
+button:hover{filter:brightness(1.1);}
+.bad{color:#ff4d4d;}
+.good{color:#00ff6e;}
+.small{font-size:11px;color:#888;}
+</style>
+</head>
+<body>
+<h1>Irene Local â€“ Command Center</h1>
+<p class='small'>Realtime diagnostic of the local AI, backend, tasks and system resources.</p>
+<div id='ts' class='small'></div>
+
+<div class='grid'>
+  <div class='card'>
+    <h3>Uptime</h3>
+    <div class='value' id='c-uptime'>-</div>
+    <div class='label'>Server running time</div>
+  </div>
+  <div class='card'>
+    <h3>OS Memory Usage</h3>
+    <div class='value' id='c-mem'>-</div>
+    <div class='label'>Global RAM usage</div>
+  </div>
+  <div class='card'>
+    <h3>CPU Load (1 min)</h3>
+    <div class='value' id='c-cpu'>-</div>
+    <div class='label'>Instant load indicator</div>
+  </div>
+  <div class='card'>
+    <h3>System Health</h3>
+    <div class='value' id='c-health'>-</div>
+    <div class='label'>Module-based synthetic score</div>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='card'>
+    <h3>Core Modules Status</h3>
+    <ul id='mod-list' class='small'></ul>
+  </div>
+  <div class='card'>
+    <h3>Quick Actions</h3>
+    <button onclick='testAutoProduct()'>Test Auto-Product</button>
+    <button onclick='pingHealth()'>Check Health Monitor</button>
+    <button onclick='reloadDiag()'>Reload Diagnostic</button>
+    <div id='actions-log' class='small' style='margin-top:10px;'></div>
+  </div>
+</div>
+
+<div style='margin-top:25px;'>
+  <div class='card'>
+    <h3>Raw Diagnostic JSON</h3>
+    <pre id='raw'></pre>
+  </div>
+</div>
+
+<script>
+async function loadDiag(){
+  const res = await fetch('/api/irene/diagnostic');
+  const data = await res.json();
+  if(!data.ok){
+    document.getElementById('raw').textContent = 'Diagnostic error';
+    return;
+  }
+  const d = data.diag;
+  document.getElementById('ts').textContent = 'Last check: ' + d.ts;
+
+  // Uptime
+  const up = d.uptimeSec || 0;
+  const hrs = Math.floor(up/3600);
+  const mins = Math.floor((up%3600)/60);
+  document.getElementById('c-uptime').textContent = hrs+'h '+mins+'m';
+
+  // Mem
+  const m = d.memory || {};
+  document.getElementById('c-mem').textContent = (m.osUsagePct || 0) + '%';
+
+  // CPU
+  const l = d.load || {};
+  document.getElementById('c-cpu').textContent = (l['1min'] || 0).toFixed ? l['1min'].toFixed(2) : l['1min'];
+
+  // Health
+  const h = d.healthScore || 0;
+  const hv = document.getElementById('c-health');
+  hv.textContent = h + '/100';
+  hv.className = 'value ' + (h >= 80 ? 'good' : (h >= 50 ? '' : 'bad'));
+
+  // Modules
+  const mods = d.modules || {};
+  const ul = document.getElementById('mod-list');
+  ul.innerHTML = '';
+  Object.keys(mods).forEach(k=>{
+    const li = document.createElement('li');
+    const ok = mods[k];
+    li.innerHTML = '<span class="'+(ok?'good':'bad')+'">['+(ok?'OK':'FAIL')+']</span> ' + k;
+    ul.appendChild(li);
+  });
+
+  // Raw JSON
+  document.getElementById('raw').textContent = JSON.stringify(d,null,2);
+}
+
+async function testAutoProduct(){
+  try{
+    const res = await fetch('/api/catalog/autogen',{method:'POST'});
+    const data = await res.json();
+    document.getElementById('actions-log').textContent = 'Auto-product: ' + (data.ok ? 'OK' : 'ERROR');
+  }catch(e){
+    document.getElementById('actions-log').textContent = 'Auto-product: connection error';
+  }
+}
+
+async function pingHealth(){
+  try{
+    const res = await fetch('/api/health');
+    const data = await res.json();
+    document.getElementById('actions-log').textContent = 'Health Monitor: ' + (data.ok ? 'OK' : 'ISSUES');
+  }catch(e){
+    document.getElementById('actions-log').textContent = 'Health Monitor: connection error';
+  }
+}
+
+function reloadDiag(){
+  loadDiag();
+  document.getElementById('actions-log').textContent = 'Diagnostic reloaded.';
+}
+
+loadDiag();
+</script>
+<script src='/js/lazyload.js'></script></body>
+</html>
+<button onclick='testAutoPublish()'>Auto-Publish Product</button>
+<script>
+async function testAutoPublish(){
+  try{
+    const res = await fetch('/api/catalog/autopublish',{method:'POST'});
+    const data = await res.json();
+    document.getElementById('actions-log').textContent = 'Auto-Publish: ' + (data.ok ? 'OK' : 'ERROR');
+  }catch(e){
+    document.getElementById('actions-log').textContent = 'Auto-Publish: connection error';
+  }
+}
+</script>
+

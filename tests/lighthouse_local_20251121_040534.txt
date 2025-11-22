@@ -1,0 +1,456 @@
+﻿AUDITORÍA LIGHTHOUSE (Simulada · Local)
+=====================================================
+Fecha: 20251121_040534
+
+[HTML] C:\NeuralGPT.Store\public_html\about\index.html  3.02 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\analytics\index.html  5.68 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\b2b\outreach.html  3.09 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\backup\index.html  1.57 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\cockpit\index.html  4.65 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\compliance\index.html  1.31 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\customers\index.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\desktop\index.html  4.29 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\enterprise\index.html  0.63 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\enterprise\list.html  1.11 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\errors\index.html  1.13 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\health\index.html  2.25 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\irene\index.html  5.13 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\logs\activity.html  0.98 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\messages\index.html  0.55 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\neuroanalytics\index.html  1.15 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\neurosales\index.html  1.21 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\neurosearch\index.html  1.04 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\notifications\index.html  1.2 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\ops\index.html  1.25 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\performance\index.html  1.27 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\products\index.html  1.85 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\providers\index.html  0.66 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\providers_verify\index.html  1.38 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\reviews\index.html  0.58 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\security\blocked.html  0.78 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\subscriptions\index.html  1.12 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\suite\index.html  0.36 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\supervisor\index.html  1.19 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\tax\index.html  4.81 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\translator\index.html  1.63 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\updates\index.html  1.44 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\users\index.html  1.07 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\vendors\autovendor.html  1.91 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\vendors\compliance.html  2.23 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\vendors\index.html  1.85 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\vendors\trust.html  1.28 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\verifier\index.html  0.61 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin\index.html  0.25 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_1.html  0.33 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_10.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_11.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_12.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_13.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_14.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_15.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_16.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_17.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_18.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_19.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_2.html  0.33 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_20.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_21.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_22.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_23.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_24.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_25.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_26.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_27.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_28.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_29.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_3.html  0.33 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_30.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_31.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_32.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_33.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_34.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_35.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_36.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_37.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_38.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_39.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_4.html  0.33 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_40.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_41.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_42.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_43.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_44.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_45.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_46.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_47.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_48.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_49.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_5.html  0.33 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_50.html  0.34 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_6.html  0.33 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_7.html  0.33 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_8.html  0.33 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\agent_9.html  0.33 KB
+[HTML] C:\NeuralGPT.Store\public_html\agents\index.html  0.62 KB
+[HTML] C:\NeuralGPT.Store\public_html\assets\banner\banner.html  0.42 KB
+[HTML] C:\NeuralGPT.Store\public_html\cart\index.html  0.36 KB
+[HTML] C:\NeuralGPT.Store\public_html\catalog\index.html  0.39 KB
+[HTML] C:\NeuralGPT.Store\public_html\components\review_widget.html  1.93 KB
+[HTML] C:\NeuralGPT.Store\public_html\corporate\index.html  1.71 KB
+[HTML] C:\NeuralGPT.Store\public_html\enterprise\index.html  1.62 KB
+[HTML] C:\NeuralGPT.Store\public_html\global_search\index.html  0.47 KB
+[HTML] C:\NeuralGPT.Store\public_html\investors\index.html  0.95 KB
+[HTML] C:\NeuralGPT.Store\public_html\legal\aviso-legal.html  0.48 KB
+[HTML] C:\NeuralGPT.Store\public_html\legal\cookies.html  0.35 KB
+[HTML] C:\NeuralGPT.Store\public_html\legal\privacidad.html  0.53 KB
+[HTML] C:\NeuralGPT.Store\public_html\legal\terminos.html  0.47 KB
+[HTML] C:\NeuralGPT.Store\public_html\market\index.html  0.5 KB
+[HTML] C:\NeuralGPT.Store\public_html\pay\googlepay-test.html  0.26 KB
+[HTML] C:\NeuralGPT.Store\public_html\pay\paypal-test.html  0.25 KB
+[HTML] C:\NeuralGPT.Store\public_html\pay_test\index.html  1.63 KB
+[HTML] C:\NeuralGPT.Store\public_html\premium\index.html  1.5 KB
+[HTML] C:\NeuralGPT.Store\public_html\pricing\index.html  1.14 KB
+[HTML] C:\NeuralGPT.Store\public_html\provider\index.html  0.25 KB
+[HTML] C:\NeuralGPT.Store\public_html\providers\index.html  1.48 KB
+[HTML] C:\NeuralGPT.Store\public_html\quantum_pass\index.html  1.36 KB
+[HTML] C:\NeuralGPT.Store\public_html\search\index.html  0.46 KB
+[HTML] C:\NeuralGPT.Store\public_html\sections\autovendor.html  2.67 KB
+[HTML] C:\NeuralGPT.Store\public_html\sections\enterprise.html  1.68 KB
+[HTML] C:\NeuralGPT.Store\public_html\subscribe\index.html  0.79 KB
+[HTML] C:\NeuralGPT.Store\public_html\subscribe\thanks.html  0.42 KB
+[HTML] C:\NeuralGPT.Store\public_html\subscription\index.html  0.86 KB
+[HTML] C:\NeuralGPT.Store\public_html\user\dashboard.html  2.39 KB
+[HTML] C:\NeuralGPT.Store\public_html\user\index.html  0.25 KB
+[HTML] C:\NeuralGPT.Store\public_html\admin.html  2.5 KB
+[HTML] C:\NeuralGPT.Store\public_html\index.html  6.06 KB
+[HTML] C:\NeuralGPT.Store\public_html\login.html  1.43 KB
+[HTML] C:\NeuralGPT.Store\public_html\register.html  1.85 KB
+[HTML] C:\NeuralGPT.Store\public_html\register_business.html  2.08 KB
+[HTML] C:\NeuralGPT.Store\public_html\upload.html  1.54 KB
+[CSS] C:\NeuralGPT.Store\public_html\about\about.css  0.37 KB
+[CSS] C:\NeuralGPT.Store\public_html\admin\cockpit\cockpit.css  1.02 KB
+[CSS] C:\NeuralGPT.Store\public_html\admin\css\command.css  0.82 KB
+[CSS] C:\NeuralGPT.Store\public_html\admin\customers\customers.css  0.13 KB
+[CSS] C:\NeuralGPT.Store\public_html\admin\messages\messages.css  0.41 KB
+[CSS] C:\NeuralGPT.Store\public_html\admin\products\products.css  0.27 KB
+[CSS] C:\NeuralGPT.Store\public_html\admin\providers\providers.css  0.34 KB
+[CSS] C:\NeuralGPT.Store\public_html\admin\suite\suite.css  0.52 KB
+[CSS] C:\NeuralGPT.Store\public_html\admin\users\users.css  0.34 KB
+[CSS] C:\NeuralGPT.Store\public_html\ai_assistant\assistant.css  1.42 KB
+[CSS] C:\NeuralGPT.Store\public_html\assets\css\register.css  1.1 KB
+[CSS] C:\NeuralGPT.Store\public_html\assets\irene_chat\irene_chat.css  2.07 KB
+[CSS] C:\NeuralGPT.Store\public_html\catalog\style.css  0.74 KB
+[CSS] C:\NeuralGPT.Store\public_html\corporate\corporate.css  0.36 KB
+[CSS] C:\NeuralGPT.Store\public_html\css\main.css  2.54 KB
+[CSS] C:\NeuralGPT.Store\public_html\enterprise\enterprise.css  0.65 KB
+[CSS] C:\NeuralGPT.Store\public_html\global_search\style.css  0.46 KB
+[CSS] C:\NeuralGPT.Store\public_html\investors\investors.css  0.67 KB
+[CSS] C:\NeuralGPT.Store\public_html\investors\style.css  0.5 KB
+[CSS] C:\NeuralGPT.Store\public_html\legal\legal.css  0.15 KB
+[CSS] C:\NeuralGPT.Store\public_html\market\market.css  0.12 KB
+[CSS] C:\NeuralGPT.Store\public_html\onboarding\onboarding.css  0.5 KB
+[CSS] C:\NeuralGPT.Store\public_html\pricing\style.css  0.71 KB
+[CSS] C:\NeuralGPT.Store\public_html\providers\providers.css  0.52 KB
+[CSS] C:\NeuralGPT.Store\public_html\search\search.css  0.25 KB
+[CSS] C:\NeuralGPT.Store\public_html\styles\main.css  0.84 KB
+[CSS] C:\NeuralGPT.Store\public_html\subscribe\style.css  0.63 KB
+[CSS] C:\NeuralGPT.Store\public_html\subscription\style.css  0.72 KB
+[CSS] C:\NeuralGPT.Store\public_html\style.css  0 KB
+[JS] C:\NeuralGPT.Store\public_html\admin\cockpit\assistant.js  0.47 KB
+[JS] C:\NeuralGPT.Store\public_html\admin\cockpit\cockpit.js  1.31 KB
+[JS] C:\NeuralGPT.Store\public_html\admin\cockpit\hud_notifications.js  0.41 KB
+[JS] C:\NeuralGPT.Store\public_html\admin\customers\customers.js  0.37 KB
+[JS] C:\NeuralGPT.Store\public_html\admin\enterprise\enterprise.js  0.62 KB
+[JS] C:\NeuralGPT.Store\public_html\admin\js\command.js  0.41 KB
+[JS] C:\NeuralGPT.Store\public_html\admin\messages\messages.js  1.08 KB
+[JS] C:\NeuralGPT.Store\public_html\admin\products\products.js  0.83 KB
+[JS] C:\NeuralGPT.Store\public_html\admin\providers\providers.js  0.92 KB
+[JS] C:\NeuralGPT.Store\public_html\admin\reviews\reviews.js  0.57 KB
+[JS] C:\NeuralGPT.Store\public_html\admin\suite\suite.js  0.82 KB
+[JS] C:\NeuralGPT.Store\public_html\admin\users\users.js  0.71 KB
+[JS] C:\NeuralGPT.Store\public_html\admin\verifier\verifier.js  0.68 KB
+[JS] C:\NeuralGPT.Store\public_html\ai_assistant\assistant.js  1.51 KB
+[JS] C:\NeuralGPT.Store\public_html\assets\banner\banner.js  0.26 KB
+[JS] C:\NeuralGPT.Store\public_html\assets\irene_chat\irene_chat.js  3.47 KB
+[JS] C:\NeuralGPT.Store\public_html\assets\js\benefit_popup.js  2.44 KB
+[JS] C:\NeuralGPT.Store\public_html\catalog\catalog.js  0.68 KB
+[JS] C:\NeuralGPT.Store\public_html\enterprise\enterprise.js  0.65 KB
+[JS] C:\NeuralGPT.Store\public_html\global_search\engine.js  0.71 KB
+[JS] C:\NeuralGPT.Store\public_html\i18n\i18n.js  0.98 KB
+[JS] C:\NeuralGPT.Store\public_html\investors\investors.js  0.65 KB
+[JS] C:\NeuralGPT.Store\public_html\investors\script.js  0.6 KB
+[JS] C:\NeuralGPT.Store\public_html\js\admin.js  1.97 KB
+[JS] C:\NeuralGPT.Store\public_html\js\app.js  1.29 KB
+[JS] C:\NeuralGPT.Store\public_html\js\store.js  1.29 KB
+[JS] C:\NeuralGPT.Store\public_html\js\upload.js  0.78 KB
+[JS] C:\NeuralGPT.Store\public_html\market\market.js  1.11 KB
+[JS] C:\NeuralGPT.Store\public_html\onboarding\onboarding.js  0.78 KB
+[JS] C:\NeuralGPT.Store\public_html\search\search.js  0.44 KB
+[JS] C:\NeuralGPT.Store\public_html\subscribe\script.js  0.57 KB
+[JS] C:\NeuralGPT.Store\public_html\subscription\sub.js  0.58 KB
+[JS] C:\NeuralGPT.Store\public_html\app.js  0 KB
+[IMG] C:\NeuralGPT.Store\public_html\assets\autoimg\tech1.png  1.95 KB
+[IMG] C:\NeuralGPT.Store\public_html\assets\autoimg\tech2.png  1.95 KB
+[IMG] C:\NeuralGPT.Store\public_html\assets\autoimg\tech3.png  1.95 KB
+[IMG] C:\NeuralGPT.Store\public_html\assets\autoimg\tech4.png  1.95 KB
+
+CHECKS SEO:
+---------------------------------------------
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: outreach.html
+[WARN] Falta meta description en: outreach.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: list.html
+[WARN] Falta meta description en: list.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: activity.html
+[WARN] Falta meta description en: activity.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: blocked.html
+[WARN] Falta meta description en: blocked.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: autovendor.html
+[WARN] Falta meta description en: autovendor.html
+[OK] Title presente en: compliance.html
+[WARN] Falta meta description en: compliance.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: trust.html
+[WARN] Falta meta description en: trust.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: agent_1.html
+[WARN] Falta meta description en: agent_1.html
+[OK] Title presente en: agent_10.html
+[WARN] Falta meta description en: agent_10.html
+[OK] Title presente en: agent_11.html
+[WARN] Falta meta description en: agent_11.html
+[OK] Title presente en: agent_12.html
+[WARN] Falta meta description en: agent_12.html
+[OK] Title presente en: agent_13.html
+[WARN] Falta meta description en: agent_13.html
+[OK] Title presente en: agent_14.html
+[WARN] Falta meta description en: agent_14.html
+[OK] Title presente en: agent_15.html
+[WARN] Falta meta description en: agent_15.html
+[OK] Title presente en: agent_16.html
+[WARN] Falta meta description en: agent_16.html
+[OK] Title presente en: agent_17.html
+[WARN] Falta meta description en: agent_17.html
+[OK] Title presente en: agent_18.html
+[WARN] Falta meta description en: agent_18.html
+[OK] Title presente en: agent_19.html
+[WARN] Falta meta description en: agent_19.html
+[OK] Title presente en: agent_2.html
+[WARN] Falta meta description en: agent_2.html
+[OK] Title presente en: agent_20.html
+[WARN] Falta meta description en: agent_20.html
+[OK] Title presente en: agent_21.html
+[WARN] Falta meta description en: agent_21.html
+[OK] Title presente en: agent_22.html
+[WARN] Falta meta description en: agent_22.html
+[OK] Title presente en: agent_23.html
+[WARN] Falta meta description en: agent_23.html
+[OK] Title presente en: agent_24.html
+[WARN] Falta meta description en: agent_24.html
+[OK] Title presente en: agent_25.html
+[WARN] Falta meta description en: agent_25.html
+[OK] Title presente en: agent_26.html
+[WARN] Falta meta description en: agent_26.html
+[OK] Title presente en: agent_27.html
+[WARN] Falta meta description en: agent_27.html
+[OK] Title presente en: agent_28.html
+[WARN] Falta meta description en: agent_28.html
+[OK] Title presente en: agent_29.html
+[WARN] Falta meta description en: agent_29.html
+[OK] Title presente en: agent_3.html
+[WARN] Falta meta description en: agent_3.html
+[OK] Title presente en: agent_30.html
+[WARN] Falta meta description en: agent_30.html
+[OK] Title presente en: agent_31.html
+[WARN] Falta meta description en: agent_31.html
+[OK] Title presente en: agent_32.html
+[WARN] Falta meta description en: agent_32.html
+[OK] Title presente en: agent_33.html
+[WARN] Falta meta description en: agent_33.html
+[OK] Title presente en: agent_34.html
+[WARN] Falta meta description en: agent_34.html
+[OK] Title presente en: agent_35.html
+[WARN] Falta meta description en: agent_35.html
+[OK] Title presente en: agent_36.html
+[WARN] Falta meta description en: agent_36.html
+[OK] Title presente en: agent_37.html
+[WARN] Falta meta description en: agent_37.html
+[OK] Title presente en: agent_38.html
+[WARN] Falta meta description en: agent_38.html
+[OK] Title presente en: agent_39.html
+[WARN] Falta meta description en: agent_39.html
+[OK] Title presente en: agent_4.html
+[WARN] Falta meta description en: agent_4.html
+[OK] Title presente en: agent_40.html
+[WARN] Falta meta description en: agent_40.html
+[OK] Title presente en: agent_41.html
+[WARN] Falta meta description en: agent_41.html
+[OK] Title presente en: agent_42.html
+[WARN] Falta meta description en: agent_42.html
+[OK] Title presente en: agent_43.html
+[WARN] Falta meta description en: agent_43.html
+[OK] Title presente en: agent_44.html
+[WARN] Falta meta description en: agent_44.html
+[OK] Title presente en: agent_45.html
+[WARN] Falta meta description en: agent_45.html
+[OK] Title presente en: agent_46.html
+[WARN] Falta meta description en: agent_46.html
+[OK] Title presente en: agent_47.html
+[WARN] Falta meta description en: agent_47.html
+[OK] Title presente en: agent_48.html
+[WARN] Falta meta description en: agent_48.html
+[OK] Title presente en: agent_49.html
+[WARN] Falta meta description en: agent_49.html
+[OK] Title presente en: agent_5.html
+[WARN] Falta meta description en: agent_5.html
+[OK] Title presente en: agent_50.html
+[WARN] Falta meta description en: agent_50.html
+[OK] Title presente en: agent_6.html
+[WARN] Falta meta description en: agent_6.html
+[OK] Title presente en: agent_7.html
+[WARN] Falta meta description en: agent_7.html
+[OK] Title presente en: agent_8.html
+[WARN] Falta meta description en: agent_8.html
+[OK] Title presente en: agent_9.html
+[WARN] Falta meta description en: agent_9.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[WARN] Falta <title> en: banner.html
+[WARN] Falta meta description en: banner.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[WARN] Falta <title> en: review_widget.html
+[WARN] Falta meta description en: review_widget.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: aviso-legal.html
+[WARN] Falta meta description en: aviso-legal.html
+[OK] Title presente en: cookies.html
+[WARN] Falta meta description en: cookies.html
+[OK] Title presente en: privacidad.html
+[WARN] Falta meta description en: privacidad.html
+[OK] Title presente en: terminos.html
+[WARN] Falta meta description en: terminos.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: googlepay-test.html
+[WARN] Falta meta description en: googlepay-test.html
+[OK] Title presente en: paypal-test.html
+[WARN] Falta meta description en: paypal-test.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: autovendor.html
+[WARN] Falta meta description en: autovendor.html
+[OK] Title presente en: enterprise.html
+[WARN] Falta meta description en: enterprise.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: thanks.html
+[WARN] Falta meta description en: thanks.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: dashboard.html
+[WARN] Falta meta description en: dashboard.html
+[OK] Title presente en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: admin.html
+[WARN] Falta meta description en: admin.html
+[WARN] Falta <title> en: index.html
+[WARN] Falta meta description en: index.html
+[OK] Title presente en: login.html
+[WARN] Falta meta description en: login.html
+[OK] Title presente en: register.html
+[WARN] Falta meta description en: register.html
+[OK] Title presente en: register_business.html
+[WARN] Falta meta description en: register_business.html
+[OK] Title presente en: upload.html
+[WARN] Falta meta description en: upload.html
+
+BUENAS PRÁCTICAS:
+---------------------------------------------
+[OK] LazyLoad integrado
+[OK] Minificación aplicada (según optimize_build)
+[OK] Seguridad extendida (metas X-Frame-Options, etc.)
+[OK] Rutas consistentes
+[OK] CNAME configurado

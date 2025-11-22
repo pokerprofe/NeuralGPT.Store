@@ -1,0 +1,17 @@
+document.getElementById('inv-form').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+
+  const email = document.getElementById('email').value;
+  const type = document.getElementById('type').value;
+  const budget = document.getElementById('budget').value;
+  const details = document.getElementById('details').value;
+
+  const res = await fetch('/api/investor/create',{
+    method:'POST',
+    headers:{ 'Content-Type':'application/json' },
+    body:JSON.stringify({ email, type, details, budget })
+  });
+
+  const data = await res.json();
+  if(data.ok){ alert('Proposal submitted'); }
+});

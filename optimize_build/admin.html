@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Admin â€” NeuralGPT.Store IA (Static)</title>
+<style>
+:root{--gold:#d4af37;--bg:#000;--panel:#0e0e0e;--line:#1a1a1a;--mut:#9a9a9a;--ink:#e5e5e5}
+html,body{margin:0;background:#000;color:var(--ink);font-family:Inter,system-ui}
+.top{padding:16px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+.title{color:var(--gold);font-weight:900}
+.grid{max-width:1180px;margin:18px auto;padding:0 20px;display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.card{grid-column:span 4;background:var(--panel);border:1px solid rgba(212,175,55,.25);border-radius:14px;padding:16px}
+.table{grid-column:span 12}
+h3{margin:0 0 10px 0;color:var(--gold)}
+.kpi{font-size:28px;font-weight:800}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px 8px;border-bottom:1px solid #191919}
+footer{margin:24px 0;text-align:center;color:#c69728}
+@media (max-width:900px){.card{grid-column:span 12}}
+</style>
+</head>
+<body>
+<header class="top"><div class="title">Admin â€¢ Static Mode</div><div style="color:#9a9a9a">GitHub Pages</div></header>
+<main class="grid">
+  <section class="card"><h3>Total Models</h3><div id="k_models" class="kpi">â€”</div></section>
+  <section class="card"><h3>Creators (approx)</h3><div id="k_creators" class="kpi">â€”</div></section>
+  <section class="card"><h3>Sales (static)</h3><div id="k_sales" class="kpi">0</div></section>
+  <section class="card table">
+    <h3>Recent Models</h3>
+    <table><thead><tr><th>ID</th><th>Name</th><th>Created</th></tr></thead><tbody id="t_models"></tbody></table>
+  </section>
+</main>
+<footer>Â© 2025 pokershadow.ink</footer>
+<script>
+(async function(){
+  try{
+    const r = await fetch("data/models.json"); const models = await r.json();
+    document.getElementById("k_models").textContent = models.length;
+    document.getElementById("k_creators").textContent = new Set(models.map(m=>m.seller_email||"")).size;
+    const tb = document.getElementById("t_models"); tb.innerHTML = "";
+    (models.slice(0,12)).forEach(m=>{
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${m.id||""}</td><td>${m.nombre||m.name||""}</td><td>${(m.creado||"").replace("T"," ").slice(0,19)}</td>`;
+      tb.appendChild(tr);
+    });
+  }catch(e){ document.getElementById("t_models").innerHTML = "<tr><td colspan=3 style='color:#c69728'>No data</td></tr>"; }
+})();
+</script>
+<script src='/js/lazyload.js'></script></body></html>
+

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang=\"es\">
+<head>
+  <meta charset=\"UTF-8\">
+  <title>Contacto y Soporte · NeuralGPT.Store</title>
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+  <link rel=\"stylesheet\" href=\"../styles/global.css\">
+</head>
+
+<body class=\"ng-body\">
+  <div id=\"ng-menu-container\" data-active=\"contact\"></div>
+
+  <main class=\"ng-main\">
+    <section class=\"ng-section\">
+      <header class=\"ng-section-header\">
+        <h1 class=\"ng-title-xl\">Contacto y Soporte</h1>
+        <p class=\"ng-text-muted\">
+          ¿Necesitas ayuda? ¿Quieres proponernos una colaboración?  
+          Estamos aquí para ayudarte.
+        </p>
+      </header>
+
+      <div class=\"ng-card ng-card-solid ng-p-lg\">
+        <form id=\"contact-form\" class=\"ng-form\">
+
+          <div class=\"ng-field\">
+            <label class=\"ng-label\" for=\"c-name\">Nombre completo</label>
+            <input id=\"c-name\" type=\"text\" class=\"ng-input\" autocomplete=\"name\">
+          </div>
+
+          <div class=\"ng-field\">
+            <label class=\"ng-label\" for=\"c-email\">Correo electrónico</label>
+            <input id=\"c-email\" type=\"email\" class=\"ng-input\" autocomplete=\"email\">
+          </div>
+
+          <div class=\"ng-field\">
+            <label class=\"ng-label\" for=\"c-type\">Motivo del contacto</label>
+            <select id=\"c-type\" class=\"ng-input\">
+              <option value=\"\">Selecciona una opción</option>
+              <option value=\"soporte\">Soporte técnico</option>
+              <option value=\"ventas\">Información de productos</option>
+              <option value=\"colaboracion\">Colaboración empresarial</option>
+              <option value=\"otros\">Otros</option>
+            </select>
+          </div>
+
+          <div class=\"ng-field\">
+            <label class=\"ng-label\" for=\"c-msg\">Mensaje</label>
+            <textarea id=\"c-msg\" class=\"ng-input ng-textarea\" rows=\"6\"></textarea>
+          </div>
+
+          <button id=\"c-submit\" type=\"button\" class=\"ng-btn ng-btn-primary ng-btn-full\">
+            Enviar mensaje
+          </button>
+
+          <p class=\"ng-text-xs ng-text-muted ng-mt-sm\">
+            Este formulario registra la solicitud en modo seguro para revisión interna.  
+            No se envían correos reales hasta activar el backend oficial.
+          </p>
+
+          <div id=\"c-alert\" class=\"ng-alert ng-hidden\"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src=\"../js/app.js\" defer></script>
+  <script src=\"../js/contact.js\" defer></script>
+</body>
+</html>
+
+<script src="../scripts/security.js" defer></script>
+
+<!-- Irene Widget -->
+<link rel='stylesheet' href='/butler/widget.css'>
+<div include-html='/butler/widget.html'></div>
+<script src='/butler/widget.js' defer></script>

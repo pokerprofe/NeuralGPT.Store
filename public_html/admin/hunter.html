@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Hunter Control Room · NeuralGPT.Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/global.css">
+</head>
+
+<body class="ng-body">
+  <main class="ng-main ng-p-lg">
+    <section class="ng-section">
+      <header class="ng-section-header">
+        <h1 class="ng-title-xl">Hunter Control Room</h1>
+        <p class="ng-text-muted">
+          Panel de Irene para analizar proveedores, generar invitaciones y revisar informes.
+        </p>
+      </header>
+
+      <div class="ng-grid-2 ng-gap-lg">
+
+        <!-- Columna izquierda: Escáner de proveedores -->
+        <div class="ng-card ng-card-solid ng-p-lg">
+          <h2 class="ng-title-md">Escáner de proveedores</h2>
+          <p class="ng-text-muted">
+            Pega la URL y, si quieres, una muestra de HTML de la web del proveedor.
+          </p>
+
+          <label class="ng-label">URL del proveedor</label>
+          <input id="hunter-url" type="text" class="ng-input ng-mb-md" placeholder="https://...">
+
+          <label class="ng-label">HTML de la página (opcional)</label>
+          <textarea id="hunter-html" class="ng-textarea ng-mb-md" rows="6" placeholder="Pega aquí el código fuente o texto de la web"></textarea>
+
+          <button id="btn-scan" class="ng-btn ng-btn-primary ng-w-full">
+            Analizar proveedor
+          </button>
+
+          <pre id="scan-result" class="ng-mt-md ng-code-block"></pre>
+        </div>
+
+        <!-- Columna derecha: Mensajes e informes -->
+        <div class="ng-card ng-card-solid ng-p-lg">
+          <h2 class="ng-title-md">Mensaje de invitación</h2>
+          <p class="ng-text-muted">
+            Irene genera el correo comercial para invitar al proveedor a NeuralGPT.Store.
+          </p>
+
+          <label class="ng-label">Nombre del negocio</label>
+          <input id="hunter-business" type="text" class="ng-input ng-mb-md" placeholder="Nombre de la empresa">
+
+          <label class="ng-label">Email de contacto</label>
+          <input id="hunter-email" type="email" class="ng-input ng-mb-md" placeholder="contacto@empresa.com">
+
+          <button id="btn-message" class="ng-btn ng-btn-gold ng-w-full">
+            Generar mensaje de Irene
+          </button>
+
+          <label class="ng-label ng-mt-lg">Mensaje generado</label>
+          <textarea id="hunter-message" class="ng-textarea" rows="8" readonly></textarea>
+
+          <hr class="ng-divider ng-mt-lg ng-mb-lg">
+
+          <h2 class="ng-title-md">Informes recientes</h2>
+          <button id="btn-reports" class="ng-btn ng-btn-secondary ng-w-full ng-mb-md">
+            Actualizar informes
+          </button>
+          <pre id="hunter-reports" class="ng-code-block ng-max-h-48 ng-scroll-y"></pre>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/admin_hunter.js" defer></script>
+</body>
+</html>

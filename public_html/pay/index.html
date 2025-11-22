@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Checkout · NeuralGPT.Store</title>
+    <link rel="stylesheet" href="pay.css"/>
+</head>
+<body>
+
+<div id="checkout-wrapper">
+
+    <h2 class="title">Resumen de compra</h2>
+
+    <div id="summary-box">
+        <div id="summary-items"></div>
+        <div id="summary-total" class="sum-total"></div>
+    </div>
+
+    <h2 class="title">Datos de envío</h2>
+
+    <form id="checkout-form">
+        <label>Nombre completo</label>
+        <input id="name" required />
+
+        <label>Dirección</label>
+        <input id="address" required />
+
+        <label>Email</label>
+        <input id="email" type="email" required />
+
+        <button id="btn-confirm" type="submit">Confirmar pedido</button>
+    </form>
+
+</div>
+
+<script src="pay.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+﻿B2B ENGINE CONFIG  NEURALGPT.STORE
+====================================
+Drive Root: H:\Mi unidad\NEURALGPT
+Incoming Leads: .\b2b_engine\incoming
+Processed: .\b2b_engine\processed
+Contracts: .\b2b_engine\contracts
+Partners:  .\b2b_engine\partners
+
+AutoPipeline:
+- Validación automática del proveedor
+- Scoring técnico y logístico
+- Registro en carpeta PARTNERS/
+- Creación automática de contrato (plantilla)
+- Exportación a Google Drive

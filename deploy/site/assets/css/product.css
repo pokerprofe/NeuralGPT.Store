@@ -1,0 +1,133 @@
+:root {
+    --gold: #d4af37;
+    --gold2: #b48a2a;
+    --black: #0a0a0a;
+    --panel: #111;
+    --gray: #222;
+    --text: #e6e6e6;
+}
+
+body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+#product-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    background: var(--panel);
+    padding: 40px;
+    border: 1px solid var(--gold2);
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+/* Título */
+#product-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+/* Imagen */
+#product-image {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid var(--gold2);
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Descripción */
+#product-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Meta */
+#product-meta span {
+    display: block;
+    margin: 5px 0;
+    font-size: 1rem;
+    color: var(--gold);
+}
+
+/* Botón carrito */
+#add-to-cart {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 14px 22px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(212,175,55,0.5);
+    transition: 0.2s ease;
+    margin: 20px 0;
+}
+#add-to-cart:hover {
+    background: var(--gold2);
+}
+
+/* Relacionados */
+#related-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.related-item {
+    background: var(--gray);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--gold2);
+    text-align: center;
+}
+
+.related-item img.related-thumb {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.related-item h4 {
+    font-size: 1rem;
+    color: var(--gold);
+    margin: 10px 0;
+}
+
+.related-item a {
+    display: inline-block;
+    color: var(--black);
+    background: var(--gold);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.related-item a:hover {
+    background: var(--gold2);
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    #product-container {
+        padding: 20px;
+    }
+    #product-title {
+        font-size: 1.8rem;
+    }
+}

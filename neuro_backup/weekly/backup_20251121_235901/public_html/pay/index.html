@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Revisión de pedido · NeuralGPT.Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/global.css" />
+</head>
+<body class="ng-body">
+  <!-- Menú global -->
+  <div id="ng-menu-container" data-active="pay"></div>
+
+  <main class="ng-main">
+    <section class="ng-section ng-section-pay">
+      <header class="ng-section-header">
+        <h1 class="ng-title-xl">Revisión del pedido</h1>
+        <p class="ng-text-muted">
+          Esta es una simulación completa del proceso de pago. No se realizará ningún cobro real.
+        </p>
+      </header>
+
+      <div class="ng-pay-layout">
+        <!-- Columna izquierda: datos cliente -->
+        <div class="ng-pay-column">
+          <div class="ng-card ng-card-solid">
+            <h2 class="ng-title-md">Datos de contacto</h2>
+            <div class="ng-field">
+              <label for="pay-name" class="ng-label">Nombre completo</label>
+              <input id="pay-name" type="text" class="ng-input" autocomplete="name" />
+            </div>
+            <div class="ng-field">
+              <label for="pay-email" class="ng-label">Correo electrónico</label>
+              <input id="pay-email" type="email" class="ng-input" autocomplete="email" />
+            </div>
+            <div class="ng-field">
+              <label for="pay-phone" class="ng-label">Teléfono (opcional)</label>
+              <input id="pay-phone" type="tel" class="ng-input" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="ng-card ng-card-solid ng-mt-md">
+            <h2 class="ng-title-md">Dirección de facturación</h2>
+            <div class="ng-field">
+              <label for="pay-address" class="ng-label">Dirección</label>
+              <input id="pay-address" type="text" class="ng-input" autocomplete="street-address" />
+            </div>
+            <div class="ng-field ng-grid-2">
+              <div>
+                <label for="pay-city" class="ng-label">Ciudad</label>
+                <input id="pay-city" type="text" class="ng-input" />
+              </div>
+              <div>
+                <label for="pay-zip" class="ng-label">Código postal</label>
+                <input id="pay-zip" type="text" class="ng-input" />
+              </div>
+            </div>
+            <div class="ng-field">
+              <label for="pay-country" class="ng-label">País</label>
+              <select id="pay-country" class="ng-input">
+                <option value="">Selecciona un país</option>
+                <option value="ES">España</option>
+                <option value="PT">Portugal</option>
+                <option value="FR">Francia</option>
+                <option value="DE">Alemania</option>
+                <option value="IT">Italia</option>
+                <option value="EU">Otro país UE</option>
+                <option value="OTHER">Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="ng-card ng-card-solid ng-mt-md">
+            <h2 class="ng-title-md">Método de pago (simulado)</h2>
+            <div class="ng-field">
+              <label class="ng-radio">
+                <input type="radio" name="pay-method" value="card" checked />
+                <span>Tarjeta (simulada)</span>
+              </label>
+              <label class="ng-radio">
+                <input type="radio" name="pay-method" value="paypal" />
+                <span>PayPal (simulado)</span>
+              </label>
+              <label class="ng-radio">
+                <input type="radio" name="pay-method" value="gpay" />
+                <span>Google Pay (simulado)</span>
+              </label>
+            </div>
+            <p class="ng-text-xs ng-text-muted">
+              En esta fase de desarrollo no se guardan datos de tarjeta ni se realizan cargos reales.
+            </p>
+          </div>
+
+          <div class="ng-card ng-card-muted ng-mt-md">
+            <label class="ng-checkbox">
+              <input type="checkbox" id="pay-accept-terms" />
+              <span>
+                Acepto los
+                <a href="../legal/terminos.html" class="ng-link" target="_blank">Términos y condiciones</a>,
+                la <a href="../legal/privacidad.html" class="ng-link" target="_blank">Política de privacidad</a>
+                y la <a href="../legal/cookies.html" class="ng-link" target="_blank">Política de cookies</a>.
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Columna derecha: resumen de pedido -->
+        <aside class="ng-pay-column ng-card ng-card-strong">
+          <h2 class="ng-title-md">Resumen del carrito</h2>
+          <div id="pay-cart-list" class="ng-pay-cart-list">
+            <!-- Productos del carrito se inyectan aquí -->
+          </div>
+
+          <div class="ng-divider"></div>
+
+          <div class="ng-cart-summary-line">
+            <span>Subtotal</span>
+            <span id="pay-subtotal">0,00 €</span>
+          </div>
+          <div class="ng-cart-summary-line">
+            <span>Impuestos estimados</span>
+            <span id="pay-tax" class="ng-text-muted">Incluidos</span>
+          </div>
+          <div class="ng-cart-summary-total ng-mt-sm">
+            <span>Total</span>
+            <span id="pay-total" class="ng-price-strong">0,00 €</span>
+          </div>
+
+          <button id="pay-submit" class="ng-btn ng-btn-primary ng-btn-full ng-mt-md">
+            Confirmar pedido (simulado)
+          </button>
+
+          <p class="ng-text-xs ng-text-muted ng-mt-sm">
+            Este entorno es de pruebas. El pedido se registrará de forma simulada para
+            pruebas internas de NeuralGPT.Store, sin ningún cobro real.
+          </p>
+
+          <div id="pay-message" class="ng-alert ng-hidden"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/app.js" defer></script>
+  <script src="../js/cart.js" defer></script>
+  <script src="../js/pay.js" defer></script>
+</body>
+</html>
+
+<!-- Irene Widget -->
+<link rel='stylesheet' href='/butler/widget.css'>
+<div include-html='/butler/widget.html'></div>
+<script src='/butler/widget.js' defer></script>

@@ -1,0 +1,11 @@
+﻿NEURALGPT.STORE  ANTI-FAKE SHIELD
+===================================
+Objetivo:
+Evitar falsificaciones, imitaciones baratas y suplantaciones de marca.
+
+Protocolos:
+- Firma digital PokerShadow Ink
+- Trazabilidad de contenido
+- Marcadores invisibles
+- Registro de versiones
+- Huella SHA256 de módulos

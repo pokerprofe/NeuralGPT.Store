@@ -1,0 +1,1 @@
+﻿document.addEventListener('DOMContentLoaded', ()=>{ fetch('/assets/banner/banner.html') .then(r=>r.text()) .then(html=>{ document.body.insertAdjacentHTML('afterbegin', html); }) .catch(()=>console.warn('Banner load failed')); }); 

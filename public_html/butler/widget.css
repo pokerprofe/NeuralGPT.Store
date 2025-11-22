@@ -1,0 +1,75 @@
+﻿#irene-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99999;
+}
+
+#irene-bubble {
+    width: 75px;
+    height: 75px;
+    background: #111;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 15px #d4af37;
+}
+
+#irene-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+#irene-panel {
+    width: 300px;
+    height: 380px;
+    background: #000;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 100px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+#irene-header {
+    background: #111;
+    padding: 10px;
+    color: #d4af37;
+    text-align: center;
+    border-bottom: 1px solid #d4af37;
+    font-weight: bold;
+}
+
+#irene-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    color: #fff;
+}
+
+#irene-input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: #111;
+    color: white;
+}
+
+#irene-send {
+    padding: 10px;
+    background: #d4af37;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}

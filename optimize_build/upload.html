@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Upload â€” NeuralGPT.Store IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#d4af37;--panel:#0e0e0e;--ink:#e5e5e5}
+html,body{margin:0;background:#000;color:var(--ink);font-family:Inter,system-ui}
+.header{padding:24px 20px;border-bottom:1px solid #1a1a1a;color:var(--gold);font-weight:900}
+.wrap{max-width:900px;margin:24px auto;padding:0 20px}
+.card{background:var(--panel);border:1px solid rgba(212,175,55,.25);border-radius:14px;padding:16px}
+label{display:block;margin:10px 0 6px;color:var(--gold)}
+input,textarea{width:100%;padding:12px;border:1px solid #333;background:#0c0c0c;color:#fff;border-radius:10px}
+.btn{margin-top:14px;border:1px solid var(--gold);color:var(--gold);background:#0c0c0c;border-radius:10px;padding:10px 12px}
+.note{color:#c69728;margin-top:8px}
+</style></head>
+<body>
+<div class="header">Developers Â· Upload</div>
+<div class="wrap">
+  <div class="card">
+    <p class="note">GitHub Pages is static. Upload & payments require the Workspace deployment (next block).</p>
+    <label>Model name</label><input placeholder="e.g. AtlasMind Pro">
+    <label>Description</label><textarea rows="5" placeholder="What it does and for whom"></textarea>
+    <label>Image</label><input type="file" disabled>
+    <button class="btn" disabled>Publish (Workspace only)</button>
+  </div>
+</div>
+<script src='/js/lazyload.js'></script></body></html>
+

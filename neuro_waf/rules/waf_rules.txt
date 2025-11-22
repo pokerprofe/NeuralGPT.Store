@@ -1,0 +1,16 @@
+﻿NEURO-WAF RULES (modo diagnóstico)
+=================================
+
+Detecta:
+- Inyecciones SQL simuladas
+- Rutas sospechosas
+- Accesos a archivos .env / .key
+- Cambios en server/app
+- Pedidos con patrones maliciosos
+- Extensiones peligrosas
+- Modificaciones no autorizadas en public_html
+
+Modo:
+- Solo análisis
+- No bloquea
+- No altera archivos

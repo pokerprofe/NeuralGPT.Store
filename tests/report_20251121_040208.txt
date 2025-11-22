@@ -1,0 +1,22 @@
+﻿[OK] public_html encontrado
+[ERROR] Falta: public_html\product
+[OK] public_html\catalog encontrado
+[OK] public_html\market encontrado
+[OK] public_html\premium encontrado
+[ERROR] Falta: public_html\training
+[OK] public_html\agents encontrado
+[OK] public_html\global_search encontrado
+[OK] public_html\cart encontrado
+[OK] public_html\pay encontrado
+[ERROR] Falta: public_html\Console
+[OK] public_html\styles encontrado
+[OK] public_html\js encontrado
+[OK] server\app.cjs encontrado
+[OK] Carpeta deploy localizada
+[ERROR] CNAME no existe en deploy
+[WARN] Posible HTML incompleto: C:\NeuralGPT.Store\public_html\assets\banner\banner.html
+[WARN] Falta <head> en: C:\NeuralGPT.Store\public_html\assets\banner\banner.html
+[WARN] Posible HTML incompleto: C:\NeuralGPT.Store\public_html\components\review_widget.html
+[WARN] Falta <head> en: C:\NeuralGPT.Store\public_html\components\review_widget.html
+[WARN] Posible HTML incompleto: C:\NeuralGPT.Store\public_html\index.html
+[WARN] Falta <head> en: C:\NeuralGPT.Store\public_html\index.html

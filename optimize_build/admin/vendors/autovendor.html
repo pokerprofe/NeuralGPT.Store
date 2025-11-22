@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>AutoVendor Orchestrator</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+th,td{padding:8px;border-bottom:1px solid #333;font-size:13px;}
+button{padding:5px 10px;margin:0 2px;background:#d4af37;color:#000;border:none;cursor:pointer;}
+.status-approved{color:#00ff6e;font-weight:bold;}
+.status-rejected{color:red;font-weight:bold;}
+</style>
+</head>
+<body>
+
+<h1>AutoVendor Orchestrator</h1>
+<p>Queued providers and automatic AI decision pipeline.</p>
+
+<table id='t'>
+  <tr>
+    <th>Company</th>
+    <th>Email</th>
+    <th>Country</th>
+    <th>Status</th>
+    <th>Score</th>
+    <th>Verifier</th>
+    <th>Action</th>
+  </tr>
+</table>
+
+<script>
+async function loadQueue(){
+  const res = await fetch('/api/autovendor/queue');
+  const data = await res.json();
+  const t = document.getElementById('t');
+
+  (data.items || []).forEach(v=>{
+    const tr = document.createElement('tr');
+    let status = v.status || 'queued';
+    let cls = '';
+    if(status === 'approved') cls = 'status-approved';
+    if(status === 'rejected') cls = 'status-rejected';
+
+    tr.innerHTML = \
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td class="\">\app.get('/api/neural/status', (req,res)=>{
+  res.json(neural.systemHealth());
+});</td>
+      <td>\</td>
+      <td>\</td>
+      <td><button onclick="processVendor(\)">Process</button></td>
+    \;
+    t.appendChild(tr);
+  });
+}
+
+async function processVendor(id){
+  const res = await fetch('/api/autovendor/process',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ id })
+  });
+  const data = await res.json();
+  alert('Processed: ' + (data.result.approved ? 'APPROVED' : 'REJECTED'));
+  location.reload();
+}
+
+loadQueue();
+</script>
+
+<script src='/js/lazyload.js'></script></body>
+</html>
+

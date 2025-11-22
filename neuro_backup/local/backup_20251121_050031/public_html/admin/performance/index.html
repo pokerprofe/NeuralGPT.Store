@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Performance Center</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+button{padding:8px;background:#111;border:1px solid #d4af37;color:#d4af37;cursor:pointer;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+th,td{padding:8px;border-bottom:1px solid #333;font-size:13px;}
+</style>
+</head>
+<body>
+
+<h1>Performance Center</h1>
+<p>CPU, RAM & System Load</p>
+
+<button onclick='refreshPerf()'>Capture Now</button>
+<button onclick='loadHistory()'>Load History</button>
+
+<table id='tbl'>
+<tr>
+  <th>Time</th>
+  <th>CPU Load</th>
+  <th>RAM Usage</th>
+</tr>
+</table>
+
+<script>
+async function refreshPerf(){
+  await fetch('/api/performance/capture');
+  loadHistory();
+}
+
+async function loadHistory(){
+  const res = await fetch('/api/performance/history');
+  const data = await res.json();
+  const t = document.getElementById('tbl');
+
+  t.innerHTML = '<tr><th>Time</th><th>CPU Load</th><th>RAM Usage</th></tr>';
+
+  (data.history || []).forEach(e=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = \
+      <td>\</td>
+      <td>\</td>
+      <td>\%</td>
+    \;
+    t.appendChild(tr);
+  });
+}
+
+loadHistory();
+</script>
+
+</body>
+</html>

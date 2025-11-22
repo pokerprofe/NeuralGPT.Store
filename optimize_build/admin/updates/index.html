@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Auto-Update Framework</title>
+<style>
+body { background:#000; color:#d4af37; font-family:Arial; padding:20px; }
+button { padding:10px;background:#111;color:#d4af37;border:1px solid #d4af37;cursor:pointer;margin-top:10px; }
+table { width:100%;border-collapse:collapse;margin-top:20px; }
+td,th { padding:8px;border-bottom:1px solid #333;font-size:13px; }
+</style>
+</head>
+<body>
+
+<h1>Auto-Update Framework</h1>
+<p>Managed in local â€” Irene Local can apply controlled patches.</p>
+
+<button onclick='loadPatches()'>Load patches</button>
+<table id='tbl'>
+  <tr><th>Patch</th><th>Action</th></tr>
+</table>
+
+<script>
+async function loadPatches(){
+  const res = await fetch('/api/update/list');
+  const data = await res.json();
+  const t = document.getElementById('tbl');
+  t.innerHTML = '<tr><th>Patch</th><th>Action</th></tr>';
+
+  data.patches.forEach(p=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = \
+      <td>\C:\NeuralGPT.Store\public_html\admin\panels</td>
+      <td><button onclick="applyPatch('\C:\NeuralGPT.Store\public_html\admin\panels')">Apply</button></td>
+    \;
+    t.appendChild(tr);
+  });
+}
+
+async function applyPatch(f){
+  await fetch('/api/update/apply',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ file:f })
+  });
+  alert('Patch applied: '+f);
+}
+</script>
+
+<script src='/js/lazyload.js'></script></body>
+</html>
+

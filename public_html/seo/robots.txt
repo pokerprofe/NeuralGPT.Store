@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /Console/
+Disallow: /console/
+Disallow: /backups/
+Disallow: /logs/
+Disallow: /analytics/
+Disallow: /frontend_logs/
+Disallow: /_legacy/
+
+Sitemap: https://neuralgpt.store/seo/sitemap.xml

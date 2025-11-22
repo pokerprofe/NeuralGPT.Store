@@ -1,0 +1,7 @@
+﻿NEURO ANALYTICS CONFIG
+===========================
+drive_root=H:\Mi unidad\NEURALGPT
+sales_exports=.\sales_engine\exports
+b2b_exports=.\b2b_engine\exports
+reports_dir=.\neuro_analytics\reports
+logs_dir=.\neuro_analytics\logs

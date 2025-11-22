@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://neuralgpt.store/seo/sitemap.xml

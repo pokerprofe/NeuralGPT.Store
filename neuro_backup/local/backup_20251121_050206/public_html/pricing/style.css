@@ -1,0 +1,53 @@
+body{
+  margin:0;
+  background:#000;
+  color:#d4af37;
+  font-family:Arial;
+}
+
+header{
+  text-align:center;
+  padding:30px;
+  border-bottom:1px solid #d4af37;
+}
+
+.pricing-box{
+  max-width:1100px;
+  margin:40px auto;
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.plan, .comparison{
+  background:#111;
+  border:1px solid #d4af37;
+  padding:25px;
+  width:300px;
+}
+
+.price{
+  font-size:28px;
+  margin-bottom:15px;
+}
+
+ul{
+  list-style:none;
+  padding-left:0;
+}
+
+li{
+  margin-bottom:10px;
+}
+
+.btn{
+  display:block;
+  margin-top:20px;
+  padding:12px;
+  text-align:center;
+  background:#d4af37;
+  color:#000;
+  text-decoration:none;
+  font-weight:bold;
+}

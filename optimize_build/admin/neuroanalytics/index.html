@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>NeuroMarket Analytics</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+h1{margin-bottom:20px;}
+button{
+  padding:10px 16px;
+  background:#d4af37;
+  color:#000;
+  border:none;
+  cursor:pointer;
+  margin-bottom:20px;
+  font-weight:bold;
+}
+section{margin-top:20px;}
+pre{
+  background:#111;
+  padding:10px;
+  border:1px solid #333;
+  color:#d4af37;
+  font-size:13px;
+  overflow:auto;
+}
+</style>
+</head>
+<body>
+<h1>NeuroMarket Analytics</h1>
+
+<button onclick='runNow()'>Run Analysis</button>
+
+<section>
+  <h2>Latest Market Snapshot</h2>
+  <pre id='snap'></pre>
+</section>
+
+<script>
+async function runNow(){
+  const res = await fetch('/api/neuroanalytics/run');
+  const data = await res.json();
+  document.getElementById('snap').textContent =
+    JSON.stringify(data.report,null,2);
+}
+
+async function loadLatest(){
+  const res = await fetch('/api/neuroanalytics/latest');
+  const data = await res.json();
+  document.getElementById('snap').textContent =
+    JSON.stringify(data.data,null,2);
+}
+
+loadLatest();
+</script>
+
+<script src='/js/lazyload.js'></script></body>
+</html>
+

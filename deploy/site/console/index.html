@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Consola Central Irene</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../styles/global.css">
+<link rel="stylesheet" href="panel.css">
+</head>
+
+<body class="ng-body">
+
+<main class="console-main">
+  <header class="console-header">
+    <img id="irene-avatar" src="../assets/images/irene_avatar.png" alt="Irene">
+    <h1 class="console-title">Consola Central Irene</h1>
+    <p class="console-sub">Panel de mando principal · NeuralGPT.Store</p>
+  </header>
+
+  <section class="console-grid">
+
+    <div class="console-card" id="status-card">
+      <h2>Estado del servidor</h2>
+      <pre id="server-status">Cargando...</pre>
+    </div>
+
+    <div class="console-card" id="language-card">
+      <h2>AutoIdiomas</h2>
+      <button class="ng-btn ng-btn-primary" id="btn-lang-detect">Detectar lenguaje</button>
+      <pre id="lang-result"></pre>
+    </div>
+
+    <div class="console-card" id="hunter-card">
+      <h2>Hunter AI  Proveedores</h2>
+      <button class="ng-btn ng-btn-primary" id="btn-hunter-reports">Ver reportes</button>
+      <pre id="hunter-result"></pre>
+    </div>
+
+    <div class="console-card" id="leads-card">
+      <h2>Lead Manager</h2>
+      <button class="ng-btn ng-btn-primary" id="btn-leads">Ver leads</button>
+      <pre id="leads-result"></pre>
+    </div>
+
+    <div class="console-card" id="sales-card">
+      <h2>Ventas  NeuroSales</h2>
+      <button class="ng-btn ng-btn-primary" id="btn-sales">Ver logs de ventas</button>
+      <pre id="sales-result"></pre>
+    </div>
+
+    <div class="console-card" id="landing-card">
+      <h2>AutoLandingMatrix</h2>
+      <button class="ng-btn ng-btn-primary" id="btn-landings">Listar landings</button>
+      <pre id="landing-result"></pre>
+    </div>
+
+    <div class="console-card" id="security-card">
+      <h2>Security Status</h2>
+      <pre id="security-result">Cargando...</pre>
+    </div>
+
+    <div class="console-card" id="console-logs-card">
+      <h2>Logs Globales</h2>
+      <button class="ng-btn ng-btn-secondary" id="btn-global-logs">Actualizar</button>
+      <pre id="global-logs"></pre>
+    </div>
+
+  </section>
+
+</main>
+
+<script src="panel.js" defer></script>
+
+</body>
+</html>

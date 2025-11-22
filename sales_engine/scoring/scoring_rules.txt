@@ -1,0 +1,22 @@
+﻿REGLAS DE LEAD SCORING  NEURALGPT.STORE
+===========================================
+1) Email corporativo (@empresa, @org, @edu):
+   +25 puntos
+
+2) Producto de alto valor (Quantum Pass, consultoría, B2B):
+   +25 puntos
+
+3) Mensaje largo, claro, con necesidad explícita:
+   +15 puntos
+
+4) Fuente B2B (LinkedIn, recomendación, partner):
+   +20 puntos
+
+5) Lead recurrente (ya contactó antes):
+   +15 puntos
+
+Segmentos:
+80100   PRIORIDAD MÁXIMA
+6079    Alta prioridad
+4059    Media prioridad
+039     Baja prioridad / nurturing

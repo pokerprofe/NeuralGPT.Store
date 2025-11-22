@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>Investors & Partners</title>
+<link rel='stylesheet' href='style.css'>
+<script src='script.js' defer></script>
+</head>
+<body>
+
+<header>
+  <h1>Investors & Partnership</h1>
+  <p>Submit acquisition interest, partnership or equity proposals.</p>
+</header>
+
+<section class='box'>
+<form id='inv-form'>
+
+<label>Email</label>
+<input type='email' id='email' required>
+
+<label>Proposal Type</label>
+<select id='type'>
+  <option value='equity'>Buy Shares</option>
+  <option value='acquisition'>Propose Acquisition</option>
+  <option value='partnership'>Strategic Partnership</option>
+</select>
+
+<label>Budget / Offer</label>
+<input type='text' id='budget' placeholder='Optional'>
+
+<label>Details</label>
+<textarea id='details' rows='5' placeholder='Describe your interestâ€¦'></textarea>
+
+<button type='submit'>Send Proposal</button>
+
+</form>
+</section>
+
+<script src='/js/lazyload.js'></script></body>
+</html>
+

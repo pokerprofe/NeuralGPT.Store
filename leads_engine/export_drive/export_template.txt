@@ -1,0 +1,4 @@
+﻿# EXPORT TO DRIVE (Plantilla)
+# Irene tomará los leads procesados
+# y los enviará automáticamente a:
+# {drive_path}\NEURALGPT\LEADS\

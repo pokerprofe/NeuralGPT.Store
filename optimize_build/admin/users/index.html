@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>User Manager</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+button{padding:8px;background:#111;border:1px solid #d4af37;color:#d4af37;cursor:pointer;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+td,th{padding:8px;border-bottom:1px solid #333;font-size:13px;}
+</style>
+</head>
+
+<body>
+
+<h1>User Manager</h1>
+<p>All registered accounts</p>
+
+<button onclick='loadUsers()'>Refresh</button>
+
+<table id='tbl'>
+  <tr><th>Email</th><th>Role</th><th>Created</th></tr>
+</table>
+
+<script>
+async function loadUsers(){
+  const res = await fetch('/api/user/all');
+  const data = await res.json();
+  const t = document.getElementById('tbl');
+
+  t.innerHTML = '<tr><th>Email</th><th>Role</th><th>Created</th></tr>';
+
+  (data.users || []).forEach(u=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = \
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+    \;
+    t.appendChild(tr);
+  });
+}
+
+loadUsers();
+</script>
+
+<script src='/js/lazyload.js'></script></body>
+</html>
+

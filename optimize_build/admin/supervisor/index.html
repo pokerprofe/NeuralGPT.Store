@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>AI Supervisor â€” NeuralGPT.Store</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+td,th{padding:8px;border-bottom:1px solid #333;font-size:13px;}
+.ok{color:#00ff88;font-weight:bold;}
+.bad{color:red;font-weight:bold;}
+button{padding:10px;background:#111;border:1px solid #d4af37;color:#d4af37;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<h1>AI Supervisor</h1>
+<p>Irene Local supervisa todos los mÃ³dulos internos.</p>
+
+<button onclick="runSup()">Run Supervisor Scan</button>
+
+<table id="tbl">
+  <tr><th>Module</th><th>Status</th><th>Message</th></tr>
+</table>
+
+<script>
+async function runSup(){
+  const res = await fetch('/api/supervisor/run');
+  const data = await res.json();
+  const t = document.getElementById('tbl');
+  t.innerHTML = '<tr><th>Module</th><th>Status</th><th>Message</th></tr>';
+
+  data.results.forEach(r=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = \
+      <td>\</td>
+      <td class="\">\</td>
+      <td>\</td>
+    \;
+    t.appendChild(tr);
+  });
+}
+</script>
+
+<script src='/js/lazyload.js'></script></body>
+</html>
+

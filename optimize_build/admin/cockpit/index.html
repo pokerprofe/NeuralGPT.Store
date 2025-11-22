@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang='es'>
+<head>
+<meta charset='UTF-8'>
+<title>Centro de Mando â€” NeuralGPT.Store</title>
+<link rel='stylesheet' href='cockpit.css'>
+</head>
+<body>
+<div id='hud'>
+  <div id='title'>HALCÃ“N NEURAL â€” CENTRO DE MANDO</div>
+
+  <div id='panels'>
+    <div class='panel' data-module='sistema'><h2>SISTEMA</h2><p>Estado servidor /status</p></div>
+    <div class='panel' data-module='analytics'><h2>ANALYTICS</h2><p>Eventos y estadÃ­sticas</p></div>
+    <div class='panel' data-module='productos'><h2>PRODUCTOS</h2><p>CatÃ¡logo dinÃ¡mico</p></div>
+    <div class='panel' data-module='agentes'><h2>AGENTES IA</h2><p>50 slots premium</p></div>
+    <div class='panel' data-module='proveedores'><h2>PROVEEDORES</h2><p>B2B tipo Alibaba</p></div>
+    <div class='panel' data-module='clientes'><h2>CLIENTES</h2><p>Base de datos clientes</p></div>
+    <div class='panel' data-module='seguridad'><h2>SEGURIDAD</h2><p>Guardian + radar</p></div>
+    <div class='panel' data-module='neural'><h2>NEURALCORE</h2><p>IA interna del sistema</p></div>
+  </div>
+
+  <div id='output'>
+    <h3>CONSOLa DEL COMANDANTE</h3>
+    <pre id='console'></pre>
+  </div>
+
+  <section id='ai-box'>
+    <h2>Asistente Interno NeuralGPT.Store</h2>
+    <input id='aiQ' placeholder='PregÃºntame lo que quieras sobre el sistema, productos o IA...'>
+    <button onclick='askAI()'>Preguntar a la IA</button>
+    <pre id='aiA'></pre>
+  </section>
+</div>
+
+<script src='cockpit.js'></script>
+<script src='assistant.js'></script>
+<script src='hud_notifications.js'></script>
+<script src='/js/lazyload.js'></script></body>
+</html>
+<!--HUD_SYSTEM_HEALTH-->
+<section style='margin-top:30px;padding:20px;background:#111;border:1px solid #333;'>
+<h2 style='color:#d4af37;'>System Health</h2>
+<p style='color:#d4af37;'>Estado en tiempo real del ecosistema NeuralGPT.Store</p>
+
+<div id='hudbox' style='color:#fff;background:#000;padding:15px;font-family:monospace;border:1px solid #444;height:220px;overflow-y:auto;white-space:pre;'></div>
+
+<script>
+async function loadHUD(){
+    try{
+        const r = await fetch('/api/system/health');
+        const data = await r.json();
+        document.getElementById('hudbox').textContent =
+            "Uptime: " + data.uptime + "\\n" +
+            "Carga: " + data.load + "\\n" +
+            "Memoria usada: " + data.mem + "\\n" +
+            "Estado IA interna: " + data.ai + "\\n" +
+            "Firewall interno: " + data.firewall + "\\n" +
+            "Proveedores activos: " + data.providers + "\\n" +
+            "Latencia media: " + data.latency + "\\n" +
+            "Errores recientes: " + JSON.stringify(data.errors);
+    }catch(e){
+        document.getElementById('hudbox').textContent = "Backend offline â€” modo pasivo";
+    }
+}
+setInterval(loadHUD, 3500);
+loadHUD();
+</script>
+</section>
+<!--CRITICAL_LOGS_MONITOR-->
+<section style='margin-top:30px;padding:20px;background:#111;border:1px solid #333;'>
+<h2 style='color:#d4af37;'>Critical Logs Monitor</h2>
+<p style='color:#d4af37;'>Registros de eventos graves en tiempo real</p>
+
+<div id='critbox' style='color:#fff;background:#000;padding:15px;font-family:monospace;border:1px solid #444;height:220px;overflow-y:auto;white-space:pre;'></div>
+
+<script>
+async function loadCritical(){
+    try{
+        const r = await fetch('/api/system/critical');
+        const data = await r.json();
+        document.getElementById('critbox').textContent =
+            (data.logs || []).map(l =>
+                "[" + l.time + "] (" + l.level + ") " + l.msg
+            ).join("\\n");
+    }catch(e){
+        document.getElementById('critbox').textContent = "Backend offline â€” esperando logs...";
+    }
+}
+setInterval(loadCritical, 4000);
+loadCritical();
+</script>
+</section>
+<!--ALERT_ENGINE_PANEL-->
+<section style='margin-top:30px;padding:20px;background:#111;border:1px solid #444;'>
+<h2 style='color:#d4af37;'>Proactive Alerts â€” Irene AI</h2>
+<p style='color:#d4af37;'>Alertas predictivas generadas automÃ¡ticamente</p>
+
+<div id='alertsBox' style='background:#000;color:#fff;padding:15px;font-family:monospace;height:200px;overflow:auto;border:1px solid #555;white-space:pre;'></div>
+
+<script>
+async function loadAlerts(){
+    try{
+        const r = await fetch('/api/system/alerts');
+        const data = await r.json();
+        document.getElementById('alertsBox').textContent =
+            (data.alerts || []).map(a =>
+                '['+a.time+'] ('+a.type.toUpperCase()+') '+a.msg
+            ).join("\\n");
+    }catch(e){
+        document.getElementById('alertsBox').textContent =
+            'Backend offline â€” esperando alertas...';
+    }
+}
+setInterval(loadAlerts, 4000);
+loadAlerts();
+</script>
+</section>
+

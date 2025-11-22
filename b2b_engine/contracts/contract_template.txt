@@ -1,0 +1,13 @@
+﻿CONTRATO DE PROVEEDOR  NEURALGPT.STORE
+==========================================
+Proveedor: {{NOMBRE}}
+Email: {{EMAIL}}
+Especialidad: {{AREA}}
+Fecha: {{FECHA}}
+
+Cláusulas:
+1. El proveedor se compromete a suministrar tecnología/servicio en condiciones premium.
+2. PokerShadow Ink y NeuralGPT.Store se reservan derechos de auditoría.
+3. Las entregas deben cumplir estándares técnicos cuánticos.
+4. Pago bajo acuerdo de proyecto o comisión acordada.
+5. Confidencialidad absoluta sobre IA internas (Irene, Engines, Systems).

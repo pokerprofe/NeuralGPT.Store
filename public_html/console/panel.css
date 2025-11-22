@@ -1,0 +1,54 @@
+﻿.console-main {
+  padding: 40px;
+  color: #fff;
+}
+
+.console-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#irene-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #d4af37;
+  margin-bottom: 20px;
+  box-shadow: 0 0 12px #d4af37;
+}
+
+.console-title {
+  font-size: 2.5rem;
+  color: #d4af37;
+}
+
+.console-sub {
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+.console-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+}
+
+.console-card {
+  background: #111;
+  border: 2px solid #d4af37;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.console-card h2 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+pre {
+  background: #000;
+  border: 1px solid #333;
+  padding: 10px;
+  height: 200px;
+  overflow-y: auto;
+}

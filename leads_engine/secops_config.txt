@@ -1,0 +1,15 @@
+﻿IRENE-SECOPS CONFIG
+======================
+
+Drive vinculado:
+H:\Mi unidad\NEURALGPT
+
+Funciones activas:
+- Detección de cambios sospechosos
+- Hash SHA256 de integridad por archivo
+- Backups automáticos del proyecto
+- Exportación de leads a Drive
+- Exportación de proveedores y ventas
+- Alertas locales
+- Registros cuánticos
+

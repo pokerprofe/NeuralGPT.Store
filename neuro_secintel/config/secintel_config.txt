@@ -1,0 +1,15 @@
+﻿NEURO-SEC INTEL CONFIG
+===========================
+Objetivo:
+- Detección de anomalías
+- Comparación con baseline
+- Auditoría interna cuántica
+- Exportación a Drive
+
+Drive Root: H:\Mi unidad\NEURALGPT\AUDITORIAS
+
+Monitoreo:
+- Cambios de tamaño
+- Cambios de fecha
+- Archivos nuevos inesperados
+- Archivos borrados

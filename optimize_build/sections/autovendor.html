@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>Global Provider Auto-Onboarding</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+label{display:block;margin-top:10px;}
+input,textarea,select{
+  width:100%;padding:8px;margin-top:4px;
+  background:#111;border:1px solid #444;color:#d4af37;
+}
+button{
+  margin-top:20px;padding:10px 15px;border:none;
+  background:#d4af37;color:#000;font-weight:bold;cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>Global Provider Auto-Onboarding</h1>
+<p>Register your technology catalog and let the system analyse and integrate it automatically.</p>
+
+<label>Company</label>
+<input id='company'>
+
+<label>Responsible person</label>
+<input id='responsible'>
+
+<label>Business email</label>
+<input id='email'>
+
+<label>Country</label>
+<input id='country'>
+
+<label>Website</label>
+<input id='web'>
+
+<label>Categories (comma separated)</label>
+<input id='categories' placeholder='chips, robotics, dev kits, networking'>
+
+<label>Certifications (CE, FCC, RoHSâ€¦)</label>
+<input id='certs'>
+
+<label>Short description</label>
+<textarea id='description'></textarea>
+
+<label>Legal compliance</label>
+<select id='legal'>
+  <option value='true'>Yes, fully compliant</option>
+  <option value='false'>No / not sure</option>
+</select>
+
+<label>Product feed type</label>
+<select id='feedType'>
+  <option value='json'>JSON</option>
+  <option value='csv'>CSV (; separated)</option>
+</select>
+
+<label>Product feed content</label>
+<textarea id='feedData' placeholder='Paste your JSON or CSV here'></textarea>
+
+<button onclick='sendAutoVendor()'>Send</button>
+
+<script>
+async function sendAutoVendor(){
+  const body = {
+    company: document.getElementById('company').value,
+    responsible: document.getElementById('responsible').value,
+    email: document.getElementById('email').value,
+    country: document.getElementById('country').value,
+    web: document.getElementById('web').value,
+    categories: document.getElementById('categories').value.split(',').map(x=>x.trim()).filter(Boolean),
+    certs: document.getElementById('certs').value,
+    description: document.getElementById('description').value,
+    legal: document.getElementById('legal').value === 'true',
+    feedType: document.getElementById('feedType').value,
+    feedData: document.getElementById('feedData').value
+  };
+
+  const res = await fetch('/api/autovendor/apply',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(body)
+  });
+
+  const data = await res.json();
+  alert('Request received. Internal AI will analyse your profile.');
+}
+</script>
+
+<script src='/js/lazyload.js'></script></body>
+</html>
+

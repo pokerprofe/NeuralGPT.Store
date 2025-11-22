@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Irene Console · NeuralGPT.Store</title>
+    <link rel="stylesheet" href="console.css"/>
+</head>
+<body>
+<div id="console-wrapper">
+    <h2 class="title">Irene · Consola Privada</h2>
+
+    <div id="status-box">
+        <h3 class="section-title">Estado del servidor</h3>
+        <button id="btn-status">Actualizar estado</button>
+        <pre id="status-output"></pre>
+    </div>
+
+    <div id="log-box">
+        <h3 class="section-title">Logs locales</h3>
+        <button id="btn-logs">Mostrar logs</button>
+        <pre id="logs-output"></pre>
+    </div>
+
+    <div id="chat-box">
+        <h3 class="section-title">Chat con Irene (local)</h3>
+        <textarea id="chat-input" placeholder="Escribe aquí..."></textarea>
+        <button id="btn-send">Enviar</button>
+        <pre id="chat-output"></pre>
+    </div>
+
+</div>
+
+<script src="console.js"></script>
+</body>
+</html>

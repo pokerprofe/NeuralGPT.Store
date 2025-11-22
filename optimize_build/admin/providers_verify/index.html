@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>Provider Verification</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+th,td{border:1px solid #333;padding:8px;text-align:left;font-size:13px;}
+th{background:#111;}
+.good{color:#00ff6e;}
+.warn{color:#ffcc00;}
+.bad{color:#ff4d4d;}
+</style>
+</head>
+<body>
+
+<h1>Provider Verification Engine</h1>
+<p>Internal risk scoring for all vendors in the NeuroCommerce ecosystem.</p>
+
+<table id='t'>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Email</th>
+      <th>Website</th>
+      <th>Tax ID</th>
+      <th>Risk Score</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+async function loadV(){
+  const res = await fetch('/api/vendors/verify');
+  const d = await res.json();
+  const tb = document.querySelector('#t tbody');
+  tb.innerHTML = '';
+
+  if(!d.vendors) return;
+
+  d.vendors.forEach(v=>{
+    const tr = document.createElement('tr');
+    
+    const cls = v.status === 'verified' ? 'good' : (v.status==='warning'?'warn':'bad');
+
+    tr.innerHTML = \
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td>\</td>
+      <td class='\'>\</td>
+      <td class='\'>\</td>
+    \;
+
+    tb.appendChild(tr);
+  });
+}
+
+loadV();
+</script>
+
+<script src='/js/lazyload.js'></script></body>
+</html>
+

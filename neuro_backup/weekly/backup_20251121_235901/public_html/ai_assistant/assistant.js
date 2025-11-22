@@ -1,0 +1,58 @@
+function kxAddMessage(type,text){
+  const box = document.getElementById('kx-messages');
+  if(!box) return;
+  const div = document.createElement('div');
+  div.className = type === 'user' ? 'kx-msg-user' : 'kx-msg-ai';
+  const span = document.createElement('span');
+  span.textContent = text;
+  div.appendChild(span);
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
+
+function kxToggle(){
+  const w = document.getElementById('kx-window');
+  if(w.style.display === 'none' || !w.style.display){
+    w.style.display = 'flex';
+  }else{
+    w.style.display = 'none';
+  }
+}
+
+async function kxAnswer(){
+  const input = document.getElementById('kx-input');
+  if(!input) return;
+  const q = input.value.trim();
+  if(!q) return;
+
+  kxAddMessage('user', q);
+  input.value = '';
+
+  try{
+    const res = await fetch('/api/irene/ask',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({ question:q })
+    });
+    const data = await res.json();
+    if(data.ok){
+      kxAddMessage('ai', data.answer);
+    }else{
+      kxAddMessage('ai', 'Internal AI is not available at this moment.');
+    }
+  }catch(e){
+    kxAddMessage('ai', 'Connection error with Irene Local Core.');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const input = document.getElementById('kx-input');
+  if(input){
+    input.addEventListener('keydown', e=>{
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        kxAnswer();
+      }
+    });
+  }
+});

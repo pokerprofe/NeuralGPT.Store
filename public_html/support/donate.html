@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang=\"es\">
+<head>
+  <meta charset=\"UTF-8\" />
+  <title>Apoyar el proyecto · NeuralGPT.Store</title>
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />
+  <link rel=\"stylesheet\" href=\"../styles/global.css\" />
+</head>
+<body class=\"ng-body\">
+  <div id=\"ng-menu-container\" data-active=\"support\"></div>
+
+  <main class=\"ng-main\">
+    <section class=\"ng-section\">
+      <header class=\"ng-section-header\">
+        <h1 class=\"ng-title-xl\">Apoyar el proyecto</h1>
+        <p class=\"ng-text-muted\">
+          Tu aportación impulsa la robótica, la inteligencia artificial educativa,
+          las escuelas para nuevas generaciones y todo el ecosistema PokerShadow Ink.
+        </p>
+      </header>
+
+      <div class=\"ng-card ng-card-solid ng-p-lg\">
+        <h2 class=\"ng-title-md\">Selecciona la cantidad</h2>
+
+        <div class=\"ng-donate-grid\">
+          <button class=\"ng-btn ng-btn-ghost ng-donate-btn\" data-amount=\"5\">5 €</button>
+          <button class=\"ng-btn ng-btn-ghost ng-donate-btn\" data-amount=\"10\">10 €</button>
+          <button class=\"ng-btn ng-btn-ghost ng-donate-btn\" data-amount=\"20\">20 €</button>
+          <button class=\"ng-btn ng-btn-ghost ng-donate-btn\" data-amount=\"50\">50 €</button>
+          <button class=\"ng-btn ng-btn-ghost ng-donate-btn\" data-amount=\"100\">100 €</button>
+        </div>
+
+        <div class=\"ng-field ng-mt-md\">
+          <label for=\"donate-custom\" class=\"ng-label\">Cantidad personalizada</label>
+          <input type=\"number\" id=\"donate-custom\" class=\"ng-input\" min=\"1\" placeholder=\"Introduce una cantidad\" />
+        </div>
+
+        <button id=\"donate-submit\" class=\"ng-btn ng-btn-primary ng-btn-full ng-mt-lg\">
+          Continuar a revisión
+        </button>
+
+        <p class=\"ng-text-xs ng-text-muted ng-mt-sm\">
+          No se realizará ningún cobro real. El sistema está en modo de pruebas.
+        </p>
+
+        <div id=\"donate-message\" class=\"ng-alert ng-hidden\"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src=\"../js/app.js\" defer></script>
+  <script src=\"../js/donate.js\" defer></script>
+</body>
+</html>
+
+<!-- Irene Widget -->
+<link rel='stylesheet' href='/butler/widget.css'>
+<div include-html='/butler/widget.html'></div>
+<script src='/butler/widget.js' defer></script>

@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "name": "Starter AI Chip",
+    "price": 49.99,
+    "category": "chips",
+    "stock": 100
+  }
+]

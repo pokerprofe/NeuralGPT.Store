@@ -1,0 +1,3 @@
+﻿RESTORE POINT  20251121_050031
+Directorio: .\neuro_backup\local\backup_20251121_050031
+Zip: .\neuro_backup\zips\backup_20251121_050031.zip

@@ -1,0 +1,14 @@
+﻿# LEAD ENGINE (Plantilla)
+# Irene procesará los leads desde /incoming y generará:
+# - Archivos JSON
+# - Backups de seguridad
+# - Copias para Drive
+
+# Campos esperados:
+# name
+# email
+# product
+# message
+# source
+
+# Irene gestionará validación, limpieza y exportación.

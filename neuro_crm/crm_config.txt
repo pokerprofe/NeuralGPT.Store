@@ -1,0 +1,14 @@
+﻿NEURO-CRM PIPELINE CONFIG
+==================================
+DriveRoot = H:\Mi unidad\NEURALGPT\CRM
+incoming  = .\neuro_crm\incoming
+clients   = .\neuro_crm\clients
+tickets   = .\neuro_crm\tickets
+subs      = .\neuro_crm\subscriptions
+
+Funciones:
+- Registro automático de cliente
+- Historial de tickets
+- Gestión de suscripciones
+- Exportación diaria/semanal a Drive
+- Integración con MotherCore

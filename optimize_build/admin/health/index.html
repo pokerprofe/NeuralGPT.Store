@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>Neural System Health</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+th,td{padding:8px;border-bottom:1px solid #333;font-size:13px;}
+.ok{color:#00ff6e;font-weight:bold;}
+.fail{color:#ff4d4d;font-weight:bold;}
+.small{font-size:11px;color:#aaa;}
+</style>
+</head>
+<body>
+<h1>Neural System Health</h1>
+<p class='small'>Realtime status of core modules, security and AI engines.</p>
+<div id='ts' class='small'></div>
+
+<table id='tbl'>
+  <tr><th>Module</th><th>Item</th><th>Status</th><th>Details</th></tr>
+</table>
+
+<script>
+function addRow(mod,item,ok,details){
+  const tbl = document.getElementById('tbl');
+  const tr = document.createElement('tr');
+  tr.innerHTML = 
+    <td></td>
+    <td></td>
+    <td class=""></td>
+    <td class="small"></td>
+  ;
+  tbl.appendChild(tr);
+}
+
+async function loadHealth(){
+  const res = await fetch('/api/health');
+  const st = await res.json();
+  document.getElementById('ts').textContent = 'Last check: ' + (st.ts || '');
+
+  const c = st.core || {};
+  addRow('core','app.cjs', !!c.app, '');
+  addRow('core','public_html', !!c.public_html, '');
+  addRow('core','data', !!c.data, '');
+
+  const s = st.security || {};
+  addRow('security','firewall', !!s.firewall, '');
+  addRow('security','hardening', !!s.hardening, '');
+  addRow('security','logs dir', !!s.logs, '');
+
+  const a = st.ai || {};
+  addRow('ai','Irene Local Core', !!a.irene_core, '');
+
+  const v = st.vendors || {};
+  function info(f){ return f && f.exists ? ('size='+f.size+'B; mtime='+f.mtime) : 'missing'; }
+  addRow('vendors','vendor_leads.json', v.vendor_leads && v.vendor_leads.exists, info(v.vendor_leads));
+  addRow('vendors','autovendor_queue.json', v.autovendor_queue && v.autovendor_queue.exists, info(v.autovendor_queue));
+  addRow('vendors','products.json', v.products && v.products.exists, info(v.products));
+
+  const w = st.web || {};
+  addRow('web','index.html', w.index && w.index.exists, info(w.index));
+  addRow('web','dashboard/index.html', !!w.dashboard, '');
+  addRow('web','cockpit admin', !!w.cockpit, '');
+}
+loadHealth();
+</script>
+<script src='/js/lazyload.js'></script></body>
+</html>
+

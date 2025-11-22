@@ -1,0 +1,37 @@
+[
+  {
+    "id": "subscription",
+    "keywords": ["subscription","suscripción","plan","premium","access","neuralgpt"],
+    "answer": "NeuralGPT.Store ofrece una suscripción anual diseñada para creadores, empresas y profesionales. Un único acceso a todo el ecosistema de IA, sin inventarios físicos, centrado en productividad y toma de decisiones."
+  },
+  {
+    "id": "vendors",
+    "keywords": ["vendor","proveedor","seller","sellers","partners"],
+    "answer": "Los proveedores pasan por el Vendor Verification Engine y el Vendor Trust Score. Solo se aceptan empresas verificadas, con certificaciones y políticas claras. El ecosistema está diseñado para evitar estafadores y mantener alta reputación."
+  },
+  {
+    "id": "enterprise",
+    "keywords": ["enterprise","empresa","corporate","corporativo","b2b"],
+    "answer": "Enterprise Suite Access permite a empresas grandes tener integraciones dedicadas, IA privada y soporte profesional. Las solicitudes se procesan a través del módulo Enterprise y se priorizan según tamaño, sector y potencial de colaboración."
+  },
+  {
+    "id": "security",
+    "keywords": ["security","seguridad","vpn","proxy","ataque","hacker"],
+    "answer": "NeuralGPT.Store integra Security Sentinel con varios niveles: bloqueo de tráfico sospechoso, detección de bots, honeypots y registro de incidentes. El objetivo es proteger la plataforma sin penalizar a usuarios reales."
+  },
+  {
+    "id": "payments",
+    "keywords": ["payments","pagos","stripe","paypal","google pay","suscripción pago"],
+    "answer": "La infraestructura de pagos se basa en Stripe, PayPal y Google Pay en modo TEST hasta que se activen los cobros reales. El objetivo es ofrecer opciones globales sin generar gastos innecesarios antes de tiempo."
+  },
+  {
+    "id": "neurocommerce",
+    "keywords": ["neurocommerce","modelo","negocio","ecosistema"],
+    "answer": "NeuroCommerce es el modelo de negocio que combina IA, automatización y conectividad global de proveedores sin inventario propio. La plataforma actúa como cerebro estratégico, no como almacén de productos."
+  },
+  {
+    "id": "default",
+    "keywords": [],
+    "answer": "Este asistente interno conoce la arquitectura, la seguridad y el modelo de negocio de NeuralGPT.Store. Puedes preguntarle por suscripción, proveedores, seguridad, enterprise o pagos y te orientará dentro del ecosistema."
+  }
+]

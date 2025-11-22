@@ -1,0 +1,19 @@
+﻿NEURALGPT.STORE  ROADMAP GLOBAL (Plantilla)
+=====================================
+Fases de Expansión:
+1. Lanzamiento Local (ES)
+2. Europa (UE)
+3. LATAM
+4. USA/Canadá
+5. Asia-Pacífico
+6. África
+7. Presencia Global Consolidada
+
+Pilares Estratégicos:
+- Infraestructura CDN
+- Cumplimiento Legal Internacional
+- Precios regionalizados
+- Traducibilidad i18n
+- Automatización Irene Global
+- Canales de pago regionales
+- Logística digital

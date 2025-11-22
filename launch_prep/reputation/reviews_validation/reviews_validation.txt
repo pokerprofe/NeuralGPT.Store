@@ -1,0 +1,11 @@
+﻿NEURALGPT.STORE  VALIDACIÓN DE REVIEWS
+=========================================
+Propósito:
+Evitar manipulación, bots, falsos testimonios o duplicados.
+
+Checks:
+- Fuente del review
+- Huella IP
+- Marca temporal
+- Autenticación cruzada
+- Registro anti-bot

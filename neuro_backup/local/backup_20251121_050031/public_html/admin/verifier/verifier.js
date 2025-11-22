@@ -1,0 +1,26 @@
+async function loadVendors(){
+  const res = await fetch('/i18n/i18n.js'); // keep dependency ready
+  try{
+    const data = await fetch('/server/verifier/vendors_score.json');
+    const list = await data.json();
+    const tbody = document.querySelector('tbody');
+
+    tbody.innerHTML = '';
+    list.forEach(v=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = \
+        <td>\</td>
+        <td>\</td>
+        <td>\</td>
+        <td>\</td>
+        <td>\</td>
+        <td>\</td>
+      \;
+      tbody.appendChild(tr);
+    });
+  }catch(e){
+    console.log('Error cargando verificador');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadVendors);

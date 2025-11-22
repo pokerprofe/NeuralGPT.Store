@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Enterprise Suite Access</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+input,textarea,select{width:100%;padding:10px;margin:8px 0;background:#111;border:1px solid #333;color:#d4af37;}
+button{width:100%;padding:12px;background:#d4af37;color:#000;border:none;cursor:pointer;}
+h1{color:#d4af37;}
+</style>
+</head>
+<body>
+<h1>Enterprise Suite Access</h1>
+<p>Request dedicated integrations, private AI, automation pipelines and enterprise-level tools.</p>
+
+<input id='company' placeholder='Company Name'>
+<input id='sector' placeholder='Sector (Tech, Finance, Retail...)'>
+<input id='size' placeholder='Company Size (ex: 50 employees, 500 employees)'>
+<input id='country' placeholder='Country'>
+<textarea id='usecase' rows='4' placeholder='Describe your primary use-case'></textarea>
+<textarea id='automation' rows='4' placeholder='Automation needs (workflows, dashboards, AI tools)'></textarea>
+
+<button onclick='sendReq()'>Submit Request</button>
+
+<script>
+async function sendReq(){
+  const body = {
+    company: document.getElementById('company').value,
+    sector: document.getElementById('sector').value,
+    size: document.getElementById('size').value,
+    country: document.getElementById('country').value,
+    usecase: document.getElementById('usecase').value,
+    automation: document.getElementById('automation').value
+  };
+  const res = await fetch('/api/enterprise/request',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(body)
+  });
+  const out = await res.json();
+  alert(JSON.stringify(out.entry));
+}
+</script>
+<script src='/js/lazyload.js'></script></body>
+</html>
+

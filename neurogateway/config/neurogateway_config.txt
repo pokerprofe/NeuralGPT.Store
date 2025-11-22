@@ -1,0 +1,18 @@
+﻿NEUROGATE CONFIG  NEURALGPT.STORE
+======================================
+Protección interna activada.
+
+Monitoreo:
+- Escrituras inusuales en engines
+- Modificaciones rápidas y repetidas
+- Archivos inesperados (.exe, .dll, .msi)
+- Cambios fuera de horario
+- Movimientos sospechosos dentro del proyecto
+
+Acción:
+- Registrar evento
+- Clasificarlo
+- Exportarlo a Drive
+
+Nivel del usuario:
+Chief Quantum Systems Architect

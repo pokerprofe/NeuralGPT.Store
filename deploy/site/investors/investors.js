@@ -1,0 +1,22 @@
+async function sendProposal(){
+  const email = document.getElementById('email').value.trim();
+  const msg   = document.getElementById('msg').value.trim();
+  const out   = document.getElementById('out');
+
+  if(!email || !msg){
+    out.textContent = 'Please fill all fields.';
+    return;
+  }
+
+  try{
+    const res = await fetch('/api/investor/proposal',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ email, message: msg })
+    });
+    const data = await res.json();
+    out.textContent = JSON.stringify(data,null,2);
+  }catch(e){
+    out.textContent = 'Error submitting your proposal.';
+  }
+}

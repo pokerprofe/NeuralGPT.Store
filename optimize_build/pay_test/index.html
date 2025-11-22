@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>Payment Sandbox</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+button{background:#d4af37;color:#000;padding:10px 20px;border:none;font-weight:bold;border-radius:8px;margin-bottom:10px;cursor:pointer;}
+pre{background:#050505;border:1px solid #222;border-radius:10px;padding:15px;margin-top:20px;color:#d4af37;}
+</style>
+</head>
+<body>
+
+<h1>Payment Sandbox</h1>
+<p>Google Pay, PayPal and Stripe â€“ TEST MODE ONLY.<br>No real charges.</p>
+
+<button onclick='gpay()'>Test Google Pay</button><br>
+<button onclick='paypal()'>Test PayPal</button><br>
+<button onclick='stripe()'>Test Stripe</button>
+
+<pre id='out'></pre>
+
+<script>
+async function gpay(){
+  const res = await fetch('/api/pay/google/test',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({amount:50,currency:'EUR'})
+  });
+  document.getElementById('out').textContent = JSON.stringify(await res.json(),null,2);
+}
+
+async function paypal(){
+  const res = await fetch('/api/pay/paypal/test',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({amount:50,currency:'EUR'})
+  });
+  document.getElementById('out').textContent = JSON.stringify(await res.json(),null,2);
+}
+
+async function stripe(){
+  const res = await fetch('/api/pay/stripe/test',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({amount:50,currency:'EUR'})
+  });
+  document.getElementById('out').textContent = JSON.stringify(await res.json(),null,2);
+}
+</script>
+
+<script src='/js/lazyload.js'></script></body>
+</html>
+

@@ -1,0 +1,6 @@
+﻿REPORTE DE OPTIMIZACIÓN
+----------------------------------------------
+Original:   199.71 KB
+Optimizado: 200.54 KB
+Reducción:  -0.83 KB
+Eficiencia: -0.41 %

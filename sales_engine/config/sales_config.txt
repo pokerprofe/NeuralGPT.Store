@@ -1,0 +1,13 @@
+﻿SALES ENGINE CONFIG
+========================
+drive_root=H:\Mi unidad\NEURALGPT
+leads_dir=.\leads_engine\incoming
+processed_dir=.\sales_engine\processed
+log_file=.\sales_engine\logs\sales_engine.log
+
+# Lead scoring (0100)
+# peso_email_corporativo=25
+# peso_producto_premium=25
+# peso_mensaje_largo=15
+# peso_fuente_b2b=20
+# peso_recurrente=15

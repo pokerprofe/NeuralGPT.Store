@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>User Dashboard</title>
+<style>
+body{background:#000;color:#d4af37;font-family:Arial;padding:20px;}
+.box{border:1px solid #d4af37;padding:20px;margin-bottom:20px;}
+h1,h2{color:#d4af37;}
+label{display:block;margin-top:10px;}
+</style>
+</head>
+<body>
+
+<h1>Your NeuralGPT Account</h1>
+<p>Welcome to your private dashboard.</p>
+
+<div class='box'>
+  <h2>Account Details</h2>
+  <p><b>Email:</b> <span id='email'></span></p>
+  <p><b>Role:</b> <span id='role'></span></p>
+</div>
+
+<div class='box'>
+  <h2>Subscription</h2>
+  <p><b>Plan:</b> <span id='plan'></span></p>
+  <p><b>Created:</b> <span id='created'></span></p>
+  <p><b>Expires:</b> <span id='expires'></span></p>
+  <p style='margin-top:20px;'>
+    <button onclick='renew()' style='padding:10px;background:#111;border:1px solid #d4af37;color:#d4af37;'>Renew Subscription</button>
+  </p>
+</div>
+
+<div class='box'>
+  <h2>Irene Assistant</h2>
+  <p>Open smart support:</p>
+  <button onclick='openIrene()' style='padding:10px;background:#111;border:1px solid #d4af37;color:#d4af37;'>Open Chat</button>
+</div>
+
+<script>
+let session = localStorage.getItem('session_token');
+
+if(!session){
+  alert('No session. Please login.');
+  window.location = '/public_html/login.html';
+}
+
+async function loadData(){
+  const res = await fetch('/api/auth/check', { headers:{'x-session':session} });
+  const chk = await res.json();
+  if(!chk.ok){ alert('Session invalid.'); window.location='/public_html/login.html'; return; }
+
+  document.getElementById('email').innerText = chk.session.email;
+  document.getElementById('role').innerText = chk.session.role;
+
+  const sub = await fetch('/api/subscriptions/list');
+  const data = await sub.json();
+
+  const item = data.items.find(x=>x.email === chk.session.email);
+  if(item){
+    document.getElementById('plan').innerText = item.plan;
+    document.getElementById('created').innerText = item.created;
+    document.getElementById('expires').innerText = item.expires;
+  } else {
+    document.getElementById('plan').innerText = 'No active plan';
+    document.getElementById('created').innerText = '-';
+    document.getElementById('expires').innerText = '-';
+  }
+}
+
+function renew(){
+  alert('Renew system coming soon.');
+}
+
+function openIrene(){
+  alert('Irene AI Assistant coming soon.');
+}
+
+loadData();
+</script>
+
+<script src='/js/lazyload.js'></script></body>
+</html>
+

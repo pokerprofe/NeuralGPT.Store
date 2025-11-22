@@ -1,0 +1,95 @@
+class CartEngine {
+    static KEY = 'neural_cart';
+
+    static load() {
+        try {
+            const data = localStorage.getItem(CartEngine.KEY);
+            return data ? JSON.parse(data) : [];
+        } catch {
+            return [];
+        }
+    }
+
+    static save(cart) {
+        localStorage.setItem(CartEngine.KEY, JSON.stringify(cart));
+    }
+
+    static add(product) {
+        let cart = CartEngine.load();
+
+        const exists = cart.find(p => p.id == product.id);
+        if (exists) {
+            exists.qty++;
+        } else {
+            cart.push({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                qty: 1
+            });
+        }
+
+        CartEngine.save(cart);
+    }
+
+    static remove(id) {
+        let cart = CartEngine.load();
+        cart = cart.filter(p => p.id != id);
+        CartEngine.save(cart);
+    }
+
+    static total() {
+        return CartEngine.load().reduce((acc, p) => acc + (p.price * p.qty), 0);
+    }
+}
+
+// =========================
+// Render del carrito
+// =========================
+function renderCart() {
+    const container = document.getElementById("cart-items");
+    const totalBox  = document.getElementById("cart-total");
+
+    const cart = CartEngine.load();
+    container.innerHTML = "";
+
+    if (cart.length === 0) {
+        container.innerHTML = "<p style='color:#777;'>Tu carrito está vacío.</p>";
+        totalBox.textContent = "Total: 0 €";
+        return;
+    }
+
+    cart.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "cart-item";
+
+        div.innerHTML = 
+            <div>
+                <strong style="color:#d4af37;"></strong><br>
+                Cantidad: <br>
+                Precio unidad:  €
+            </div>
+
+            <div style="text-align:right;">
+                <strong> €</strong><br><br>
+                <span class="btn-remove" onclick="removeItem('')">Eliminar</span>
+            </div>
+        ;
+
+        container.appendChild(div);
+    });
+
+    totalBox.textContent = "Total: " + CartEngine.total() + " €";
+}
+
+function removeItem(id) {
+    CartEngine.remove(id);
+    renderCart();
+}
+
+// =========================
+// Inicialización segura
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+    renderCart();
+});
